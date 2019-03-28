@@ -1,0 +1,7 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]D:\Programare\Digilent\Risc-V_onSteroids\Risc-V_onSteroids.sdk\first_stage_bootloader\Release\first_stage_bootloader.elf
+	D:\Programare\Digilent\Risc-V_onSteroids\Risc-V_onSteroids.sdk\design_1_wrapper_hw_platform_0\design_1_wrapper.bit
+	D:\Programare\Digilent\Risc-V_onSteroids\Risc-V_onSteroids.sdk\riscV_loder\Release\riscV_loder.elf
+}

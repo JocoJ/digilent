@@ -1,0 +1,8 @@
+12:01:10 **** Auto Build of configuration Release for project first_stage_bootloader ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+
+12:01:10 Build Finished (took 331ms)
+
