@@ -1,0 +1,17 @@
+D:\Altele\Digilent\Digilent_VS\riscV_loader\bin\Release\riscV_loader.exe.config
+D:\Altele\Digilent\Digilent_VS\riscV_loader\bin\Release\riscV_loader.exe
+D:\Altele\Digilent\Digilent_VS\riscV_loader\bin\Release\riscV_loader.pdb
+D:\Altele\Digilent\Digilent_VS\riscV_loader\obj\Release\WindowMain.g.cs
+D:\Altele\Digilent\Digilent_VS\riscV_loader\obj\Release\App.g.cs
+D:\Altele\Digilent\Digilent_VS\riscV_loader\obj\Release\riscV_loader_MarkupCompile.cache
+D:\Altele\Digilent\Digilent_VS\riscV_loader\obj\Release\riscV_loader_MarkupCompile.lref
+D:\Altele\Digilent\Digilent_VS\riscV_loader\obj\Release\WindowMain.baml
+D:\Altele\Digilent\Digilent_VS\riscV_loader\obj\Release\riscV_loader.g.resources
+D:\Altele\Digilent\Digilent_VS\riscV_loader\obj\Release\riscV_loader.Properties.Resources.resources
+D:\Altele\Digilent\Digilent_VS\riscV_loader\obj\Release\riscV_loader.csproj.GenerateResource.cache
+D:\Altele\Digilent\Digilent_VS\riscV_loader\obj\Release\riscV_loader.csproj.CoreCompileInputs.cache
+D:\Altele\Digilent\Digilent_VS\riscV_loader\obj\Release\riscV_loader.exe
+D:\Altele\Digilent\Digilent_VS\riscV_loader\obj\Release\riscV_loader.pdb
+D:\Altele\Digilent\Digilent_VS\riscV_loader\obj\Release\riscV_loader.csprojAssemblyReference.cache
+D:\Altele\Digilent\Digilent_VS\riscV_loader\obj\Release\WindowConnect.g.cs
+D:\Altele\Digilent\Digilent_VS\riscV_loader\obj\Release\WindowConnect.baml
