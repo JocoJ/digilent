@@ -62,6 +62,7 @@
     </Compile>
     <Compile Include="AppCommands.cs" />
     <Compile Include="DebugProtocol.cs" />
+    <Compile Include="InstructionDecoder.cs" />
     <Compile Include="WindowConnect.xaml.cs">
       <DependentUpon>WindowConnect.xaml</DependentUpon>
     </Compile>

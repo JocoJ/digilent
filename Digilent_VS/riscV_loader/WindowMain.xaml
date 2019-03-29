@@ -144,9 +144,9 @@
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*" />
                 <ColumnDefinition Width="5*" />
-                <ColumnDefinition Width="6*" />
+                <ColumnDefinition Width="15*" />
+                <ColumnDefinition Width="21*" />
             </Grid.ColumnDefinitions>
 
             <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Margin="4, 4, 0, 4" BorderThickness="2" BorderBrush="#FF293956">
@@ -165,7 +165,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R0 (zero)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X0 (zero)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR0" Grid.Row="0" Grid.Column="1" Text="0x00000000" TextAlignment="Center" FontSize="13" FontFamily="Consolas" IsReadOnly="True" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -179,7 +179,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R1 (ra)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X1 (ra)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR1" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -193,7 +193,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R2 (sp)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X2 (sp)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR2" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -207,7 +207,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R3 (gp)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X3 (gp)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR3" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -221,7 +221,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R4 (tp)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X4 (tp)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR4" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -235,7 +235,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R5 (t0)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X5 (t0)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR5" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -249,7 +249,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R6 (t1)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X6 (t1)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR6" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -263,7 +263,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R7 (t2)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X7 (t2)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR7" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -277,7 +277,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R8 (s0 / fp)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X8 (s0 / fp)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR8" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -291,7 +291,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R9 (s1)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X9 (s1)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR9" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -305,7 +305,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R10 (a0)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X10 (a0)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR10" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -319,7 +319,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R11 (a1)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X11 (a1)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR11" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -333,7 +333,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R12 (a2)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X12 (a2)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR12" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -347,7 +347,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R13 (a3)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X13 (a3)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR13" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -361,7 +361,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R14 (a4)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X14 (a4)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR14" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -375,7 +375,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R15 (a5)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X15 (a5)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR15" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -389,7 +389,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R16 (a6)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X16 (a6)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR16" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -403,7 +403,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R17 (a7)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X17 (a7)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR17" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -417,7 +417,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R18 (s2)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X18 (s2)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR18" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -431,7 +431,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R19 (s3)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X19 (s3)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR19" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -445,7 +445,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R20 (s4)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X20 (s4)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR20" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -459,7 +459,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R21 (s5)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X21 (s5)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR21" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -473,7 +473,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R22 (s6)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X22 (s6)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR22" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -487,7 +487,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R23 (s7)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X23 (s7)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR23" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -501,7 +501,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R24 (s8)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X24 (s8)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR24" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -515,7 +515,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R25 (s9)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X25 (s9)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR25" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -529,7 +529,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R26 (s10)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X26 (s10)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR26" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -543,7 +543,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R27 (s11)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X27 (s11)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR27" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -557,7 +557,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R28 (t3)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X28 (t3)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR28" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -571,7 +571,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R29 (t4)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X29 (t4)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR29" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -585,7 +585,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R30 (t5)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X30 (t5)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR30" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
 
@@ -599,7 +599,7 @@
                                     <ColumnDefinition Width="4*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="R31 (t6)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
+                                <TextBox Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="14" Text="X31 (t6)" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" />
                                 <TextBox Name="textBoxRegisterR31" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="13" FontFamily="Consolas" VerticalContentAlignment="Center" />
                             </Grid>
                         </StackPanel>
@@ -628,7 +628,7 @@
 
                     <DataGrid Name="DataGridMemoryView" ItemsSource="{Binding}" FontFamily="Consolas" Margin="3" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="HI \ LO" Width="80" IsReadOnly="True" />
+                            <DataGridTextColumn Header="HI \ LO" Width="65" IsReadOnly="True" />
 
                             <DataGridTextColumn Header="+0" Width="1*" />
                             <DataGridTextColumn Header="+1" Width="1*" />

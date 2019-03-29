@@ -237,7 +237,7 @@ namespace riscV_loader
 
                 programViewCollection[i].opCode = s;
                 programViewCollection[i].cursor = "";
-                //((ProgramViewItem)dataGridProgramView.Items[i]).opCode = s;
+                programViewCollection[i].instruction = InstructionDecoder.DecodeInstruction(instr);
             }
 
             dataGridProgramView.Items.Refresh();
@@ -381,7 +381,7 @@ namespace riscV_loader
         {
             for (int i = 0; i < 1024; ++i)
             {
-                programViewCollection.Add(new ProgramViewItem() { cursor = "", programCounter = (i * 4).ToString(), opCode = "0x00000000", instruction = "" });
+                programViewCollection.Add(new ProgramViewItem() { cursor = "", programCounter = (i * 4).ToString(), opCode = "0x00000000", instruction = "NOP" });
             }
 
             for (int i = 0; i < 256; ++i)
