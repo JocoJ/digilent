@@ -4447,3 +4447,2259 @@ java.lang.NullPointerException
 
 !ENTRY com.xilinx.sdk.utils 0 0 2019-03-27 12:07:18.951
 !MESSAGE XSCT command with result: [disconnect tcfchan#2], Result: [null, ]. Thread: Thread-199
+!SESSION 2019-04-01 16:46:50.094 -----------------------------------------------
+eclipse.buildId=2018.2
+java.version=1.8.0_112
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ro_MD
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk
+
+!ENTRY org.eclipse.ui 2 0 2019-04-01 16:47:12.619
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-04-01 16:47:12.619
+!MESSAGE Commands should really have a category: plug-in='com.xilinx.sdk.appwiz', id='com.xilinx.sdk.app.commands.ChangeAtfBuiltReferences', categoryId='com.xilinx.sdk.app.commands.category'
+
+!ENTRY org.eclipse.ui 2 0 2019-04-01 16:47:13.197
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-04-01 16:47:13.197
+!MESSAGE Commands should really have a category: plug-in='com.xilinx.sdk.appwiz', id='com.xilinx.sdk.app.commands.ChangeAtfBuiltReferences', categoryId='com.xilinx.sdk.app.commands.category'
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:18.166
+!MESSAGE XSCT Command: [::hsi::utils::init_repo], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:18.170
+!MESSAGE XSCT Command: [set sdk::sdk_chan tcfchan#0], Thread: Thread-12
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:18.363
+!MESSAGE XSCT command with result: [::hsi::utils::init_repo], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:18.367
+!MESSAGE XSCT command with result: [set sdk::sdk_chan tcfchan#0], Result: [null, tcfchan#0]. Thread: Thread-12
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:18.374
+!MESSAGE XSCT Command: [setws D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk], Thread: Thread-12
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:18.380
+!MESSAGE XSCT command with result: [setws D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk], Result: [null, ]. Thread: Thread-12
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:18.676
+!MESSAGE XSCT Command: [::hsi::utils::openhw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:21.794
+!MESSAGE XSCT command with result: [::hsi::utils::openhw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:21.828
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/riscV_loder_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:21.836
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/riscV_loder_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:21.840
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/riscV_loder_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:21.847
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/riscV_loder_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "6.7",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:21.853
+!MESSAGE XSCT Command: [hsi::utils::get_supported_os -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:21.862
+!MESSAGE XSCT command with result: [hsi::utils::get_supported_os -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"ps7_cortexa9_0": {"freertos10_xilinx_v1_1": {"name": "freertos10_xilinx",
+"version": "1.1",
+"desc": "FreeRTOS is a market leading open source RTOS",
+"compilerflags": "",
+"linkerflags": "-Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/ThirdParty/bsp/freertos10_xilinx_v1_1",
+},
+"standalone_v6_7": {"name": "standalone",
+"version": "6.7",
+"desc": "Standalone is a simple, low-level software layer. It provides access to basic processor features such as caches, interrupts and exceptions as well as the basic features of a hosted environment, such as standard input and output, profiling, abort and exit.",
+"compilerflags": "",
+"linkerflags": "-Wl,--start-group,-lxil,-lgcc,-lc,--end-group",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/lib/bsp/standalone_v6_7",
+},
+},
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:21.876
+!MESSAGE XSCT Command: [::hsi::utils::get_connected_periphs D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:21.882
+!MESSAGE XSCT command with result: [::hsi::utils::get_connected_periphs D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, myip_0 ps7_afi_0 ps7_afi_1 ps7_afi_2 ps7_afi_3 ps7_coresight_comp_0 ps7_ddr_0 ps7_ddrc_0 ps7_dev_cfg_0 ps7_dma_ns ps7_dma_s ps7_ethernet_0 ps7_globaltimer_0 ps7_gpio_0 ps7_gpv_0 ps7_intc_dist_0 ps7_iop_bus_config_0 ps7_l2cachec_0 ps7_ocmc_0 ps7_pl310_0 ps7_pmu_0 ps7_ram_0 ps7_ram_1 ps7_scuc_0 ps7_scugic_0 ps7_scutimer_0 ps7_scuwdt_0 ps7_sd_0 ps7_slcr_0 ps7_uart_0 ps7_usb_0 ps7_xadc_0]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:21.887
+!MESSAGE XSCT Command: [::hsi::utils::get_drivers_for_sw -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/riscV_loder_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:21.899
+!MESSAGE XSCT command with result: [::hsi::utils::get_drivers_for_sw -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/riscV_loder_bsp/system.mss], Result: [null, {"myip_0": {"name": "myip",
+"ver": "1.0",
+},
+"ps7_afi_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_afi_1": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_afi_2": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_afi_3": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_coresight_comp_0": {"name": "coresightps_dcc",
+"ver": "1.4",
+},
+"ps7_ddr_0": {"name": "ddrps",
+"ver": "1.0",
+},
+"ps7_ddrc_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_dev_cfg_0": {"name": "devcfg",
+"ver": "3.5",
+},
+"ps7_dma_ns": {"name": "dmaps",
+"ver": "2.3",
+},
+"ps7_dma_s": {"name": "dmaps",
+"ver": "2.3",
+},
+"ps7_ethernet_0": {"name": "emacps",
+"ver": "3.7",
+},
+"ps7_globaltimer_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_gpio_0": {"name": "gpiops",
+"ver": "3.3",
+},
+"ps7_gpv_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_intc_dist_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_iop_bus_config_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_l2cachec_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_ocmc_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_pl310_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_pmu_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_ram_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_ram_1": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_scuc_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_scugic_0": {"name": "scugic",
+"ver": "3.9",
+},
+"ps7_scutimer_0": {"name": "scutimer",
+"ver": "2.1",
+},
+"ps7_scuwdt_0": {"name": "scuwdt",
+"ver": "2.1",
+},
+"ps7_sd_0": {"name": "sdps",
+"ver": "3.5",
+},
+"ps7_slcr_0": {"name": "generic",
+"ver": "2.0",
+},
+"ps7_uart_0": {"name": "uartps",
+"ver": "3.6",
+},
+"ps7_usb_0": {"name": "usbps",
+"ver": "2.4",
+},
+"ps7_xadc_0": {"name": "xadcps",
+"ver": "2.2",
+},
+"ps7_cortexa9_0": {"name": "cpu_cortexa9",
+"ver": "2.6",
+},
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:21.905
+!MESSAGE XSCT Command: [hsi::utils::get_drivers_for_hw -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:21.984
+!MESSAGE XSCT command with result: [hsi::utils::get_drivers_for_hw -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"clk_wiz_0": {"version": "6.0",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"clk_wiz_v1_2": {"name": "clk_wiz",
+"version": "1.2",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/clk_wiz_v1_2",
+"compilerflags": "",
+"linkerflags": "",
+},
+},
+},
+"myip_0": {"version": "1.0",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"myip_v1_0": {"name": "myip",
+"version": "1.0",
+"repo": "D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/drivers/myip_v1_0",
+"compilerflags": "",
+"linkerflags": "",
+},
+},
+},
+"proc_sys_reset_0": {"version": "5.0",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"processing_system7_0": {"version": "5.5",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"smartconnect_0": {"version": "1.0",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_clockc_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_uart_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"uartps_v3_6": {"name": "uartps",
+"version": "3.6",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/uartps_v3_6",
+"compilerflags": "",
+"linkerflags": "",
+},
+},
+},
+"ps7_pl310_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_pmu_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_axi_interconnect_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_cortexa9_0": {"version": "5.2",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"cpu_cortexa9_v2_6": {"name": "cpu_cortexa9",
+"version": "2.6",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/cpu_cortexa9_v2_6",
+"compilerflags": "",
+"linkerflags": "",
+},
+},
+},
+"ps7_ddr_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"ddrps_v1_0": {"name": "ddrps",
+"version": "1.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/ddrps_v1_0",
+"compilerflags": "",
+"linkerflags": "",
+},
+},
+},
+"ps7_ethernet_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"emacps_v3_7": {"name": "emacps",
+"version": "3.7",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/emacps_v3_7",
+"compilerflags": "",
+"linkerflags": "",
+},
+},
+},
+"ps7_usb_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"usbps_v2_4": {"name": "usbps",
+"version": "2.4",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/usbps_v2_4",
+"compilerflags": "",
+"linkerflags": "",
+},
+},
+},
+"ps7_sd_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"sdps_v3_5": {"name": "sdps",
+"version": "3.5",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/sdps_v3_5",
+"compilerflags": "",
+"linkerflags": "",
+},
+},
+},
+"ps7_gpio_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"gpiops_v3_3": {"name": "gpiops",
+"version": "3.3",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/gpiops_v3_3",
+"compilerflags": "",
+"linkerflags": "",
+},
+},
+},
+"ps7_ddrc_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_dev_cfg_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"devcfg_v3_5": {"name": "devcfg",
+"version": "3.5",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/devcfg_v3_5",
+"compilerflags": "",
+"linkerflags": "",
+},
+},
+},
+"ps7_xadc_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"xadcps_v2_2": {"name": "xadcps",
+"version": "2.2",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/xadcps_v2_2",
+"compilerflags": "",
+"linkerflags": "",
+},
+},
+},
+"ps7_ocmc_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_coresight_comp_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"coresightps_dcc_v1_4": {"name": "coresightps_dcc",
+"version": "1.4",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/coresightps_dcc_v1_4",
+"compilerflags": "",
+"linkerflags": "",
+},
+},
+},
+"ps7_gpv_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_scuc_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_globaltimer_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_intc_dist_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_l2cachec_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_dma_s": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"dmaps_v2_3": {"name": "dmaps",
+"version": "2.3",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/dmaps_v2_3",
+"compilerflags": "",
+"linkerflags": "",
+},
+},
+},
+"ps7_iop_bus_config_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_ram_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_ram_1": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_scugic_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"scugic_v3_9": {"name": "scugic",
+"version": "3.9",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/scugic_v3_9",
+"compilerflags": "",
+"linkerflags": "",
+},
+},
+},
+"ps7_scutimer_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"scutimer_v2_1": {"name": "scutimer",
+"version": "2.1",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/scutimer_v2_1",
+"compilerflags": "",
+"linkerflags": "",
+},
+},
+},
+"ps7_scuwdt_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"scuwdt_v2_1": {"name": "scuwdt",
+"version": "2.1",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/scuwdt_v2_1",
+"compilerflags": "",
+"linkerflags": "",
+},
+},
+},
+"ps7_slcr_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_dma_ns": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+"dmaps_v2_3": {"name": "dmaps",
+"version": "2.3",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/dmaps_v2_3",
+"compilerflags": "",
+"linkerflags": "",
+},
+},
+},
+"ps7_afi_0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_afi_1": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_afi_2": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_afi_3": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+"ps7_m_axi_gp0": {"version": "1.00.a",
+"driver_info": {"generic": {"name": "generic",
+"version": "2.0",
+"repo": "C:/Xilinx/SDK/2018.2/data/embeddedsw/XilinxProcessorIPLib/drivers/generic_v2_0",
+},
+},
+},
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:22.131
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/riscV_loder_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:22.136
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/riscV_loder_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:22.141
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/riscV_loder_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:22.147
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/riscV_loder_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "6.7",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:22.155
+!MESSAGE XSCT Command: [::hsi::utils::get_libs_from_sw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/riscV_loder_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:22.160
+!MESSAGE XSCT command with result: [::hsi::utils::get_libs_from_sw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/riscV_loder_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:22.166
+!MESSAGE XSCT Command: [::hsi::utils::closesw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/riscV_loder_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:22.172
+!MESSAGE XSCT command with result: [::hsi::utils::closesw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/riscV_loder_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:23.948
+!MESSAGE XSCT Command: [::hsi::utils::openhw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_1/system.hdf], Thread: Worker-6
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:26.462
+!MESSAGE XSCT command with result: [::hsi::utils::openhw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_1/system.hdf], Result: [null, ]. Thread: Worker-6
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:26.488
+!MESSAGE XSCT Command: [::hsi::utils::get_design_properties -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_1/system.hdf], Thread: Worker-6
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:26.494
+!MESSAGE XSCT command with result: [::hsi::utils::get_design_properties -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_1/system.hdf], Result: [null, {"device": "7z007s",
+"family": "zynq",
+"timestamp": "Wed Mar 27 11:14:51 2019",
+"vivado_version": "2018.2",
+"part": "xc7z007sclg400-1",
+}]. Thread: Worker-6
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:26.499
+!MESSAGE XSCT Command: [::hsi::utils::get_all_periphs -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_1/system.hdf], Thread: Worker-6
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:26.522
+!MESSAGE XSCT command with result: [::hsi::utils::get_all_periphs -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_1/system.hdf], Result: [null, {"clk_wiz_0": {"hier_name": "clk_wiz_0",
+"type": "clk_wiz",
+"version": "6.0",
+"ip_type": "PERIPHERAL",
+},
+"myip_0": {"hier_name": "myip_0",
+"type": "myip",
+"version": "1.0",
+"ip_type": "PERIPHERAL",
+},
+"proc_sys_reset_0": {"hier_name": "proc_sys_reset_0",
+"type": "proc_sys_reset",
+"version": "5.0",
+"ip_type": "PERIPHERAL",
+},
+"processing_system7_0": {"hier_name": "processing_system7_0",
+"type": "processing_system7",
+"version": "5.5",
+"ip_type": "",
+},
+"smartconnect_0": {"hier_name": "smartconnect_0",
+"type": "smartconnect",
+"version": "1.0",
+"ip_type": "BUS",
+},
+"ps7_clockc_0": {"hier_name": "ps7_clockc_0",
+"type": "ps7_clockc",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_uart_0": {"hier_name": "ps7_uart_0",
+"type": "ps7_uart",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_pl310_0": {"hier_name": "ps7_pl310_0",
+"type": "ps7_pl310",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_pmu_0": {"hier_name": "ps7_pmu_0",
+"type": "ps7_pmu",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_axi_interconnect_0": {"hier_name": "ps7_axi_interconnect_0",
+"type": "ps7_axi_interconnect",
+"version": "1.00.a",
+"ip_type": "BUS",
+},
+"ps7_cortexa9_0": {"hier_name": "ps7_cortexa9_0",
+"type": "ps7_cortexa9",
+"version": "5.2",
+"ip_type": "PROCESSOR",
+},
+"ps7_ddr_0": {"hier_name": "ps7_ddr_0",
+"type": "ps7_ddr",
+"version": "1.00.a",
+"ip_type": "MEMORY_CNTLR",
+},
+"ps7_ethernet_0": {"hier_name": "ps7_ethernet_0",
+"type": "ps7_ethernet",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_usb_0": {"hier_name": "ps7_usb_0",
+"type": "ps7_usb",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_sd_0": {"hier_name": "ps7_sd_0",
+"type": "ps7_sdio",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_gpio_0": {"hier_name": "ps7_gpio_0",
+"type": "ps7_gpio",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_ddrc_0": {"hier_name": "ps7_ddrc_0",
+"type": "ps7_ddrc",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_dev_cfg_0": {"hier_name": "ps7_dev_cfg_0",
+"type": "ps7_dev_cfg",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_xadc_0": {"hier_name": "ps7_xadc_0",
+"type": "ps7_xadc",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_ocmc_0": {"hier_name": "ps7_ocmc_0",
+"type": "ps7_ocmc",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_coresight_comp_0": {"hier_name": "ps7_coresight_comp_0",
+"type": "ps7_coresight_comp",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_gpv_0": {"hier_name": "ps7_gpv_0",
+"type": "ps7_gpv",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_scuc_0": {"hier_name": "ps7_scuc_0",
+"type": "ps7_scuc",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_globaltimer_0": {"hier_name": "ps7_globaltimer_0",
+"type": "ps7_globaltimer",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_intc_dist_0": {"hier_name": "ps7_intc_dist_0",
+"type": "ps7_intc_dist",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_l2cachec_0": {"hier_name": "ps7_l2cachec_0",
+"type": "ps7_l2cachec",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_dma_s": {"hier_name": "ps7_dma_s",
+"type": "ps7_dma",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_iop_bus_config_0": {"hier_name": "ps7_iop_bus_config_0",
+"type": "ps7_iop_bus_config",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_ram_0": {"hier_name": "ps7_ram_0",
+"type": "ps7_ram",
+"version": "1.00.a",
+"ip_type": "MEMORY_CNTLR",
+},
+"ps7_ram_1": {"hier_name": "ps7_ram_1",
+"type": "ps7_ram",
+"version": "1.00.a",
+"ip_type": "MEMORY_CNTLR",
+},
+"ps7_scugic_0": {"hier_name": "ps7_scugic_0",
+"type": "ps7_scugic",
+"version": "1.00.a",
+"ip_type": "INTERRUPT_CNTLR",
+},
+"ps7_scutimer_0": {"hier_name": "ps7_scutimer_0",
+"type": "ps7_scutimer",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_scuwdt_0": {"hier_name": "ps7_scuwdt_0",
+"type": "ps7_scuwdt",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_slcr_0": {"hier_name": "ps7_slcr_0",
+"type": "ps7_slcr",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_dma_ns": {"hier_name": "ps7_dma_ns",
+"type": "ps7_dma",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_afi_0": {"hier_name": "ps7_afi_0",
+"type": "ps7_afi",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_afi_1": {"hier_name": "ps7_afi_1",
+"type": "ps7_afi",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_afi_2": {"hier_name": "ps7_afi_2",
+"type": "ps7_afi",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_afi_3": {"hier_name": "ps7_afi_3",
+"type": "ps7_afi",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_m_axi_gp0": {"hier_name": "ps7_m_axi_gp0",
+"type": "ps7_m_axi_gp",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+}]. Thread: Worker-6
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:26.609
+!MESSAGE XSCT Command: [::hsi::utils::get_addr_ranges -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_1/system.hdf ps7_cortexa9_0], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:26.638
+!MESSAGE XSCT command with result: [::hsi::utils::get_addr_ranges -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_1/system.hdf ps7_cortexa9_0], Result: [null, {"myip_0_INSTR_AXI": {"name": "myip_0",
+"base": "0x4A000000",
+"high": "0x4A000FFF",
+"size": "4096",
+"slaveintf": "INSTR_AXI",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"myip_0_DATA_AXI": {"name": "myip_0",
+"base": "0x4A001000",
+"high": "0x4A001FFF",
+"size": "4096",
+"slaveintf": "DATA_AXI",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"myip_0_REGS_AXI": {"name": "myip_0",
+"base": "0x4A002000",
+"high": "0x4A002FFF",
+"size": "4096",
+"slaveintf": "REGS_AXI",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_afi_0": {"name": "ps7_afi_0",
+"base": "0xF8008000",
+"high": "0xF8008FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_afi_1": {"name": "ps7_afi_1",
+"base": "0xF8009000",
+"high": "0xF8009FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_afi_2": {"name": "ps7_afi_2",
+"base": "0xF800A000",
+"high": "0xF800AFFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_afi_3": {"name": "ps7_afi_3",
+"base": "0xF800B000",
+"high": "0xF800BFFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_coresight_comp_0": {"name": "ps7_coresight_comp_0",
+"base": "0xF8800000",
+"high": "0xF88FFFFF",
+"size": "1048576",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_ddrc_0": {"name": "ps7_ddrc_0",
+"base": "0xF8006000",
+"high": "0xF8006FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_dev_cfg_0": {"name": "ps7_dev_cfg_0",
+"base": "0xF8007000",
+"high": "0xF80070FF",
+"size": "256",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_dma_ns": {"name": "ps7_dma_ns",
+"base": "0xF8004000",
+"high": "0xF8004FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_dma_s": {"name": "ps7_dma_s",
+"base": "0xF8003000",
+"high": "0xF8003FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_ethernet_0": {"name": "ps7_ethernet_0",
+"base": "0xE000B000",
+"high": "0xE000BFFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_globaltimer_0": {"name": "ps7_globaltimer_0",
+"base": "0xF8F00200",
+"high": "0xF8F002FF",
+"size": "256",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_gpio_0": {"name": "ps7_gpio_0",
+"base": "0xE000A000",
+"high": "0xE000AFFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_gpv_0": {"name": "ps7_gpv_0",
+"base": "0xF8900000",
+"high": "0xF89FFFFF",
+"size": "1048576",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_intc_dist_0": {"name": "ps7_intc_dist_0",
+"base": "0xF8F01000",
+"high": "0xF8F01FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_iop_bus_config_0": {"name": "ps7_iop_bus_config_0",
+"base": "0xE0200000",
+"high": "0xE0200FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_l2cachec_0": {"name": "ps7_l2cachec_0",
+"base": "0xF8F02000",
+"high": "0xF8F02FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_ocmc_0": {"name": "ps7_ocmc_0",
+"base": "0xF800C000",
+"high": "0xF800CFFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_pl310_0": {"name": "ps7_pl310_0",
+"base": "0xF8F02000",
+"high": "0xF8F02FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_pmu_0": {"name": "ps7_pmu_0",
+"base": "0xF8893000",
+"high": "0xF8893FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_scuc_0": {"name": "ps7_scuc_0",
+"base": "0xF8F00000",
+"high": "0xF8F000FC",
+"size": "253",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_scugic_0": {"name": "ps7_scugic_0",
+"base": "0xF8F00100",
+"high": "0xF8F001FF",
+"size": "256",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_scutimer_0": {"name": "ps7_scutimer_0",
+"base": "0xF8F00600",
+"high": "0xF8F0061F",
+"size": "32",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_scuwdt_0": {"name": "ps7_scuwdt_0",
+"base": "0xF8F00620",
+"high": "0xF8F006FF",
+"size": "224",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_sd_0": {"name": "ps7_sd_0",
+"base": "0xE0100000",
+"high": "0xE0100FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_slcr_0": {"name": "ps7_slcr_0",
+"base": "0xF8000000",
+"high": "0xF8000FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_uart_0": {"name": "ps7_uart_0",
+"base": "0xE0000000",
+"high": "0xE0000FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_usb_0": {"name": "ps7_usb_0",
+"base": "0xE0002000",
+"high": "0xE0002FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_xadc_0": {"name": "ps7_xadc_0",
+"base": "0xF8007100",
+"high": "0xF8007120",
+"size": "33",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_ddr_0": {"name": "ps7_ddr_0",
+"base": "0x00100000",
+"high": "0x1FFFFFFF",
+"size": "535822336",
+"slaveintf": "",
+"type": "MEMORY",
+"flags": "7",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_ram_0": {"name": "ps7_ram_0",
+"base": "0x00000000",
+"high": "0x0002FFFF",
+"size": "196608",
+"slaveintf": "",
+"type": "MEMORY",
+"flags": "7",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_ram_1": {"name": "ps7_ram_1",
+"base": "0xFFFF0000",
+"high": "0xFFFFFDFF",
+"size": "65024",
+"slaveintf": "",
+"type": "MEMORY",
+"flags": "7",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:26.697
+!MESSAGE XSCT Command: [::hsi::utils::get_all_register_data -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_1/system.hdf ps7_cortexa9_0], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:47:26.710
+!MESSAGE XSCT command with result: [::hsi::utils::get_all_register_data -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_1/system.hdf ps7_cortexa9_0], Result: [null, {"myip_0": {},
+"ps7_afi_0": {},
+"ps7_afi_1": {},
+"ps7_afi_2": {},
+"ps7_afi_3": {},
+"ps7_coresight_comp_0": {},
+"ps7_ddr_0": {},
+"ps7_ddrc_0": {},
+"ps7_dev_cfg_0": {},
+"ps7_dma_ns": {},
+"ps7_dma_s": {},
+"ps7_ethernet_0": {},
+"ps7_globaltimer_0": {},
+"ps7_gpio_0": {},
+"ps7_gpv_0": {},
+"ps7_intc_dist_0": {},
+"ps7_iop_bus_config_0": {},
+"ps7_l2cachec_0": {},
+"ps7_ocmc_0": {},
+"ps7_pl310_0": {},
+"ps7_pmu_0": {},
+"ps7_ram_0": {},
+"ps7_ram_1": {},
+"ps7_scuc_0": {},
+"ps7_scugic_0": {},
+"ps7_scutimer_0": {},
+"ps7_scuwdt_0": {},
+"ps7_sd_0": {},
+"ps7_slcr_0": {},
+"ps7_uart_0": {},
+"ps7_usb_0": {},
+"ps7_xadc_0": {},
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:20.241
+!MESSAGE XSCT Command: [::hsi::utils::get_addr_tag_info -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:20.331
+!MESSAGE XSCT command with result: [::hsi::utils::get_addr_tag_info -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Result: [null, {"ps7_cortexa9_0": "",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:20.337
+!MESSAGE XSCT Command: [::hsi::utils::get_all_periphs -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:20.353
+!MESSAGE XSCT command with result: [::hsi::utils::get_all_periphs -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"clk_wiz_0": {"hier_name": "clk_wiz_0",
+"type": "clk_wiz",
+"version": "6.0",
+"ip_type": "PERIPHERAL",
+},
+"myip_0": {"hier_name": "myip_0",
+"type": "myip",
+"version": "1.0",
+"ip_type": "PERIPHERAL",
+},
+"proc_sys_reset_0": {"hier_name": "proc_sys_reset_0",
+"type": "proc_sys_reset",
+"version": "5.0",
+"ip_type": "PERIPHERAL",
+},
+"processing_system7_0": {"hier_name": "processing_system7_0",
+"type": "processing_system7",
+"version": "5.5",
+"ip_type": "",
+},
+"smartconnect_0": {"hier_name": "smartconnect_0",
+"type": "smartconnect",
+"version": "1.0",
+"ip_type": "BUS",
+},
+"ps7_clockc_0": {"hier_name": "ps7_clockc_0",
+"type": "ps7_clockc",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_uart_0": {"hier_name": "ps7_uart_0",
+"type": "ps7_uart",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_pl310_0": {"hier_name": "ps7_pl310_0",
+"type": "ps7_pl310",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_pmu_0": {"hier_name": "ps7_pmu_0",
+"type": "ps7_pmu",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_axi_interconnect_0": {"hier_name": "ps7_axi_interconnect_0",
+"type": "ps7_axi_interconnect",
+"version": "1.00.a",
+"ip_type": "BUS",
+},
+"ps7_cortexa9_0": {"hier_name": "ps7_cortexa9_0",
+"type": "ps7_cortexa9",
+"version": "5.2",
+"ip_type": "PROCESSOR",
+},
+"ps7_ddr_0": {"hier_name": "ps7_ddr_0",
+"type": "ps7_ddr",
+"version": "1.00.a",
+"ip_type": "MEMORY_CNTLR",
+},
+"ps7_ethernet_0": {"hier_name": "ps7_ethernet_0",
+"type": "ps7_ethernet",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_usb_0": {"hier_name": "ps7_usb_0",
+"type": "ps7_usb",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_sd_0": {"hier_name": "ps7_sd_0",
+"type": "ps7_sdio",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_gpio_0": {"hier_name": "ps7_gpio_0",
+"type": "ps7_gpio",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_ddrc_0": {"hier_name": "ps7_ddrc_0",
+"type": "ps7_ddrc",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_dev_cfg_0": {"hier_name": "ps7_dev_cfg_0",
+"type": "ps7_dev_cfg",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_xadc_0": {"hier_name": "ps7_xadc_0",
+"type": "ps7_xadc",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_ocmc_0": {"hier_name": "ps7_ocmc_0",
+"type": "ps7_ocmc",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_coresight_comp_0": {"hier_name": "ps7_coresight_comp_0",
+"type": "ps7_coresight_comp",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_gpv_0": {"hier_name": "ps7_gpv_0",
+"type": "ps7_gpv",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_scuc_0": {"hier_name": "ps7_scuc_0",
+"type": "ps7_scuc",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_globaltimer_0": {"hier_name": "ps7_globaltimer_0",
+"type": "ps7_globaltimer",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_intc_dist_0": {"hier_name": "ps7_intc_dist_0",
+"type": "ps7_intc_dist",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_l2cachec_0": {"hier_name": "ps7_l2cachec_0",
+"type": "ps7_l2cachec",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_dma_s": {"hier_name": "ps7_dma_s",
+"type": "ps7_dma",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_iop_bus_config_0": {"hier_name": "ps7_iop_bus_config_0",
+"type": "ps7_iop_bus_config",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_ram_0": {"hier_name": "ps7_ram_0",
+"type": "ps7_ram",
+"version": "1.00.a",
+"ip_type": "MEMORY_CNTLR",
+},
+"ps7_ram_1": {"hier_name": "ps7_ram_1",
+"type": "ps7_ram",
+"version": "1.00.a",
+"ip_type": "MEMORY_CNTLR",
+},
+"ps7_scugic_0": {"hier_name": "ps7_scugic_0",
+"type": "ps7_scugic",
+"version": "1.00.a",
+"ip_type": "INTERRUPT_CNTLR",
+},
+"ps7_scutimer_0": {"hier_name": "ps7_scutimer_0",
+"type": "ps7_scutimer",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_scuwdt_0": {"hier_name": "ps7_scuwdt_0",
+"type": "ps7_scuwdt",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_slcr_0": {"hier_name": "ps7_slcr_0",
+"type": "ps7_slcr",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_dma_ns": {"hier_name": "ps7_dma_ns",
+"type": "ps7_dma",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_afi_0": {"hier_name": "ps7_afi_0",
+"type": "ps7_afi",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_afi_1": {"hier_name": "ps7_afi_1",
+"type": "ps7_afi",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_afi_2": {"hier_name": "ps7_afi_2",
+"type": "ps7_afi",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_afi_3": {"hier_name": "ps7_afi_3",
+"type": "ps7_afi",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+"ps7_m_axi_gp0": {"hier_name": "ps7_m_axi_gp0",
+"type": "ps7_m_axi_gp",
+"version": "1.00.a",
+"ip_type": "PERIPHERAL",
+},
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:20.359
+!MESSAGE XSCT Command: [::hsi::utils::get_design_properties -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:20.366
+!MESSAGE XSCT command with result: [::hsi::utils::get_design_properties -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"device": "7z007s",
+"family": "zynq",
+"timestamp": "Wed Mar 27 11:14:51 2019",
+"vivado_version": "2018.2",
+"part": "xc7z007sclg400-1",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:21.564
+!MESSAGE XSCT Command: [::hsi::utils::get_bram_blocks D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:21.658
+!MESSAGE XSCT command with result: [::hsi::utils::get_bram_blocks D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Result: [null, ]. Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:21.669
+!MESSAGE XSCT Command: [connect -url tcp:127.0.0.1:3121], Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:23.054
+!MESSAGE XSCT command with result: [connect -url tcp:127.0.0.1:3121], Result: [null, tcfchan#1]. Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:23.147
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:24.515
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1  Digilent Cora Z7 - 7007S 210370A92DAEA]. Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:24.522
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:24.536
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1  Digilent Cora Z7 - 7007S 210370A92DAEA]. Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:24.540
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==1}], Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:24.571
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z007s (idcode 13723093 irlen 6 fpga)]. Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:24.577
+!MESSAGE XSCT Command: [targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==0} -index 1], Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:25.273
+!MESSAGE XSCT command with result: [targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==0} -index 1], Result: [null, ]. Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:25.278
+!MESSAGE XSCT Command: [fpga -file D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit], Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:26.553
+!MESSAGE XSCT command with result: [fpga -file D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit], Result: [null, ]. Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:27.360
+!MESSAGE XSCT Command: [::hsi::utils::get_bram_blocks D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:27.367
+!MESSAGE XSCT command with result: [::hsi::utils::get_bram_blocks D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ], Result: [null, ]. Thread: ModalContext
+
+!ENTRY com.xilinx.sdk.utils 1 0 2019-04-01 16:48:39.913
+!MESSAGE Updating toolusage
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:39.945
+!MESSAGE XSCT Command: [::hsi::utils::get_ps_config_params -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:39.961
+!MESSAGE XSCT command with result: [::hsi::utils::get_ps_config_params -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"PCW_APU_PERIPHERAL_FREQMHZ": "650",
+"PCW_DDR_HPRLPR_QUEUE_PARTITION": "HPR(0)/LPR(32)",
+"PCW_DDR_HPR_TO_CRITICAL_PRIORITY_LEVEL": "15",
+"PCW_DDR_LPR_TO_CRITICAL_PRIORITY_LEVEL": "2",
+"PCW_DDR_PORT0_HPR_ENABLE": "0",
+"PCW_DDR_PORT1_HPR_ENABLE": "0",
+"PCW_DDR_PORT2_HPR_ENABLE": "0",
+"PCW_DDR_PORT3_HPR_ENABLE": "0",
+"PCW_DDR_WRITE_TO_CRITICAL_PRIORITY_LEVEL": "2",
+"PCW_FPGA0_PERIPHERAL_FREQMHZ": "100",
+"PCW_UIPARAM_DDR_BUS_WIDTH": "16 Bit",
+"PCW_UIPARAM_DDR_FREQ_MHZ": "525",
+}]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:39.969
+!MESSAGE XSCT Command: [::hsi::utils::get_all_register_data -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.035
+!MESSAGE XSCT command with result: [::hsi::utils::get_all_register_data -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, {"myip_0": {},
+"ps7_afi_0": {},
+"ps7_afi_1": {},
+"ps7_afi_2": {},
+"ps7_afi_3": {},
+"ps7_coresight_comp_0": {},
+"ps7_ddr_0": {},
+"ps7_ddrc_0": {},
+"ps7_dev_cfg_0": {},
+"ps7_dma_ns": {},
+"ps7_dma_s": {},
+"ps7_ethernet_0": {},
+"ps7_globaltimer_0": {},
+"ps7_gpio_0": {},
+"ps7_gpv_0": {},
+"ps7_intc_dist_0": {},
+"ps7_iop_bus_config_0": {},
+"ps7_l2cachec_0": {},
+"ps7_ocmc_0": {},
+"ps7_pl310_0": {},
+"ps7_pmu_0": {},
+"ps7_ram_0": {},
+"ps7_ram_1": {},
+"ps7_scuc_0": {},
+"ps7_scugic_0": {},
+"ps7_scutimer_0": {},
+"ps7_scuwdt_0": {},
+"ps7_sd_0": {},
+"ps7_slcr_0": {},
+"ps7_uart_0": {},
+"ps7_usb_0": {},
+"ps7_xadc_0": {},
+}]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.040
+!MESSAGE XSCT Command: [::hsi::utils::get_addr_ranges -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.074
+!MESSAGE XSCT command with result: [::hsi::utils::get_addr_ranges -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, {"myip_0_INSTR_AXI": {"name": "myip_0",
+"base": "0x4A000000",
+"high": "0x4A000FFF",
+"size": "4096",
+"slaveintf": "INSTR_AXI",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"myip_0_DATA_AXI": {"name": "myip_0",
+"base": "0x4A001000",
+"high": "0x4A001FFF",
+"size": "4096",
+"slaveintf": "DATA_AXI",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"myip_0_REGS_AXI": {"name": "myip_0",
+"base": "0x4A002000",
+"high": "0x4A002FFF",
+"size": "4096",
+"slaveintf": "REGS_AXI",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_afi_0": {"name": "ps7_afi_0",
+"base": "0xF8008000",
+"high": "0xF8008FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_afi_1": {"name": "ps7_afi_1",
+"base": "0xF8009000",
+"high": "0xF8009FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_afi_2": {"name": "ps7_afi_2",
+"base": "0xF800A000",
+"high": "0xF800AFFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_afi_3": {"name": "ps7_afi_3",
+"base": "0xF800B000",
+"high": "0xF800BFFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_coresight_comp_0": {"name": "ps7_coresight_comp_0",
+"base": "0xF8800000",
+"high": "0xF88FFFFF",
+"size": "1048576",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_ddrc_0": {"name": "ps7_ddrc_0",
+"base": "0xF8006000",
+"high": "0xF8006FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_dev_cfg_0": {"name": "ps7_dev_cfg_0",
+"base": "0xF8007000",
+"high": "0xF80070FF",
+"size": "256",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_dma_ns": {"name": "ps7_dma_ns",
+"base": "0xF8004000",
+"high": "0xF8004FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_dma_s": {"name": "ps7_dma_s",
+"base": "0xF8003000",
+"high": "0xF8003FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_ethernet_0": {"name": "ps7_ethernet_0",
+"base": "0xE000B000",
+"high": "0xE000BFFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_globaltimer_0": {"name": "ps7_globaltimer_0",
+"base": "0xF8F00200",
+"high": "0xF8F002FF",
+"size": "256",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_gpio_0": {"name": "ps7_gpio_0",
+"base": "0xE000A000",
+"high": "0xE000AFFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_gpv_0": {"name": "ps7_gpv_0",
+"base": "0xF8900000",
+"high": "0xF89FFFFF",
+"size": "1048576",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_intc_dist_0": {"name": "ps7_intc_dist_0",
+"base": "0xF8F01000",
+"high": "0xF8F01FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_iop_bus_config_0": {"name": "ps7_iop_bus_config_0",
+"base": "0xE0200000",
+"high": "0xE0200FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_l2cachec_0": {"name": "ps7_l2cachec_0",
+"base": "0xF8F02000",
+"high": "0xF8F02FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_ocmc_0": {"name": "ps7_ocmc_0",
+"base": "0xF800C000",
+"high": "0xF800CFFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_pl310_0": {"name": "ps7_pl310_0",
+"base": "0xF8F02000",
+"high": "0xF8F02FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_pmu_0": {"name": "ps7_pmu_0",
+"base": "0xF8893000",
+"high": "0xF8893FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_scuc_0": {"name": "ps7_scuc_0",
+"base": "0xF8F00000",
+"high": "0xF8F000FC",
+"size": "253",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_scugic_0": {"name": "ps7_scugic_0",
+"base": "0xF8F00100",
+"high": "0xF8F001FF",
+"size": "256",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_scutimer_0": {"name": "ps7_scutimer_0",
+"base": "0xF8F00600",
+"high": "0xF8F0061F",
+"size": "32",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_scuwdt_0": {"name": "ps7_scuwdt_0",
+"base": "0xF8F00620",
+"high": "0xF8F006FF",
+"size": "224",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_sd_0": {"name": "ps7_sd_0",
+"base": "0xE0100000",
+"high": "0xE0100FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_slcr_0": {"name": "ps7_slcr_0",
+"base": "0xF8000000",
+"high": "0xF8000FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_uart_0": {"name": "ps7_uart_0",
+"base": "0xE0000000",
+"high": "0xE0000FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_usb_0": {"name": "ps7_usb_0",
+"base": "0xE0002000",
+"high": "0xE0002FFF",
+"size": "4096",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_xadc_0": {"name": "ps7_xadc_0",
+"base": "0xF8007100",
+"high": "0xF8007120",
+"size": "33",
+"slaveintf": "",
+"type": "REGISTER",
+"flags": "3",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_ddr_0": {"name": "ps7_ddr_0",
+"base": "0x00100000",
+"high": "0x1FFFFFFF",
+"size": "535822336",
+"slaveintf": "",
+"type": "MEMORY",
+"flags": "7",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_ram_0": {"name": "ps7_ram_0",
+"base": "0x00000000",
+"high": "0x0002FFFF",
+"size": "196608",
+"slaveintf": "",
+"type": "MEMORY",
+"flags": "7",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+"ps7_ram_1": {"name": "ps7_ram_1",
+"base": "0xFFFF0000",
+"high": "0xFFFFFDFF",
+"size": "65024",
+"slaveintf": "",
+"type": "MEMORY",
+"flags": "7",
+"segment": "",
+"acctype": "",
+"tz": "",
+},
+}]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.080
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_param_value D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0 C_DEBUG_ENABLED], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.087
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_param_value D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0 C_DEBUG_ENABLED], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.092
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_param_value D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0 C_DEBUG_EVENT_COUNTERS], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.146
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_param_value D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0 C_DEBUG_EVENT_COUNTERS], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.152
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_param_value D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0 C_DEBUG_LATENCY_COUNTERS], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.175
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_param_value D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0 C_DEBUG_LATENCY_COUNTERS], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.181
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_param_value D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0 C_DEBUG_COUNTER_WIDTH], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.188
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_param_value D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0 C_DEBUG_COUNTER_WIDTH], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.194
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_param_value D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0 C_FREQ], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.291
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_param_value D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0 C_FREQ], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.298
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_param_value D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0 C_CPU_CLK_FREQ_HZ], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.313
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_param_value D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf ps7_cortexa9_0 C_CPU_CLK_FREQ_HZ], Result: [null, 650000000]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.319
+!MESSAGE XSCT Command: [::hsi::utils::get_cpu_nr -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.343
+!MESSAGE XSCT command with result: [::hsi::utils::get_cpu_nr -json D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"ps7_cortexa9_0": {"bscan": "",
+"index": "0",
+},
+}]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.352
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_files_on_hw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf bit], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.369
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_files_on_hw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf bit], Result: [null, design_1_wrapper.bit]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.374
+!MESSAGE XSCT Command: [connect -url tcp:127.0.0.1:3121], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.383
+!MESSAGE XSCT command with result: [connect -url tcp:127.0.0.1:3121], Result: [null, tcfchan#1]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.399
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.471
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1  Digilent Cora Z7 - 7007S 210370A92DAEA]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.476
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.488
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1  Digilent Cora Z7 - 7007S 210370A92DAEA]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.493
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==1}], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.528
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z007s (idcode 13723093 irlen 6 fpga)]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.533
+!MESSAGE XSCT Command: [targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==0} -index 1], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.570
+!MESSAGE XSCT command with result: [targets -set -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==0} -index 1], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.575
+!MESSAGE XSCT Command: [fpga -state], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.585
+!MESSAGE XSCT command with result: [fpga -state], Result: [null, FPGA is configured]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.590
+!MESSAGE XSCT Command: [connect -url tcp:127.0.0.1:3121], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.599
+!MESSAGE XSCT command with result: [connect -url tcp:127.0.0.1:3121], Result: [null, tcfchan#1]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.610
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.620
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1  Digilent Cora Z7 - 7007S 210370A92DAEA]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.626
+!MESSAGE XSCT Command: [version -server], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.632
+!MESSAGE XSCT command with result: [version -server], Result: [null, 2018.2]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.637
+!MESSAGE XSCT Command: [version], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.642
+!MESSAGE XSCT command with result: [version], Result: [null, 2018.2]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.650
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.667
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1  Digilent Cora Z7 - 7007S 210370A92DAEA]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.672
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==1}], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.708
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z007s (idcode 13723093 irlen 6 fpga)]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.719
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.731
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1  Digilent Cora Z7 - 7007S 210370A92DAEA]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.742
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==1}], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.779
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z007s (idcode 13723093 irlen 6 fpga)]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.785
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.797
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1  Digilent Cora Z7 - 7007S 210370A92DAEA]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.801
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==1}], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.831
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z007s (idcode 13723093 irlen 6 fpga)]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.836
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.847
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1  Digilent Cora Z7 - 7007S 210370A92DAEA]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.851
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==1}], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.886
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z007s (idcode 13723093 irlen 6 fpga)]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.891
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.904
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1  Digilent Cora Z7 - 7007S 210370A92DAEA]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.909
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==1}], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.941
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z007s (idcode 13723093 irlen 6 fpga)]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.947
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.958
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1  Digilent Cora Z7 - 7007S 210370A92DAEA]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.963
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==1}], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:40.999
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z007s (idcode 13723093 irlen 6 fpga)]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.004
+!MESSAGE XSCT Command: [jtag targets -set -filter {name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level == 0}], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.037
+!MESSAGE XSCT command with result: [jtag targets -set -filter {name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA" && level == 0}], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.042
+!MESSAGE XSCT Command: [jtag frequency], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.049
+!MESSAGE XSCT command with result: [jtag frequency], Result: [null, 15000000]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.054
+!MESSAGE XSCT Command: [source D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.087
+!MESSAGE XSCT command with result: [source D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.093
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA"} -index 0], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.134
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA"} -index 0], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.139
+!MESSAGE XSCT Command: [loadhw -hw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.176
+!MESSAGE XSCT command with result: [loadhw -hw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]], Result: [null, design_1_wrapper]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.182
+!MESSAGE XSCT Command: [configparams force-mem-access 1], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.190
+!MESSAGE XSCT command with result: [configparams force-mem-access 1], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.199
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA"} -index 0], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.232
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA"} -index 0], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.251
+!MESSAGE XSCT Command: [stop], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.279
+!MESSAGE XSCT command with result: [stop], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.285
+!MESSAGE XSCT Command: [ps7_init], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.710
+!MESSAGE XSCT command with result: [ps7_init], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.717
+!MESSAGE XSCT Command: [ps7_post_config], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.732
+!MESSAGE XSCT command with result: [ps7_post_config], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.738
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA"} -index 0], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.791
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA"} -index 0], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.796
+!MESSAGE XSCT Command: [rst -processor], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.834
+!MESSAGE XSCT command with result: [rst -processor], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.842
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA"} -index 0], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.879
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA"} -index 0], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:41.888
+!MESSAGE XSCT Command: [dow D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/riscV_loder/Release/riscV_loder.elf], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:42.015
+!MESSAGE XSCT command with result: [dow D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/riscV_loder/Release/riscV_loder.elf], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:42.020
+!MESSAGE XSCT Command: [configparams force-mem-access 0], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:42.027
+!MESSAGE XSCT command with result: [configparams force-mem-access 0], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:42.133
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA"} -index 0], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:42.203
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Cora Z7 - 7007S 210370A92DAEA"} -index 0], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:42.208
+!MESSAGE XSCT Command: [con], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 16:48:42.248
+!MESSAGE XSCT command with result: [con], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 1 0 2019-04-01 17:03:41.790
+!MESSAGE Executed Webtalk command
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 17:03:41.828
+!MESSAGE XSCT Command: [disconnect tcfchan#1], Thread: Thread-104
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-04-01 17:03:41.879
+!MESSAGE XSCT command with result: [disconnect tcfchan#1], Result: [null, ]. Thread: Thread-104

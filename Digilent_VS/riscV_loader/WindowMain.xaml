@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:riscV_loader"
         xmlns:commands="clr-namespace:riscV_loader.Commands"
         mc:Ignorable="d"
-        Title="RISC-V loader" Height="795" Width="1080" WindowState="Maximized" Loaded="WindowMain_Loaded" Closing="WindowMain_Closing">
+        Title="RISC-V loader" Height="950" Width="1700" WindowState="Maximized" Loaded="WindowMain_Loaded" Closing="WindowMain_Closing">
     <Window.CommandBindings>
         <CommandBinding Command="{x:Static commands:AppCommands.commandConvert}" Executed="CommandConvert_Executed" />
         <CommandBinding Command="{x:Static commands:AppCommands.commandExit}" Executed="CommandExit_Executed" />
@@ -152,7 +152,7 @@
             <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Margin="4, 4, 0, 4" BorderThickness="2" BorderBrush="#FF293956">
                 <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <TextBox DockPanel.Dock="Top" Height="28" Foreground="Black" FontSize="14" TextAlignment="Center" Text="Registers" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" Margin="3" />
-                    
+
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <StackPanel Background="#7F4D6082">
                             <Grid Margin="3, 3, 3, 0" Height="25">
@@ -656,6 +656,91 @@
                     <TextBox DockPanel.Dock="Top" Height="28" Foreground="Black" FontSize="14" TextAlignment="Center" Text="CHM view" Background="#FFC2C3C9" IsReadOnly="True" VerticalContentAlignment="Center" Margin="3" />
 
                     <Canvas Name="canvasCHM" Margin="3" Background="White" >
+                        <Rectangle Canvas.Top="30" Canvas.Left="30" Width="160" Height="160" Stroke="Black" StrokeThickness="2" />
+                        <Rectangle Canvas.Top="220" Canvas.Left="30" Width="160" Height="160" Stroke="Black" StrokeThickness="2" />
+                        <Rectangle Canvas.Top="410" Canvas.Left="30" Width="160" Height="160" Stroke="Black" StrokeThickness="2" />
+                        <Rectangle Canvas.Top="600" Canvas.Left="30" Width="160" Height="160" Stroke="Black" StrokeThickness="2" />
+
+                        <Rectangle Canvas.Top="30" Canvas.Left="220" Width="160" Height="160" Stroke="Black" StrokeThickness="2" />
+                        <Rectangle Canvas.Top="220" Canvas.Left="220" Width="160" Height="160" Stroke="Black" StrokeThickness="2" />
+                        <Rectangle Canvas.Top="410" Canvas.Left="220" Width="160" Height="160" Stroke="Black" StrokeThickness="2" />
+                        <Rectangle Canvas.Top="600" Canvas.Left="220" Width="160" Height="160" Stroke="Black" StrokeThickness="2" />
+
+                        <Rectangle Canvas.Top="30" Canvas.Left="500" Width="160" Height="160" Stroke="Black" StrokeThickness="2" />
+                        <Rectangle Canvas.Top="220" Canvas.Left="500" Width="160" Height="160" Stroke="Black" StrokeThickness="2" />
+                        <Rectangle Canvas.Top="410" Canvas.Left="500" Width="160" Height="160" Stroke="Black" StrokeThickness="2" />
+                        <Rectangle Canvas.Top="600" Canvas.Left="500" Width="160" Height="160" Stroke="Black" StrokeThickness="2" />
+
+                        <Rectangle Canvas.Top="30" Canvas.Left="690" Width="160" Height="160" Stroke="Black" StrokeThickness="2" />
+                        <Rectangle Canvas.Top="220" Canvas.Left="690" Width="160" Height="160" Stroke="Black" StrokeThickness="2" />
+                        <Rectangle Canvas.Top="410" Canvas.Left="690" Width="160" Height="160" Stroke="Black" StrokeThickness="2" />
+                        <Rectangle Canvas.Top="600" Canvas.Left="690" Width="160" Height="160" Stroke="Black" StrokeThickness="2" />
+
+                        <Rectangle Canvas.Top="30" Canvas.Left="410" Width="60" Height="730" Stroke="Black" StrokeThickness="2" />
+
+                        <TextBlock Name="textBoxPipeline0" Canvas.Left="409" TextWrapping="Wrap" Text="0x00000000" Canvas.Top="98" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+
+                        <TextBlock Name="textBoxPipeline1" Canvas.Left="409" TextWrapping="Wrap" Text="0x00000000" Canvas.Top="293" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+
+                        <TextBlock Name="textBoxPipeline2" Canvas.Left="409" TextWrapping="Wrap" Text="0x00000000" Canvas.Top="482" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+
+                        <TextBlock Name="textBoxPipeline3" Canvas.Left="409" TextWrapping="Wrap" Text="0x00000000" Canvas.Top="666" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+
+                        <TextBlock Name="textBlockOp00" Canvas.Top="100" Canvas.Left="93" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp01" Canvas.Top="290" Canvas.Left="93" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp02" Canvas.Top="480" Canvas.Left="93" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp03" Canvas.Top="670" Canvas.Left="93" Text="ADD" FontSize="18" FontFamily="Courier New" />
+
+                        <TextBlock Name="textBlockOp10" Canvas.Top="100" Canvas.Left="283" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp11" Canvas.Top="290" Canvas.Left="283" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp12" Canvas.Top="480" Canvas.Left="283" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp13" Canvas.Top="670" Canvas.Left="283" Text="ADD" FontSize="18" FontFamily="Courier New" />
+
+                        <TextBlock Name="textBlockOp20" Canvas.Top="100" Canvas.Left="563" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp21" Canvas.Top="290" Canvas.Left="563" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp22" Canvas.Top="480" Canvas.Left="563" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp23" Canvas.Top="670" Canvas.Left="563" Text="ADD" FontSize="18" FontFamily="Courier New" />
+
+                        <TextBlock Name="textBlockOp30" Canvas.Top="100" Canvas.Left="753" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp31" Canvas.Top="290" Canvas.Left="753" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp32" Canvas.Top="480" Canvas.Left="753" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp33" Canvas.Top="670" Canvas.Left="753" Text="ADD" FontSize="18" FontFamily="Courier New" />
                     </Canvas>
                 </DockPanel>
             </Border>
