@@ -678,6 +678,131 @@
 
                         <Rectangle Canvas.Top="30" Canvas.Left="410" Width="60" Height="730" Stroke="Black" StrokeThickness="2" />
 
+                        <Line Name="linePath01i0" X1="190" Y1="110" X2="220" Y2="70" Stroke="Black" StrokeThickness="1.2" />
+                        <Line Name="linePath01i1" X1="190" Y1="110" X2="220" Y2="150" Stroke="Black" StrokeThickness="1.2" />
+
+                        <Line Name="linePath11i0" X1="190" Y1="300" X2="220" Y2="260" Stroke="Black" StrokeThickness="1.2" />
+                        <Line Name="linePath11i1" X1="190" Y1="300" X2="220" Y2="340" Stroke="Black" StrokeThickness="1.2" />
+
+                        <Line Name="linePath21i0" X1="190" Y1="490" X2="220" Y2="450" Stroke="Black" StrokeThickness="1.2" />
+                        <Line Name="linePath21i1" X1="190" Y1="490" X2="220" Y2="530" Stroke="Black" StrokeThickness="1.2" />
+
+                        <Line Name="linePath31i0" X1="190" Y1="680" X2="220" Y2="640" Stroke="Black" StrokeThickness="1.2" />
+                        <Line Name="linePath31i1" X1="190" Y1="680" X2="220" Y2="720" Stroke="Black" StrokeThickness="1.2" />
+
+                        <Line X1="380" Y1="110" X2="410" Y2="110" Stroke="Black" StrokeThickness="1.2" />
+                        <Line X1="380" Y1="300" X2="410" Y2="300" Stroke="Black" StrokeThickness="1.2" />
+                        <Line X1="380" Y1="490" X2="410" Y2="490" Stroke="Black" StrokeThickness="1.2" />
+                        <Line X1="380" Y1="680" X2="410" Y2="680" Stroke="Black" StrokeThickness="1.2" />
+
+                        <Line Name="linePath02i0" X1="470" Y1="110" X2="500" Y2="70" Stroke="Black" StrokeThickness="1.2" />
+                        <Line Name="linePath02i1" X1="470" Y1="110" X2="500" Y2="150" Stroke="Black" StrokeThickness="1.2" />
+
+                        <Line Name="linePath12i0" X1="470" Y1="300" X2="500" Y2="260" Stroke="Black" StrokeThickness="1.2" />
+                        <Line Name="linePath12i1" X1="470" Y1="300" X2="500" Y2="340" Stroke="Black" StrokeThickness="1.2" />
+
+                        <Line Name="linePath22i0" X1="470" Y1="490" X2="500" Y2="450" Stroke="Black" StrokeThickness="1.2" />
+                        <Line Name="linePath22i1" X1="470" Y1="490" X2="500" Y2="530" Stroke="Black" StrokeThickness="1.2" />
+
+                        <Line Name="linePath32i0" X1="470" Y1="680" X2="500" Y2="640" Stroke="Black" StrokeThickness="1.2" />
+                        <Line Name="linePath32i1" X1="470" Y1="680" X2="500" Y2="720" Stroke="Black" StrokeThickness="1.2" />
+
+                        <Line Name="linePath03i0" X1="660" Y1="110" X2="690" Y2="70" Stroke="Black" StrokeThickness="1.2" />
+                        <Line Name="linePath03i1" X1="660" Y1="110" X2="690" Y2="150" Stroke="Black" StrokeThickness="1.2" />
+
+                        <Line Name="linePath13i0" X1="660" Y1="300" X2="690" Y2="260" Stroke="Black" StrokeThickness="1.2" />
+                        <Line Name="linePath13i1" X1="660" Y1="300" X2="690" Y2="340" Stroke="Black" StrokeThickness="1.2" />
+
+                        <Line Name="linePath23i0" X1="660" Y1="490" X2="690" Y2="450" Stroke="Black" StrokeThickness="1.2" />
+                        <Line Name="linePath23i1" X1="660" Y1="490" X2="690" Y2="530" Stroke="Black" StrokeThickness="1.2" />
+
+                        <Line Name="linePath33i0" X1="660" Y1="680" X2="690" Y2="640" Stroke="Black" StrokeThickness="1.2" />
+                        <Line Name="linePath33i1" X1="660" Y1="680" X2="690" Y2="720" Stroke="Black" StrokeThickness="1.2" />
+
+                        <TextBlock Name="textBoxInput00" Canvas.Left="31" TextWrapping="Wrap" Text="X0" Canvas.Top="65" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                        <TextBlock Name="textBoxInput01" Canvas.Left="31" TextWrapping="Wrap" Text="X0" Canvas.Top="135" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+
+                        <TextBlock Name="textBoxInput10" Canvas.Left="31" TextWrapping="Wrap" Text="X0" Canvas.Top="255" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                        <TextBlock Name="textBoxInput11" Canvas.Left="31" TextWrapping="Wrap" Text="X0" Canvas.Top="325" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+
+                        <TextBlock Name="textBoxInput20" Canvas.Left="31" TextWrapping="Wrap" Text="X0" Canvas.Top="445" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                        <TextBlock Name="textBoxInput21" Canvas.Left="31" TextWrapping="Wrap" Text="X0" Canvas.Top="515" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+
+                        <TextBlock Name="textBoxInput30" Canvas.Left="31" TextWrapping="Wrap" Text="X0" Canvas.Top="635" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                        <TextBlock Name="textBoxInput31" Canvas.Left="31" TextWrapping="Wrap" Text="X0" Canvas.Top="705" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                        
                         <TextBlock Name="textBoxPipeline0" Canvas.Left="409" TextWrapping="Wrap" Text="0x00000000" Canvas.Top="98" RenderTransformOrigin="0.5,0.5">
                             <TextBlock.RenderTransform>
                                 <TransformGroup>
@@ -712,6 +837,50 @@
                         </TextBlock>
 
                         <TextBlock Name="textBoxPipeline3" Canvas.Left="409" TextWrapping="Wrap" Text="0x00000000" Canvas.Top="666" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+
+                        <TextBlock Name="textBoxOutput0" Canvas.Left="828" TextWrapping="Wrap" Text="X10" Canvas.Top="98" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+
+                        <TextBlock Name="textBoxOutput1" Canvas.Left="828" TextWrapping="Wrap" Text="X10" Canvas.Top="293" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+
+                        <TextBlock Name="textBoxOutput2" Canvas.Left="828" TextWrapping="Wrap" Text="X10" Canvas.Top="482" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+
+                        <TextBlock Name="textBoxOutput3" Canvas.Left="828" TextWrapping="Wrap" Text="X10" Canvas.Top="666" RenderTransformOrigin="0.5,0.5">
                             <TextBlock.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
