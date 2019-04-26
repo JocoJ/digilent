@@ -600,7 +600,8 @@ module RISC_V(clk,reset);
   wire [31:0] REG_DATA1_ID,REG_DATA2_ID;
   wire RegWrite_ID,MemtoReg_ID,MemRead_ID,MemWrite_ID;
   
-  wire RegWrite_multiple_ID, RegWrite_ext_ID;
+  wire RegWrite_multiple_ID;	// bit to signal multiport writing from the CHM
+  wire RegWrite_ext_ID;			// bit to signal writing to the extended part of the register file (registers 32->63)
   
   wire [1:0] ALUop_ID;
   wire ALUSrc_ID;
@@ -614,14 +615,14 @@ module RISC_V(clk,reset);
   
   wire [5:0] RS1_ID; assign RS1_ID = {1'b0, INSTRUCTION_ID[19:15]};
   wire [5:0] RS2_ID; assign RS2_ID = {1'b0, INSTRUCTION_ID[24:20]};
-  wire [5:0] RS3_ID; assign RS3_ID = {1'b0, INSTRUCTION_ID[31:27]};
-  wire [5:0] RS4_ID; assign RS4_ID = {1'b0, INSTRUCTION_ID[26:25], INSTRUCTION_ID[14:12]};
-  wire [5:0] RS5_ID; assign RS5_ID = {1'b0, INSTRUCTION_ID[11:7]};
-  wire [5:0] RS6_ID; assign RS6_ID = {1'b0, INSTRUCTION_ID[6:2]};
+  wire [5:0] RS3_ID; assign RS3_ID = {1'b0, INSTRUCTION_ID[31:27]};							// third address input to the regFile
+  wire [5:0] RS4_ID; assign RS4_ID = {1'b0, INSTRUCTION_ID[26:25], INSTRUCTION_ID[14:12]};	// fourth address input to the regFile
+  wire [5:0] RS5_ID; assign RS5_ID = {1'b0, INSTRUCTION_ID[11:7]};							// fifth address input to the regFile
+  wire [5:0] RS6_ID; assign RS6_ID = {1'b0, INSTRUCTION_ID[6:2]};							// sixth address input to the regFile
   wire IF_ID_write;
   
-  wire [31:0] REG_DATA3_ID, REG_DATA4_ID, REG_DATA5_ID, REG_DATA6_ID;
-  wire [31:0] CLB_conf1, CLB_conf2, CLB_conf3, CLB_conf4, CLB_conf5;
+  wire [31:0] REG_DATA3_ID, REG_DATA4_ID, REG_DATA5_ID, REG_DATA6_ID;	// multiport regFile data outputs
+  wire [31:0] CLB_conf1, CLB_conf2, CLB_conf3, CLB_conf4, CLB_conf5;	// CHM configuration registers output
   
   //////////////////////////////////////////EX signals////////////////////////////////////////////////////////
   wire [31:0] PC_EX,PC_Branch;
@@ -681,6 +682,8 @@ module RISC_V(clk,reset);
   wire RegWrite_multiple_WB;
   
   //////////////////////////////////////pipeline registers////////////////////////////////////////////////////
+  
+  // Added support for the CHM related signals in the pipeline registers
   IF_ID_reg IF_ID_REGISTER(clk,reset,
                            IF_ID_write,
                            PC_IF,INSTRUCTION_IF,
@@ -771,11 +774,14 @@ module RISC_V(clk,reset);
                                  REG_DATA1_ID,REG_DATA2_ID);
   */
   
-  wire[5:0] conf_addr;
-  wire[31:0] write_data1, write_data_conf;
+  wire[5:0] conf_addr;	// auto-updating address for the CHM configuration registers in the regFile
+  wire[31:0] write_data1;
+  wire [31:0] write_data_conf;	// the data to be written to the CHM configuration registers
   assign write_data1 = (RegWrite_multiple_WB) ? CLB_result1_WB : ALU_DATA_WB;
-  address_counter conf_addr_cnt(.clk(clk), .res(reset), .cnt(RegWrite_ext_ID), .address(conf_addr));
   
+  address_counter conf_addr_cnt(.clk(clk), .res(reset), .cnt(RegWrite_ext_ID), .address(conf_addr));	// address generator for the CHM configuration registers
+  
+  // The configuration data is taken directly from the instruction field (the 30 MSB), and the arrangement of the bits depends on the destination register
   assign write_data_conf = (conf_addr == 32) ? {INSTRUCTION_ID[31:27], 3'b000, INSTRUCTION_ID[25:2]} :
 						   (conf_addr == 33 || conf_addr == 34) ? {INSTRUCTION_ID[31:27], 2'b00, INSTRUCTION_ID[26:2]}:
 						   (conf_addr == 35 || conf_addr == 36) ? {8'b0000_0000, INSTRUCTION_ID[25:2]} : 32'b0;
@@ -785,7 +791,8 @@ module RISC_V(clk,reset);
 																 .write_enable_conf(RegWrite_ext_ID),
   
 																.read_addr1(RS1_ID), .read_addr2(RS2_ID), .read_addr3(RS3_ID), .read_addr4(RS4_ID),
-																.read_addr5(RS5_ID), .read_addr6(RS6_ID), .write_addr({1'b0, RD_WB}), .write_addr_conf(conf_addr),
+																.read_addr5(RS5_ID), .read_addr6(RS6_ID), .write_addr({1'b0, RD_WB}), 	//extra read and write addresses
+																.write_addr_conf(conf_addr),	//dedicated address for the configuration registers
 																
 																.write_data1(write_data1), .write_data2(CLB_result2_WB), .write_data3(CLB_result3_WB),
 																.write_data_conf(write_data_conf),
@@ -849,6 +856,7 @@ module RISC_V(clk,reset);
                       forwardB,MUX_B_EX);
                       
                       
+	// All selection bits are taken from the CLB_conf nets
 	CLB_full  CustomHardwareModule(.register_clk(clk),
 								   .register_reset(reset),
 								   .register_par_load(1'b1),

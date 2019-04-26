@@ -1,27 +1,27 @@
 module multiport_register_n_bits(
 	clk,
-	write_enable_basic,
-	write_enable_conf,
-	write_enable_CLB,
-	read_addr1,
+	write_enable_basic,		// I: write enable for the single port mode
+	write_enable_conf,		// I: write enable for the configuration registers (32->36)
+	write_enable_CLB,		// I: write enable for multiport mode
+	read_addr1,				// I: read addresses
 	read_addr2,
 	read_addr3,
 	read_addr4,
 	read_addr5,
 	read_addr6,
-	write_addr,
-	write_addr_conf,
-	write_data1,
-	write_data2,
-	write_data3,
-	write_data_conf,
-	read_data1,
+	write_addr,				// I: write address for single port mode (NOTE: multiport writing addresses are handled by the configuration registers)
+	write_addr_conf,		// I: write address for the configuration registers
+	write_data1,			// I: write data for both single port and multiport modes
+	write_data2,			// I: write data for multiport mode only
+	write_data3,			// I: write data for multiport mode only
+	write_data_conf,		// I: write data for the configuration registers
+	read_data1,				// O: output data from the regFile
 	read_data2,
 	read_data3,
 	read_data4,
 	read_data5,
 	read_data6,
-	CLB_conf1,
+	CLB_conf1,				// O: outputs for the CHM
 	CLB_conf2,
 	CLB_conf3,
 	CLB_conf4,

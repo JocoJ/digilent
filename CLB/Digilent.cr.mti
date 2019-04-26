@@ -1,4 +1,11 @@
-C:/Users/Sergiu/Desktop/digilent/digilent/CLB/CLB_out_stage.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/digilent/digilent/CLB/CLB_out_stage.v
+C:/Users/Sergiu/Desktop/Work/CLB_Column.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/CLB_Column.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module CLB_column
+
+Top level modules:
+	CLB_column
+
+} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/CLB_out_stage.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/digilent/digilent/CLB/CLB_out_stage.v
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module CLB_out_stage
 
@@ -56,40 +63,6 @@ Top level modules:
 
 } {} {}} C:/Users/Sergiu/Desktop/Work/logical_unit_tb.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/logical_unit_tb.v
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
-
-} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/RISC-V.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/digilent/digilent/CLB/RISC-V.v
-Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
--- Compiling module PC
--- Compiling module instruction_memory
--- Compiling module adder
--- Compiling module registers
--- Compiling module ALU
--- Compiling module ALUcontrol
--- Compiling module mux2_1
--- Compiling module mux4_1
--- Compiling module data_memory
--- Compiling module imm_gen
--- Compiling module control_path
--- Compiling module IF_ID_reg
--- Compiling module ID_EX_reg
--- Compiling module EX_MEM_reg
--- Compiling module MEM_WB_reg
--- Compiling module forwarding
--- Compiling module load_store_forwarding
--- Compiling module hazard_detection
--- Compiling module RISC_V
--- Compiling module RISC_V_TB
-
-Top level modules:
-	registers
-	RISC_V_TB
-
-} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/multiport_register.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/digilent/digilent/CLB/multiport_register.v
-Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
--- Compiling module multiport_register_n_bits
-
-Top level modules:
-	multiport_register_n_bits
 
 } {} {}} C:/Users/Sergiu/Desktop/Work/cell_A.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/cell_A.v
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
