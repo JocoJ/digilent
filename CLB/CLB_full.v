@@ -104,9 +104,7 @@ module CLB_full(
 	out_32,
 	out_33,
 	
-	selOut0,
-	selOut1,
-	selOut2,
+	selOut,
 	
 	result0,
 	result1,
@@ -196,9 +194,7 @@ module CLB_full(
 	output reg [WIDTH - 1 : 0] out_32;
 	output reg [WIDTH - 1 : 0] out_33;
 	
-	input [1:0] selOut0;
-	input [1:0] selOut1;
-	input [1:0] selOut2;
+	input [1:0] selOut;
 	
 	output reg [WIDTH - 1: 0] result0;
 	output reg [WIDTH - 1: 0] result1;
@@ -209,8 +205,9 @@ module CLB_full(
 	CLB_column #(WIDTH) column2 (.in0(out01), .in1(out11), .in2(out21), .in3(out31), .in4(out01), .in5(out11), .in6(out21), .in7(out31), .bypass(bypass_2), .sel0_0(sel0_02), .sel1_0(sel1_02), .sel0_1(sel0_12), .sel1_1(sel1_12), .sel0_2(sel0_22), .sel1_2(sel1_22), .sel0_3(sel0_32), .sel1_3(sel1_32), .out0(out02), .out1(out12), .out2(out22), .out3(out32));
 	CLB_column #(WIDTH) column3 (.in0(out02), .in1(out12), .in2(out22), .in3(out32), .in4(out02), .in5(out12), .in6(out22), .in7(out32), .bypass(bypass_3), .sel0_0(sel0_02), .sel1_0(sel1_03), .sel0_1(sel0_13), .sel1_1(sel1_13), .sel0_2(sel0_23), .sel1_2(sel1_23), .sel0_3(sel0_33), .sel1_3(sel1_33), .out0(out03), .out1(out13), .out2(out23), .out3(out33));
 	
-	mux_1x4 #(WIDTH) mux0(.sel(selOut0), .in0(out03), .in1(out13), .in2(out23), .in3(out33), .out(result0));
-	mux_1x4 #(WIDTH) mux1(.sel(selOut1), .in0(out03), .in1(out13), .in2(out23), .in3(out33), .out(result1));
-	mux_1x4 #(WIDTH) mux2(.sel(selOut2), .in0(out03), .in1(out13), .in2(out23), .in3(out33), .out(result2));
+	//mux_1x4 #(WIDTH) mux0(.sel(selOut0), .in0(out03), .in1(out13), .in2(out23), .in3(out33), .out(result0));
+	//mux_1x4 #(WIDTH) mux1(.sel(selOut1), .in0(out03), .in1(out13), .in2(out23), .in3(out33), .out(result1));
+	//mux_1x4 #(WIDTH) mux2(.sel(selOut2), .in0(out03), .in1(out13), .in2(out23), .in3(out33), .out(result2
+	CLB_out_stage #(WIDTH) out_stage(.in0(out03), .in1(out13), .in2(out23), .in3(out33), .sel(selOut), .out0(result0), .out1(result1), .out2(result2));
 	
 endmodule

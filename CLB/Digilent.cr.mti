@@ -1,9 +1,9 @@
-C:/Users/Sergiu/Desktop/Work/CLB_Column.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/CLB_Column.v
+C:/Users/Sergiu/Desktop/digilent/digilent/CLB/CLB_out_stage.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/digilent/digilent/CLB/CLB_out_stage.v
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
--- Compiling module CLB_column
+-- Compiling module CLB_out_stage
 
 Top level modules:
-	CLB_column
+	CLB_out_stage
 
 } {} {}} C:/Users/Sergiu/Desktop/Work/cell_A_alt.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/cell_A_alt.v
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
@@ -47,7 +47,7 @@ Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 
 Top level modules:
 	register32
 
-} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/address_counter_tb.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\digilent\digilent\CLB\address_counter_tb.v}
+} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/address_counter_tb.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/digilent/digilent/CLB/address_counter_tb.v
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module address_counter_tb
 
@@ -57,14 +57,7 @@ Top level modules:
 } {} {}} C:/Users/Sergiu/Desktop/Work/logical_unit_tb.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/logical_unit_tb.v
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 
-} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/multiport_register.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\digilent\digilent\CLB\multiport_register.v}
-Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
--- Compiling module multiport_register_n_bits
-
-Top level modules:
-	multiport_register_n_bits
-
-} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/RISC-V.v {0 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\digilent\digilent\CLB\RISC-V.v}
+} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/RISC-V.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/digilent/digilent/CLB/RISC-V.v
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module PC
 -- Compiling module instruction_memory
@@ -77,25 +70,36 @@ Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 
 -- Compiling module data_memory
 -- Compiling module imm_gen
 -- Compiling module control_path
-** Error: C:\Users\Sergiu\Desktop\digilent\digilent\CLB\RISC-V.v(254): (vlog-2730) Undefined variable: 'RegWrite_ext'.
-
-** Error: C:\Users\Sergiu\Desktop\digilent\digilent\CLB\RISC-V.v(254): (vlog-2730) Undefined variable: 'RegWrite_multiple'.
-
-** Error: C:\Users\Sergiu\Desktop\digilent\digilent\CLB\RISC-V.v(245): Identifier must be declared with a port mode: RegWrite_ext.
-** Error: C:\Users\Sergiu\Desktop\digilent\digilent\CLB\RISC-V.v(245): Identifier must be declared with a port mode: RegWrite_multiple.
 -- Compiling module IF_ID_reg
 -- Compiling module ID_EX_reg
 -- Compiling module EX_MEM_reg
 -- Compiling module MEM_WB_reg
-** Error: (vlog-13069) C:\Users\Sergiu\Desktop\digilent\digilent\CLB\RISC-V.v(453): near "RegWrite_multiple_in": syntax error, unexpected IDENTIFIER, expecting ')'.
+-- Compiling module forwarding
+-- Compiling module load_store_forwarding
+-- Compiling module hazard_detection
+-- Compiling module RISC_V
+-- Compiling module RISC_V_TB
 
+Top level modules:
+	registers
+	RISC_V_TB
 
-} {14.0 15.0 16.0 17.0 18.0 20.0 24.0 25.0} {}} C:/Users/Sergiu/Desktop/Work/cell_A.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/cell_A.v
+} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/multiport_register.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/digilent/digilent/CLB/multiport_register.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module multiport_register_n_bits
+
+Top level modules:
+	multiport_register_n_bits
+
+} {} {}} C:/Users/Sergiu/Desktop/Work/cell_A.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/cell_A.v
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module cell_arithmetic_logic
 
 Top level modules:
 	cell_arithmetic_logic
+
+} {} {}} C:/Users/Sergiu/Desktop/Work/simple_alu_tb.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/simple_alu_tb.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 
 } {} {}} C:/Users/Sergiu/Desktop/Work/mux_1xn.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/mux_1xn.v
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
@@ -104,8 +108,12 @@ Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 
 Top level modules:
 	mux_1x8
 
-} {} {}} C:/Users/Sergiu/Desktop/Work/simple_alu_tb.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/simple_alu_tb.v
+} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/address_counter.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/digilent/digilent/CLB/address_counter.v
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module address_counter
+
+Top level modules:
+	address_counter
 
 } {} {}} C:/Users/Sergiu/Desktop/Work/cell_S.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/cell_S.v
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
