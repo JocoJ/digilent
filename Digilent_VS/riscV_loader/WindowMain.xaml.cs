@@ -721,7 +721,215 @@ namespace riscV_loader
 
         private void CommandSaveMemoryChunk_Run()
         {
-            MessageBox.Show("Save memory chunk not implemented!");
+            if (sm_serialThread == null)
+            {
+                return;
+            }
+
+            if (coreStatus != CoreStatus.Paused && coreStatus != CoreStatus.Halted)
+            {
+                MessageBox.Show("You can't read the memory while the core is running", "The core is running", MessageBoxButton.OK, MessageBoxImage.Stop);
+                return;
+            }
+
+            bool entered_correctly = false;
+            string startAddrStr = "";
+            string streamLengthStr = "";
+
+            UInt16? addr = null;
+            UInt16 length = 0;
+
+            while (entered_correctly == false)
+            {
+                startAddrStr = Interaction.InputBox("Start address", "", "0x000");
+
+                if (String.IsNullOrEmpty(startAddrStr))
+                {
+                    return;
+                }
+
+                addr = ParseHexIntFromString(startAddrStr);
+                if (addr == null)
+                {
+                    MessageBox.Show("The number must be ginven in 0x*** format", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                    continue;
+                }
+
+                if (addr > 4095)
+                {
+                    MessageBox.Show("Address out of range", "", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    continue;
+                }
+
+                entered_correctly = true;
+            }
+
+            entered_correctly = false;
+
+            while (entered_correctly == false)
+            {
+                streamLengthStr = Interaction.InputBox("Chunck size", "", "0");
+
+                if (String.IsNullOrEmpty(streamLengthStr))
+                {
+                    return;
+                }
+
+                if (UInt16.TryParse(streamLengthStr, out length) == false)
+                {
+                    MessageBox.Show("Please input a positive non-null number", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                    continue;
+                }
+
+                if (length <= 0)
+                {
+                    MessageBox.Show("Please input a positive non-null number", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                    continue;
+                }
+
+                entered_correctly = true;
+            }
+
+            if (addr + length > 4096)
+            {
+                MessageBox.Show("Address out of range", "", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            
+            if (sfd.ShowDialog() == false)
+            {
+                return;
+            }
+
+            BinaryWriter bw = new BinaryWriter(File.Open(sfd.FileName, FileMode.Create));
+
+            for (int i = (int)addr; i < addr + length; ++i)
+            {
+                int index = i >> 4;
+                Byte toWrite = 0;
+
+                switch (i & 0xF)
+                {
+                    case 0x0:
+                    {
+                        toWrite = Convert.ToByte(memoryViewCollection[index].data0, 16);
+
+                        break;
+                    }
+
+                    case 0x1:
+                    {
+                        toWrite = Convert.ToByte(memoryViewCollection[index].data1, 16);
+
+                        break;
+                    }
+
+                    case 0x2:
+                    {
+                        toWrite = Convert.ToByte(memoryViewCollection[index].data2, 16);
+
+                        break;
+                    }
+
+                    case 0x3:
+                    {
+                        toWrite = Convert.ToByte(memoryViewCollection[index].data3, 16);
+
+                        break;
+                    }
+
+                    case 0x4:
+                    {
+                        toWrite = Convert.ToByte(memoryViewCollection[index].data4, 16);
+
+                        break;
+                    }
+
+                    case 0x5:
+                    {
+                        toWrite = Convert.ToByte(memoryViewCollection[index].data5, 16);
+
+                        break;
+                    }
+
+                    case 0x6:
+                    {
+                        toWrite = Convert.ToByte(memoryViewCollection[index].data6, 16);
+
+                        break;
+                    }
+
+                    case 0x7:
+                    {
+                        toWrite = Convert.ToByte(memoryViewCollection[index].data7, 16);
+
+                        break;
+                    }
+
+                    case 0x8:
+                    {
+                        toWrite = Convert.ToByte(memoryViewCollection[index].data8, 16);
+
+                        break;
+                    }
+
+                    case 0x9:
+                    {
+                        toWrite = Convert.ToByte(memoryViewCollection[index].data9, 16);
+
+                        break;
+                    }
+
+                    case 0xA:
+                    {
+                        toWrite = Convert.ToByte(memoryViewCollection[index].dataA, 16);
+
+                        break;
+                    }
+
+                    case 0xB:
+                    {
+                        toWrite = Convert.ToByte(memoryViewCollection[index].dataB, 16);
+
+                        break;
+                    }
+
+                    case 0xC:
+                    {
+                        toWrite = Convert.ToByte(memoryViewCollection[index].dataC, 16);
+
+                        break;
+                    }
+
+                    case 0xD:
+                    {
+                        toWrite = Convert.ToByte(memoryViewCollection[index].dataD, 16);
+
+                        break;
+                    }
+
+                    case 0xE:
+                    {
+                        toWrite = Convert.ToByte(memoryViewCollection[index].dataE, 16);
+
+                        break;
+                    }
+
+                    case 0xF:
+                    {
+                        toWrite = Convert.ToByte(memoryViewCollection[index].dataF, 16);
+
+                        break;
+                    }
+                }
+
+                bw.Write(toWrite);
+            }
+
+            bw.Flush();
+            bw.Close();
         }
 
         private void CommandStart_Executed(object sender, ExecutedRoutedEventArgs e)
