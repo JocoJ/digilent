@@ -19,7 +19,7 @@ src/nand.o src/nand.o: ../src/nand.c \
  ../../first_stage_bootloader_bsp/ps7_cortexa9_0/include/xstatus.h \
  ../../first_stage_bootloader_bsp/ps7_cortexa9_0/include/xil_assert.h \
  ../src/fsbl_debug.h \
- D:\Programare\Digilent\Risc-V_onSteroids\Risc-V_onSteroids.sdk\design_1_wrapper_hw_platform_0/ps7_init.h
+ D:\Altele\Digilent\Workspace\Risc-V_onSteroids\Risc-V_onSteroids.sdk\design_1_wrapper_hw_platform_0/ps7_init.h
 
 ../../first_stage_bootloader_bsp/ps7_cortexa9_0/include/xparameters.h:
 
@@ -61,4 +61,4 @@ src/nand.o src/nand.o: ../src/nand.c \
 
 ../src/fsbl_debug.h:
 
-D:\Programare\Digilent\Risc-V_onSteroids\Risc-V_onSteroids.sdk\design_1_wrapper_hw_platform_0/ps7_init.h:
+D:\Altele\Digilent\Workspace\Risc-V_onSteroids\Risc-V_onSteroids.sdk\design_1_wrapper_hw_platform_0/ps7_init.h:

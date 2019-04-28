@@ -69,18 +69,18 @@ set rc [catch {
   set_property board_part digilentinc.com:cora-z7-07s:part0:1.0 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir D:/Programare/Digilent/Risc-V_onSteroids/Risc-V_onSteroids.cache/wt [current_project]
-  set_property parent.project_path D:/Programare/Digilent/Risc-V_onSteroids/Risc-V_onSteroids.xpr [current_project]
-  set_property ip_repo_paths D:/Altele/Digilent/IP/xilinx.com_user_myip_1.0 [current_project]
-  set_property ip_output_repo D:/Programare/Digilent/Risc-V_onSteroids/Risc-V_onSteroids.cache/ip [current_project]
+  set_property webtalk.parent_dir D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.cache/wt [current_project]
+  set_property parent.project_path D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.xpr [current_project]
+  set_property ip_repo_paths D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.srcs/ip_1 [current_project]
+  set_property ip_output_repo D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
-  add_files -quiet D:/Programare/Digilent/Risc-V_onSteroids/Risc-V_onSteroids.runs/synth_1/design_1_wrapper.dcp
+  add_files -quiet D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.runs/synth_1/design_1_wrapper.dcp
   set_msg_config -source 4 -id {BD 41-1661} -limit 0
   set_param project.isImplRun true
-  add_files D:/Programare/Digilent/Risc-V_onSteroids/Risc-V_onSteroids.srcs/sources_1/bd/design_1/design_1.bd
+  add_files D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.srcs/sources_1/bd/design_1/design_1.bd
   set_param project.isImplRun false
-  read_xdc D:/Programare/Digilent/Risc-V_onSteroids/Risc-V_onSteroids.srcs/constrs_1/new/pins.xdc
+  read_xdc D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.srcs/constrs_1/new/pins.xdc
   set_param project.isImplRun true
   link_design -top design_1_wrapper -part xc7z007sclg400-1
   set_param project.isImplRun false

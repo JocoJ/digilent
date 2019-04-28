@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-//Date        : Wed Mar 27 11:14:03 2019
+//Date        : Sun Apr 28 18:22:46 2019
 //Host        : DESKTOP-BP5JPAP running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -187,7 +187,7 @@ module design_1
         .clk_out1(clk_wiz_0_clk_out1),
         .clk_out2(clk_wiz_0_clk_out2),
         .reset(1'b0));
-  design_1_myip_0_0 myip_0
+  design_1_myip_0_1 myip_0
        (.data_axi_aclk(clk_wiz_0_clk_out2),
         .data_axi_araddr(smartconnect_0_M01_AXI_ARADDR),
         .data_axi_aresetn(proc_sys_reset_0_peripheral_aresetn),

@@ -577,6 +577,7 @@ endmodule
 module RISC_V(input clk,
               output [9:0] instruction_address,
               input [31:0] instruction,
+              
               output RegWrite,
               output [5:0] Reg1_ReadAddress,
               output [5:0] Reg2_ReadAddress,
@@ -584,16 +585,20 @@ module RISC_V(input clk,
               output [31:0] Reg_WriteData,
               input [31:0] Reg1_ReadData,
               input [31:0] Reg2_ReadData,
+              
               output MemRead,
               output MemWrite,
+              output [4:0] funct3,
               output [9:0] data_address,
               output [31:0] data_write,
               input [31:0] data_read,
+              
               output [31:0] pc_if,
               output [31:0] pc_id,
               output [31:0] pc_ex,
               output [31:0] pc_mem,
               output [31:0] pc_wb,
+              
               output reg CSR_write,
               output reg autostop,
               output reg pause,
@@ -672,6 +677,7 @@ module RISC_V(input clk,
   wire forwardC;
   wire [31:0] MUX_C_MEM;
   
+  assign funct3 = {FUNCT3_MEM,ALU_OUT_MEM[1:0]};
   assign MemRead = MemRead_MEM;
   assign MemWrite = MemWrite_MEM;
   assign data_address = ALU_OUT_MEM[11:2];
@@ -844,7 +850,6 @@ module RISC_V(input clk,
                                                            ALU_OUT_MEM[11:2],      //ALU_OUT(address)
                                                            MUX_C_MEM,     //rs2(data)
                                                            DATA_MEMORY_MEM);*/
-  
   (* DONT_TOUCH = "true" *) load_store_forwarding LD_SD_FORWARDING(RS2_MEM,
                                                                    RD_WB,
                                                                    MemWrite_MEM,

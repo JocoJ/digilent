@@ -1,8 +1,33 @@
-16:48:38 **** Incremental Build of configuration Release for project riscV_loder ****
+18:33:45 **** Auto Build of configuration Release for project riscV_loder ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
-make: Nothing to be done for `main-build'.
+'Building file: ../src/comm.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/comm.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/comm.d" -MT"src/comm.o" -o "src/comm.o" "../src/comm.c"
+'Finished building: ../src/comm.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: riscV_loder.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../riscV_loder_bsp/ps7_cortexa9_0/lib -o "riscV_loder.elf"  ./src/comm.o ./src/main.o ./src/platform.o ./src/riscV.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: riscV_loder.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size riscV_loder.elf  |tee "riscV_loder.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20836	   1144	  22584	  44564	   ae14	riscV_loder.elf
+'Finished building: riscV_loder.elf.size'
+' '
 
-16:48:39 Build Finished (took 382ms)
+18:33:47 Build Finished (took 1s.737ms)
 

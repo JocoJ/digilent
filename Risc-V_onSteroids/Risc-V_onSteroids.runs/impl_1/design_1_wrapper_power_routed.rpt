@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date             : Wed Mar 27 11:23:13 2019
+| Date             : Sun Apr 28 18:28:29 2019
 | Host             : DESKTOP-BP5JPAP running 64-bit major release  (build 9200)
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.548        |
+| Total On-Chip Power (W)  | 1.549        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 1.431        |
@@ -53,20 +53,20 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.020 |        6 |       --- |             --- |
-| Slice Logic              |     0.025 |    17537 |       --- |             --- |
-|   LUT as Distributed RAM |     0.013 |     3520 |      6000 |           58.67 |
-|   LUT as Logic           |     0.011 |     6769 |     14400 |           47.01 |
+| Slice Logic              |     0.023 |    17594 |       --- |             --- |
+|   LUT as Logic           |     0.012 |     6815 |     14400 |           47.33 |
+|   LUT as Distributed RAM |     0.010 |     3520 |      6000 |           58.67 |
 |   F7/F8 Muxes            |    <0.001 |     1601 |     17600 |            9.10 |
 |   Register               |    <0.001 |     4355 |     28800 |           15.12 |
 |   CARRY4                 |    <0.001 |      100 |      4400 |            2.27 |
 |   LUT as Shift Register  |    <0.001 |      199 |      6000 |            3.32 |
 |   Others                 |     0.000 |      404 |       --- |             --- |
-| Signals                  |     0.027 |     9983 |       --- |             --- |
+| Signals                  |     0.030 |    10085 |       --- |             --- |
 | MMCM                     |     0.106 |        1 |         2 |           50.00 |
 | I/O                      |    <0.001 |        2 |       100 |            2.00 |
 | PS7                      |     1.252 |        1 |       --- |             --- |
 | Static Power             |     0.118 |          |           |                 |
-| Total                    |     1.548 |          |           |                 |
+| Total                    |     1.549 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -76,7 +76,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.079 |       0.073 |      0.007 |
+| Vccint    |       1.000 |     0.080 |       0.073 |      0.007 |
 | Vccaux    |       1.800 |     0.067 |       0.059 |      0.008 |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -159,9 +159,9 @@ Table of Contents
 |   design_1_i                                                                              |     1.431 |
 |     clk_wiz_0                                                                             |     0.107 |
 |       inst                                                                                |     0.107 |
-|     myip_0                                                                                |     0.059 |
-|       inst                                                                                |     0.058 |
-|         myip_v1_0_DATA_AXI_inst                                                           |     0.040 |
+|     myip_0                                                                                |     0.060 |
+|       inst                                                                                |     0.059 |
+|         myip_v1_0_DATA_AXI_inst                                                           |     0.036 |
 |           slv_reg_reg_r1_0_63_0_2                                                         |    <0.001 |
 |           slv_reg_reg_r1_0_63_12_14                                                       |    <0.001 |
 |           slv_reg_reg_r1_0_63_15_17                                                       |    <0.001 |
@@ -1123,14 +1123,14 @@ Table of Contents
 |           slv_reg_reg_r2_960_1023_3_5                                                     |    <0.001 |
 |           slv_reg_reg_r2_960_1023_6_8                                                     |    <0.001 |
 |           slv_reg_reg_r2_960_1023_9_11                                                    |    <0.001 |
-|         myip_v1_0_REGS_AXI_inst                                                           |     0.009 |
-|         risc_v                                                                            |     0.006 |
+|         myip_v1_0_REGS_AXI_inst                                                           |     0.010 |
+|         risc_v                                                                            |     0.009 |
 |           ADDER_IMM_EX                                                                    |    <0.001 |
 |           ADDER_PC_4_IF                                                                   |    <0.001 |
 |           ALU_CONTROL_MODULE                                                              |     0.000 |
-|           ALU_MODULE                                                                      |     0.001 |
+|           ALU_MODULE                                                                      |     0.002 |
 |           CONTROL_PATH_MODULE                                                             |     0.000 |
-|           EX_MEM_REGISTER                                                                 |     0.001 |
+|           EX_MEM_REGISTER                                                                 |     0.003 |
 |           FORWARDING_UNIT                                                                 |    <0.001 |
 |           HAZARD_DETECTION_UNIT                                                           |     0.000 |
 |           ID_EX_REGISTER                                                                  |    <0.001 |
@@ -1138,7 +1138,7 @@ Table of Contents
 |           IMM_GEN_MODULE                                                                  |    <0.001 |
 |           LD_SD_FORWARDING                                                                |     0.000 |
 |           MEM_WB_REGISTER                                                                 |    <0.001 |
-|           MUX_ALU_DATA                                                                    |     0.001 |
+|           MUX_ALU_DATA                                                                    |     0.002 |
 |           MUX_FORWARD_A                                                                   |    <0.001 |
 |           MUX_FORWARD_B                                                                   |    <0.001 |
 |           MUX_FORWARD_C                                                                   |    <0.001 |

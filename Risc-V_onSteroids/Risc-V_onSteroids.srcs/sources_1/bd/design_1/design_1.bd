@@ -606,13 +606,6 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>myip_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="user" spirit:name="myip" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_myip_0_0</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
         <spirit:instanceName>clk_wiz_0</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="clk_wiz" spirit:vendor="xilinx.com" spirit:version="6.0"/>
         <spirit:configurableElementValues>
@@ -630,6 +623,13 @@
           <spirit:configurableElementValue spirit:referenceId="CLKOUT2_PHASE_ERROR">96.948</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>myip_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="user" spirit:name="myip" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_myip_0_1</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
     </spirit:componentInstances>
     <spirit:interconnections>
       <spirit:interconnection>
@@ -639,18 +639,18 @@
       </spirit:interconnection>
       <spirit:interconnection>
         <spirit:name>smartconnect_0_M00_AXI</spirit:name>
-        <spirit:activeInterface spirit:busRef="M00_AXI" spirit:componentRef="smartconnect_0"/>
         <spirit:activeInterface spirit:busRef="INSTR_AXI" spirit:componentRef="myip_0"/>
+        <spirit:activeInterface spirit:busRef="M00_AXI" spirit:componentRef="smartconnect_0"/>
       </spirit:interconnection>
       <spirit:interconnection>
         <spirit:name>smartconnect_0_M01_AXI</spirit:name>
-        <spirit:activeInterface spirit:busRef="M01_AXI" spirit:componentRef="smartconnect_0"/>
         <spirit:activeInterface spirit:busRef="DATA_AXI" spirit:componentRef="myip_0"/>
+        <spirit:activeInterface spirit:busRef="M01_AXI" spirit:componentRef="smartconnect_0"/>
       </spirit:interconnection>
       <spirit:interconnection>
         <spirit:name>smartconnect_0_M02_AXI</spirit:name>
-        <spirit:activeInterface spirit:busRef="M02_AXI" spirit:componentRef="smartconnect_0"/>
         <spirit:activeInterface spirit:busRef="REGS_AXI" spirit:componentRef="myip_0"/>
+        <spirit:activeInterface spirit:busRef="M02_AXI" spirit:componentRef="smartconnect_0"/>
       </spirit:interconnection>
     </spirit:interconnections>
     <spirit:adHocConnections>
@@ -659,18 +659,13 @@
         <spirit:internalPortReference spirit:componentRef="proc_sys_reset_0" spirit:portRef="peripheral_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="smartconnect_0" spirit:portRef="aresetn"/>
         <spirit:internalPortReference spirit:componentRef="myip_0" spirit:portRef="instr_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="myip_0" spirit:portRef="data_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="myip_0" spirit:portRef="regs_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="myip_0" spirit:portRef="data_axi_aresetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>reset_rtl_1</spirit:name>
         <spirit:externalPortReference spirit:portRef="reset_rtl"/>
         <spirit:internalPortReference spirit:componentRef="proc_sys_reset_0" spirit:portRef="ext_reset_in"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>clk_wiz_0_clk_out1</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="clk_wiz_0" spirit:portRef="clk_out1"/>
-        <spirit:internalPortReference spirit:componentRef="myip_0" spirit:portRef="riscv_clk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>sys_clock_1</spirit:name>
@@ -686,6 +681,11 @@
         <spirit:internalPortReference spirit:componentRef="myip_0" spirit:portRef="instr_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="myip_0" spirit:portRef="regs_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="myip_0" spirit:portRef="data_axi_aclk"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>clk_wiz_0_clk_out1</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="clk_wiz_0" spirit:portRef="clk_out1"/>
+        <spirit:internalPortReference spirit:componentRef="myip_0" spirit:portRef="riscv_clk"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>

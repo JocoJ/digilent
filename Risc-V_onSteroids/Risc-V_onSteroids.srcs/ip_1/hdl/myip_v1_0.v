@@ -134,6 +134,7 @@
 
     wire MemRead;
     wire MemWrite;
+    wire [4:0] funct3;
     wire [9:0] data_address;
     wire [31:0] data_write;
     wire [31:0] data_read; 
@@ -145,6 +146,7 @@
 	     //RISC-V data memory regs and signals
 	     .MemRead(MemRead),
          .MemWrite(MemWrite),
+         .funct3(funct3),
          .data_address(data_address),
          .data_write(data_write),
          .data_read(data_read),
@@ -240,6 +242,7 @@
     RISC_V risc_v(riscv_clk,
                   instruction_address,
                   instruction,
+                  
                   RegWrite,
                   Reg1_ReadAddress,
                   Reg2_ReadAddress,
@@ -247,16 +250,20 @@
                   Reg_WriteData,
                   Reg1_ReadData,
                   Reg2_ReadData,
+                  
                   MemRead,
                   MemWrite,
+                  funct3,
                   data_address,
                   data_write,
                   data_read,
+                  
                   pc_if,
                   pc_id,
                   pc_ex,
                   pc_mem,
                   pc_wb,
+                  
                   CSR_write,
                   autostop,
                   pause,

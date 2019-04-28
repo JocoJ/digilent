@@ -1,36 +1,26 @@
 
 `timescale 1 ns / 1 ps
 
-	module myip_v1_0_REGS_AXI #
+	module myip_v1_0_DATA_AXI #
 	(
 		// Users to add parameters here
+
 		// User parameters ends
 		// Do not modify the parameters beyond this line
 
 		// Width of S_AXI data bus
 		parameter integer C_S_AXI_DATA_WIDTH	= 32,
 		// Width of S_AXI address bus
-		parameter integer C_S_AXI_ADDR_WIDTH	= 8
+		parameter integer C_S_AXI_ADDR_WIDTH	= 12
 	)
 	(
 		// Users to add ports here
-         input wire RegWrite,
-         input wire [5:0] Reg1_ReadAddress,
-         input wire [5:0] Reg2_ReadAddress,
-         input wire [5:0] Reg_WriteAddress,
-         input wire [31:0] Reg_WriteData,
-         output reg [31:0] Reg1_ReadData,
-         output reg [31:0] Reg2_ReadData,
-         input wire [31:0] pc_if,
-         input wire [31:0] pc_id,
-         input wire [31:0] pc_ex,
-         input wire [31:0] pc_mem,
-         input wire [31:0] pc_wb,
-         input wire [63:0] timestamp,
-         input wire csr_write,
-         input wire autostop,
-         input wire pause,
-         output wire [2:0] CSR,
+        input wire MemRead,
+        input wire MemWrite,
+        input wire [4:0] funct3,
+        input wire [9:0] data_address,
+        input wire [31:0] data_write,
+        output reg [31:0] data_read, 
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -114,12 +104,12 @@
 	// ADDR_LSB = 2 for 32 bits (n downto 2)
 	// ADDR_LSB = 3 for 64 bits (n downto 3)
 	localparam integer ADDR_LSB = (C_S_AXI_DATA_WIDTH/32) + 1;
-	localparam integer OPT_MEM_ADDR_BITS = 5;
+	localparam integer OPT_MEM_ADDR_BITS = 9;
 	//----------------------------------------------
 	//-- Signals for user logic register space example
 	//------------------------------------------------
-	//-- Number of Slave Registers 64
-	reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg[0:63];
+	//-- Number of Slave Registers 256
+	reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg[0:1023];
 	wire	 slv_reg_rden;
 	wire	 slv_reg_wren;
 	reg [C_S_AXI_DATA_WIDTH-1:0]	 reg_data_out;
@@ -230,36 +220,26 @@
 
 	always @( posedge S_AXI_ACLK )
 	begin
-	  if ( S_AXI_ARESETN == 1'b0 )
-	    slv_reg[63] <= 32'h00000003; //HALT=1,RESET=1
-	  else begin
-	    if (slv_reg_wren && (axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]<56))
-	      slv_reg[axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]] <= S_AXI_WDATA;
-	      
-	   ///////////////////////////////////////////RISC-V LOGIC//////////////////////////////////////////////////////////
-	    else if (RegWrite && (Reg_WriteAddress<32))
-          slv_reg[Reg_WriteAddress] <= Reg_WriteData;
-        
-        if(slv_reg_wren && (axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]==63))
-            slv_reg[axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]] <= S_AXI_WDATA;
-        else if(csr_write) begin
-            slv_reg[63][2] <= autostop;
-            slv_reg[63][1] <= pause;
-        end  
-            
-        slv_reg[56] <= pc_if;
-        slv_reg[57] <= pc_id;
-        slv_reg[58] <= pc_ex;
-        slv_reg[59] <= pc_mem;
-        slv_reg[60] <= pc_wb;
-        slv_reg[61] <= timestamp[31:0];
-        slv_reg[62] <= timestamp[63:32];
-        
-	  end
+	    if (slv_reg_wren) begin
+	      for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+            if ( S_AXI_WSTRB[byte_index] == 1 ) begin                     
+              slv_reg[axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]][(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];                      
+            end                                               
+	    end
+	      ///////////////////////////////RISC-V LOGIC//////////////////////////////////////////////////
+	    else if (MemWrite) begin
+	       casex(funct3) //SB,SW 
+                5'b00000: slv_reg[data_address][7:0] <= data_write[7:0];
+                5'b00001: slv_reg[data_address][15:8] <= data_write[7:0];
+                5'b00010: slv_reg[data_address][23:16] <= data_write[7:0];
+                5'b00011: slv_reg[data_address][31:24] <= data_write[7:0];
+                5'b010xx: slv_reg[data_address] <= data_write;
+                default: slv_reg[data_address] <= data_write;
+            endcase
+	    end      
+
 	end    
 
-
-    ////////////////////////////////////////RISC_V LOGIC/////////////////////////////////////////////////
 	// Implement write response logic generation
 	// The write response and response valid signals are asserted by the slave 
 	// when axi_wready, S_AXI_WVALID, axi_wready and S_AXI_WVALID are asserted.  
@@ -362,18 +342,25 @@
 	begin
 	   reg_data_out <= slv_reg[axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]];
 	end
-	
-	
-	/////////////////////////////RISC-V LOGIC///////////////////////////////////////////
-	
-	assign CSR = slv_reg[63][2:0];
-	
-	always @(*)
-    begin
-      Reg1_ReadData <= slv_reg[Reg1_ReadAddress];
-      Reg2_ReadData <= slv_reg[Reg2_ReadAddress];
-    end
-   
+
+    /////////////////////////////////////////////////////RISC-V LOGIC////////////////////////////////////////////////////////
+    always @(*)
+        begin
+            if(MemRead) begin
+                casex(funct3) //LB,LW 
+                    5'b00000: data_read <= {24'b0,slv_reg[data_address][7:0]};
+                    5'b00001: data_read <= {24'b0,slv_reg[data_address][15:8]};
+                    5'b00010: data_read <= {24'b0,slv_reg[data_address][23:16]};
+                    5'b00011: data_read <= {24'b0,slv_reg[data_address][31:24]};
+                    5'b010xx: data_read <= slv_reg[data_address];
+                    default: data_read <= slv_reg[data_address];
+                endcase
+                data_read <= slv_reg[data_address];
+            end
+            else data_read <= 0;
+        end
+
+
 	// Output register or memory read data
 	always @( posedge S_AXI_ACLK )
 	begin

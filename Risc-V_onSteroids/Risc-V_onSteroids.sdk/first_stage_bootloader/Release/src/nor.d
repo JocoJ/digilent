@@ -18,7 +18,7 @@ src/nor.o src/nor.o: ../src/nor.c ../src/fsbl.h \
  ../../first_stage_bootloader_bsp/ps7_cortexa9_0/include/xstatus.h \
  ../../first_stage_bootloader_bsp/ps7_cortexa9_0/include/xil_assert.h \
  ../src/fsbl_debug.h \
- D:\Programare\Digilent\Risc-V_onSteroids\Risc-V_onSteroids.sdk\design_1_wrapper_hw_platform_0/ps7_init.h \
+ D:\Altele\Digilent\Workspace\Risc-V_onSteroids\Risc-V_onSteroids.sdk\design_1_wrapper_hw_platform_0/ps7_init.h \
  ../src/nor.h \
  ../../first_stage_bootloader_bsp/ps7_cortexa9_0/include/xstatus.h
 
@@ -62,7 +62,7 @@ src/nor.o src/nor.o: ../src/nor.c ../src/fsbl.h \
 
 ../src/fsbl_debug.h:
 
-D:\Programare\Digilent\Risc-V_onSteroids\Risc-V_onSteroids.sdk\design_1_wrapper_hw_platform_0/ps7_init.h:
+D:\Altele\Digilent\Workspace\Risc-V_onSteroids\Risc-V_onSteroids.sdk\design_1_wrapper_hw_platform_0/ps7_init.h:
 
 ../src/nor.h:
 
