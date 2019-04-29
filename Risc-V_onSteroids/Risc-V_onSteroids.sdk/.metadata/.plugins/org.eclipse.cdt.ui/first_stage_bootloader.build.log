@@ -1,11 +1,6 @@
-18:32:57 **** Auto Build of configuration Release for project first_stage_bootloader ****
+18:54:05 **** Auto Build of configuration Release for project first_stage_bootloader ****
 make pre-build main-build 
 a9-linaro-pre-build-step
-' '
-'Building file: ../src/fsbl_handoff.S'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O2 -I"D:\Altele\Digilent\Workspace\Risc-V_onSteroids\Risc-V_onSteroids.sdk\design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/fsbl_handoff.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../first_stage_bootloader_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/fsbl_handoff.d" -MT"src/fsbl_handoff.o" -o "src/fsbl_handoff.o" "../src/fsbl_handoff.S"
-'Finished building: ../src/fsbl_handoff.S'
 ' '
 'Building file: ../src/fsbl_hooks.c'
 'Invoking: ARM v7 gcc compiler'
@@ -52,11 +47,6 @@ arm-none-eabi-gcc -Wall -O2 -I"D:\Altele\Digilent\Workspace\Risc-V_onSteroids\Ri
 arm-none-eabi-gcc -Wall -O2 -I"D:\Altele\Digilent\Workspace\Risc-V_onSteroids\Risc-V_onSteroids.sdk\design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/qspi.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../first_stage_bootloader_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/qspi.d" -MT"src/qspi.o" -o "src/qspi.o" "../src/qspi.c"
 'Finished building: ../src/qspi.c'
 ' '
-'Building file: ../src/rsa.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O2 -I"D:\Altele\Digilent\Workspace\Risc-V_onSteroids\Risc-V_onSteroids.sdk\design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/rsa.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../first_stage_bootloader_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/rsa.d" -MT"src/rsa.o" -o "src/rsa.o" "../src/rsa.c"
-'Finished building: ../src/rsa.c'
-' '
 'Building file: ../src/sd.c'
 'Invoking: ARM v7 gcc compiler'
 arm-none-eabi-gcc -Wall -O2 -I"D:\Altele\Digilent\Workspace\Risc-V_onSteroids\Risc-V_onSteroids.sdk\design_1_wrapper_hw_platform_0" -c -fmessage-length=0 -MT"src/sd.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../first_stage_bootloader_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/sd.d" -MT"src/sd.o" -o "src/sd.o" "../src/sd.c"
@@ -74,5 +64,5 @@ arm-none-eabi-size first_stage_bootloader.elf  |tee "first_stage_bootloader.elf.
 'Finished building: first_stage_bootloader.elf.size'
 ' '
 
-18:33:03 Build Finished (took 5s.909ms)
+18:54:10 Build Finished (took 5s.56ms)
 

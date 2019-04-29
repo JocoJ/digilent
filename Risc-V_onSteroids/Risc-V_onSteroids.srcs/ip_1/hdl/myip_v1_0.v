@@ -174,13 +174,38 @@
 		.S_AXI_RREADY(data_axi_rready)
 	);
 
-     wire RegWrite;
-     wire [5:0] Reg1_ReadAddress;
-     wire [5:0] Reg2_ReadAddress;
-     wire [5:0] Reg_WriteAddress;
-     wire [31:0] Reg_WriteData;
-     wire [31:0] Reg1_ReadData;
-     wire [31:0] Reg2_ReadData;
+     wire write_enable_basic;		// I: write enable for the single port mode
+     wire write_enable_conf;        // I: write enable for the configuration registers (32->36)
+     wire write_enable_CLB;        // I: write enable for multiport mode
+     wire [5:0] read_addr1;                // I: read addresses
+     wire [5:0] read_addr2;
+     wire [5:0] read_addr3;
+     wire [5:0] read_addr4;
+     wire [5:0] read_addr5;
+     wire [5:0] read_addr6;
+     wire [5:0] write_addr;                // I: write address for single port mode (NOTE: multiport writing addresses are handled by the configuration registers)
+     wire [5:0] write_addr_conf;        // I: write address for the configuration registers
+     wire [31:0] write_data1;            // I: write data for both single port and multiport modes
+     wire [31:0] write_data2;            // I: write data for multiport mode only
+     wire [31:0] write_data3;            // I: write data for multiport mode only
+     wire [31:0] write_data_conf;        // I: write data for the configuration registers
+     wire [31:0] read_data1;                // O: output data from the regFile
+     wire [31:0] read_data2;
+     wire [31:0] read_data3;
+     wire [31:0] read_data4;
+     wire [31:0] read_data5;
+     wire [31:0] read_data6;
+     wire [31:0] CLB_conf1;                // O: outputs for the CHM
+     wire [31:0] CLB_conf2;
+     wire [31:0] CLB_conf3;
+     wire [31:0] CLB_conf4;
+     wire [31:0] CLB_conf5;
+     
+     wire [31:0] buff0;
+     wire [31:0] buff1;
+     wire [31:0] buff2;
+     wire [31:0] buff3;
+    
      wire [2:0] CSR; //AUTOSTOP; PAUSE; RESET
      wire [63:0] timestamp;
      wire [31:0] pc_if;
@@ -197,13 +222,38 @@
 		.C_S_AXI_ADDR_WIDTH(C_REGS_AXI_ADDR_WIDTH)
 	) myip_v1_0_REGS_AXI_inst (
 	    //RISC-V REGISTERS////////////////////
-	    .RegWrite(RegWrite),
-        .Reg1_ReadAddress(Reg1_ReadAddress),
-        .Reg2_ReadAddress(Reg2_ReadAddress),
-        .Reg_WriteAddress(Reg_WriteAddress),
-        .Reg_WriteData(Reg_WriteData),
-        .Reg1_ReadData(Reg1_ReadData),
-        .Reg2_ReadData(Reg2_ReadData),
+	    .write_enable_basic(write_enable_basic),		// I: write enable for the single port mode
+        .write_enable_conf(write_enable_conf),       // I: write enable for the configuration registers (32->36)
+        .write_enable_CLB(write_enable_CLB),        // I: write enable for multiport mode
+        .read_addr1(read_addr1),                // I: read addresses
+        .read_addr2(read_addr2),
+        .read_addr3(read_addr3),
+        .read_addr4(read_addr4),
+        .read_addr5(read_addr5),
+        .read_addr6(read_addr6),
+        .write_addr(write_addr),                // I: write address for single port mode (NOTE: multiport writing addresses are handled by the configuration registers)
+        .write_addr_conf(write_addr_conf),        // I: write address for the configuration registers
+        .write_data1(write_data1),            // I: write data for both single port and multiport modes
+        .write_data2(write_data2),            // I: write data for multiport mode only
+        .write_data3(write_data3),            // I: write data for multiport mode only
+        .write_data_conf(write_data_conf),        // I: write data for the configuration registers
+        .read_data1(read_data1),                // O: output data from the regFile
+        .read_data2(read_data2),
+        .read_data3(read_data3),
+        .read_data4(read_data4),
+        .read_data5(read_data5),
+        .read_data6(read_data6),
+        .CLB_conf1(CLB_conf1),                // O: outputs for the CHM
+        .CLB_conf2(CLB_conf2),
+        .CLB_conf3(CLB_conf3),
+        .CLB_conf4(CLB_conf4),
+        .CLB_conf5(CLB_conf5),
+        
+        .buff0(buff0),
+        .buff1(buff1),
+        .buff2(buff2),
+        .buff3(buff3),
+      
         .pc_if(pc_if),
         .pc_id(pc_id),
         .pc_ex(pc_ex),
@@ -243,13 +293,37 @@
                   instruction_address,
                   instruction,
                   
-                  RegWrite,
-                  Reg1_ReadAddress,
-                  Reg2_ReadAddress,
-                  Reg_WriteAddress,
-                  Reg_WriteData,
-                  Reg1_ReadData,
-                  Reg2_ReadData,
+	              write_enable_basic,		// I: write enable for the single port mode
+                  write_enable_conf,       // I: write enable for the configuration registers (32->36)
+                  write_enable_CLB,        // I: write enable for multiport mode
+                  read_addr1,                // I: read addresses
+                  read_addr2,
+                  read_addr3,
+                  read_addr4,
+                  read_addr5,
+                  read_addr6,
+                  write_addr,                // I: write address for single port mode (NOTE: multiport writing addresses are handled by the configuration registers)
+                  write_addr_conf,        // I: write address for the configuration registers
+                  write_data1,            // I: write data for both single port and multiport modes
+                  write_data2,            // I: write data for multiport mode only
+                  write_data3,            // I: write data for multiport mode only
+                  write_data_conf,        // I: write data for the configuration registers
+                  read_data1,                // O: output data from the regFile
+                  read_data2,
+                  read_data3,
+                  read_data4,
+                  read_data5,
+                  read_data6,
+                  CLB_conf1,                // O: outputs for the CHM
+                  CLB_conf2,
+                  CLB_conf3,
+                  CLB_conf4,
+                  CLB_conf5,
+                  
+                  buff0,
+                  buff1,
+                  buff2,
+                  buff3,
                   
                   MemRead,
                   MemWrite,

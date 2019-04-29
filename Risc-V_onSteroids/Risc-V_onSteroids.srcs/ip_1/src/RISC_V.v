@@ -37,7 +37,7 @@ endmodule*/
 
 
 ////////////////////////////////////////////ADDER_MODULE//////////////////////////////////////////////////////
-module adder(ina,inb,out);
+/*module adder(ina,inb,out);
   input [31:0] ina,inb;
   output reg [31:0] out;
   
@@ -45,7 +45,7 @@ module adder(ina,inb,out);
     out <= ina+inb;
   end
 
-endmodule
+endmodule*/
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -155,7 +155,7 @@ endmodule
 
 
 //////////////////////////////////////////MUX_2_1_MODULE/////////////////////////////////////////////////////
-module mux2_1(ina,inb,sel,out);
+/*module mux2_1(ina,inb,sel,out);
   
   input [31:0] ina,inb;
   input sel;
@@ -163,13 +163,13 @@ module mux2_1(ina,inb,sel,out);
   
   assign out=(sel==1'b0) ? ina : inb;
 
-endmodule
+endmodule*/
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 //////////////////////////////////////////MUX_4_1_MODULE/////////////////////////////////////////////////////
-module mux4_1(ina,inb,inc,ind,sel,out);
+/*module mux4_1(ina,inb,inc,ind,sel,out);
   
   input [31:0] ina,inb,inc,ind;
   input [1:0] sel;
@@ -184,7 +184,7 @@ module mux4_1(ina,inb,inc,ind,sel,out);
     endcase
   end
 
-endmodule
+endmodule*/
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
  
@@ -244,22 +244,25 @@ endmodule
 
 
 ////////////////////////////////////////CONTROL_PATH_MODULE///////////////////////////////////////////////////      
-module control_path(opcode,control_sel,Branch,MemRead,MemtoReg,ALUop,MemWrite,ALUSrc,RegWrite);
+module control_path(opcode,control_sel,Branch,MemRead,MemtoReg,ALUop,MemWrite,ALUSrc,RegWrite, RegWrite_ext, RegWrite_multiple);
   
   input [6:0] opcode;
   input control_sel;
-  output reg MemRead,MemtoReg,MemWrite,RegWrite,Branch,ALUSrc;
+  output reg MemRead,MemtoReg,MemWrite,RegWrite,Branch,ALUSrc, RegWrite_ext, RegWrite_multiple;
   output reg [1:0] ALUop;
   
   always@(opcode,control_sel) begin
     casex({control_sel,opcode})
-      8'b1xxxxxxx: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop} <= 8'b00000000; //nop from hazard unit
-      8'b00000011: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop} <= 8'b11110000; //lw
-      8'b00100011: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop} <= 8'b10001000; //sw
-      8'b00110011: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop} <= 8'b00100010; //R32-format
-      8'b00010011: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop} <= 8'b10100011; //Register32-Immediate Arithmetic Instructions
-      8'b01100011: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop} <= 8'b00000101; //branch instructions
-      default: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop} <= 8'b0;
+      8'b1xxxxxxx: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0000000000; //nop from hazard unit
+      8'b00000000: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0000000000; //nop from ISA
+	  8'bxxxxxx01: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0000000001; //custom: instruction for selecting the registers for the CLB 
+	  8'bxxxxxx10: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0000000010; //custom: configure CLB control registers and CLB destination registers
+      8'b00000011: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b1111000000; //lw
+      8'b00100011: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b1000100000; //sw
+      8'b00110011: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0010001000; //R32-format
+      8'b00010011: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b1010001100; //Register32-Immediate Arithmetic Instructions
+      8'b01100011: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0000010100; //branch instructions
+	  default:	   {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0000000000; //nop from ISA
     endcase
   end
 
@@ -304,7 +307,11 @@ module ID_EX_reg(clk,reset,write,instruction_in,
                  RegWrite_out,MemtoReg_out,MemRead_out,MemWrite_out,ALUSrc_out,Branch_out,ALUop_out,
                  pc_out,ALU_A_out,ALU_B_out,imm_out,
                  funct7_out,funct3_out,
-                 rs1_out,rs2_out,rd_out);
+                 rs1_out,rs2_out,rd_out,
+                 
+                  ALU_C_in, ALU_D_in, ALU_E_in, ALU_F_in,
+                  ALU_C_out, ALU_D_out, ALU_E_out, ALU_F_out,
+                  RegWrite_multiple_in, RegWrite_multiple_out);
   
   input clk,write,reset;
   input [31:0] instruction_in;
@@ -315,7 +322,11 @@ module ID_EX_reg(clk,reset,write,instruction_in,
   input [4:0] rs1_in,rs2_in,rd_in;
   input [2:0] funct3_in;
   input [6:0] funct7_in;
+  input RegWrite_multiple_in;
+  input [31:0] ALU_C_in, ALU_D_in, ALU_E_in, ALU_F_in;
 
+  output reg RegWrite_multiple_out;
+  output reg [31:0] ALU_C_out, ALU_D_out, ALU_E_out, ALU_F_out;
   output reg [31:0] instruction_out;
   output reg RegWrite_out,MemtoReg_out,MemRead_out,MemWrite_out,Branch_out;
   output reg [1:0] ALUop_out;
@@ -344,6 +355,11 @@ module ID_EX_reg(clk,reset,write,instruction_in,
       rd_out <= 5'b0;
       funct3_out <= 3'b0;
       funct7_out <= 7'b0;
+      ALU_C_out <= 32'b0;
+      ALU_D_out <= 32'b0;
+      ALU_E_out <= 32'b0;
+      ALU_F_out <= 32'b0;
+      RegWrite_multiple_out <= 0;
     end
     else begin
       if (write) begin
@@ -364,6 +380,11 @@ module ID_EX_reg(clk,reset,write,instruction_in,
         rd_out <= rd_in;
         funct3_out <= funct3_in;
         funct7_out <= funct7_in;
+        ALU_C_out <= ALU_C_in;
+        ALU_D_out <= ALU_D_in;
+        ALU_E_out <= ALU_E_in;
+        ALU_F_out <= ALU_F_in;
+        RegWrite_multiple_out <= RegWrite_multiple_in;
       end
     end
   end
@@ -383,7 +404,10 @@ module EX_MEM_reg(clk,reset,write,instruction_in,
                   pc_ex_out,pc_out,funct3_out,
                   ALU_out,zero_out,
                   reg2_data_out,
-                  rs2_out,rd_out);
+                  rs2_out,rd_out,
+                  
+                  RegWrite_multiple_in, 
+                  RegWrite_multiple_out);
   
   input clk,write,reset;
   input [31:0] instruction_in;
@@ -392,7 +416,9 @@ module EX_MEM_reg(clk,reset,write,instruction_in,
   input [2:0] funct3_in;
   input [31:0] ALU_in,reg2_data_in;
   input [4:0] rs2_in,rd_in;
+  input RegWrite_multiple_in;
 
+  output reg RegWrite_multiple_out;
   output reg [31:0] instruction_out;
   output reg RegWrite_out,MemtoReg_out,MemRead_out,MemWrite_out,zero_out,Branch_out;
   output reg [31:0] pc_out,pc_ex_out;
@@ -416,6 +442,7 @@ module EX_MEM_reg(clk,reset,write,instruction_in,
       rs2_out <= 5'b0;
       rd_out <= 5'b0;
       Branch_out <= 1'b0;
+      RegWrite_multiple_out <= 0;
     end
     else begin
       if(write) begin
@@ -433,6 +460,7 @@ module EX_MEM_reg(clk,reset,write,instruction_in,
         rs2_out <= rs2_in;
         rd_out <= rd_in;
         Branch_out <= Branch_in;
+        RegWrite_multiple_out <= RegWrite_multiple_in;
       end
     end
   end
@@ -446,18 +474,29 @@ module MEM_WB_reg(clk,reset,write,
                   
                   instruction_out,                
                   RegWrite_out,MemtoReg_out,
-                  PC_out,Data_out,ALU_out,rd_out);
+                  PC_out,Data_out,ALU_out,rd_out,
+                  
+                  RegWrite_multiple_in, 
+                  RegWrite_multiple_out,
+                  CLB_result1_in,
+                  CLB_result2_in,
+                  CLB_result3_in,
+                  CLB_result1_out,
+                  CLB_result2_out,
+                  CLB_result3_out);
   
   input clk,write,reset;
   input [31:0] instruction_in;
   input [31:0] Data_in,ALU_in,PC_in;
-  input RegWrite_in,MemtoReg_in;
+  input RegWrite_in,MemtoReg_in,RegWrite_multiple_in;
   input [4:0] rd_in;
+  input [31:0] CLB_result1_in, CLB_result2_in, CLB_result3_in;
   
   output reg [31:0] instruction_out;
   output reg [31:0] Data_out,ALU_out,PC_out;
-  output reg RegWrite_out,MemtoReg_out;
+  output reg RegWrite_out,MemtoReg_out,RegWrite_multiple_out;
   output reg [4:0] rd_out;
+  output reg [31:0] CLB_result1_out, CLB_result2_out, CLB_result3_out;
   
   always@(posedge clk) begin
     if (reset) begin
@@ -468,6 +507,10 @@ module MEM_WB_reg(clk,reset,write,
       RegWrite_out <= 1'b0;
       MemtoReg_out <= 1'b0;
       rd_out <= 5'b0;
+      RegWrite_multiple_out <= 1'b0;
+      CLB_result1_out <= 32'b0;
+      CLB_result2_out <= 32'b0;
+      CLB_result3_out <= 32'b0;
     end
     else begin
       if(write) begin
@@ -478,6 +521,10 @@ module MEM_WB_reg(clk,reset,write,
         RegWrite_out <= RegWrite_in;
         MemtoReg_out <= MemtoReg_in;
         rd_out <= rd_in;
+        RegWrite_multiple_out <= RegWrite_multiple_in;
+        CLB_result1_out <= CLB_result1_in;
+        CLB_result2_out <= CLB_result2_in;
+        CLB_result3_out <= CLB_result3_in;
       end
     end
   end
@@ -573,18 +620,42 @@ endmodule
 
 
 //////////////////////////////////////////////RISC-V_MODULE///////////////////////////////////////////////////
-(* DONT_TOUCH = "true" *)
+//(* DONT_TOUCH = "true" *)
 module RISC_V(input clk,
               output [9:0] instruction_address,
               input [31:0] instruction,
               
-              output RegWrite,
-              output [5:0] Reg1_ReadAddress,
-              output [5:0] Reg2_ReadAddress,
-              output [5:0] Reg_WriteAddress,
-              output [31:0] Reg_WriteData,
-              input [31:0] Reg1_ReadData,
-              input [31:0] Reg2_ReadData,
+              output write_enable_basic,		// I: write enable for the single port mode
+              output write_enable_conf,        // I: write enable for the configuration registers (32->36)
+              output write_enable_CLB,        // I: write enable for multiport mode
+              output [5:0] read_addr1,                // I: read addresses
+              output [5:0] read_addr2,
+              output [5:0] read_addr3,
+              output [5:0] read_addr4,
+              output [5:0] read_addr5,
+              output [5:0] read_addr6,
+              output [5:0] write_addr,                // I: write address for single port mode (NOTE: multiport writing addresses are handled by the configuration registers)
+              output [5:0] write_addr_conf,        // I: write address for the configuration registers
+              output [31:0] write_data1,            // I: write data for both single port and multiport modes
+              output [31:0] write_data2,            // I: write data for multiport mode only
+              output [31:0] write_data3,            // I: write data for multiport mode only
+              output [31:0] write_data_conf,       // I: write data for the configuration registers
+              input [31:0] read_data1,                // O: output data from the regFile
+              input [31:0] read_data2,
+              input [31:0] read_data3,
+              input [31:0] read_data4,
+              input [31:0] read_data5,
+              input [31:0] read_data6,
+              input [31:0] CLB_conf1,                // O: outputs for the CHM
+              input [31:0] CLB_conf2,
+              input [31:0] CLB_conf3,
+              input [31:0] CLB_conf4,
+              input [31:0] CLB_conf5,
+              
+              output [31:0] buff0,
+              output [31:0] buff1,
+              output [31:0] buff2,
+              output [31:0] buff3,
               
               output MemRead,
               output MemWrite,
@@ -630,8 +701,18 @@ module RISC_V(input clk,
   wire [6:0] FUNCT7_ID; assign FUNCT7_ID = INSTRUCTION_ID[31:25];
   wire [6:0] OPCODE; assign OPCODE = INSTRUCTION_ID[6:0];
   wire [4:0] RD_ID; assign RD_ID = INSTRUCTION_ID[11:7];
-  wire [4:0] RS1_ID; assign RS1_ID = INSTRUCTION_ID[19:15];
-  wire [4:0] RS2_ID; assign RS2_ID = INSTRUCTION_ID[24:20];
+ 
+  wire RegWrite_multiple_ID;	// bit to signal multiport writing from the CHM
+  wire RegWrite_ext_ID;         // bit to signal writing to the extended part of the register file (registers 32->63)
+  
+  wire [5:0] RS1_ID; assign RS1_ID = {1'b0, INSTRUCTION_ID[19:15]};
+  wire [5:0] RS2_ID; assign RS2_ID = {1'b0, INSTRUCTION_ID[24:20]};
+  wire [5:0] RS3_ID; assign RS3_ID = {1'b0, INSTRUCTION_ID[31:27]};                            // third address input to the regFile
+  wire [5:0] RS4_ID; assign RS4_ID = {1'b0, INSTRUCTION_ID[26:25], INSTRUCTION_ID[14:12]};    // fourth address input to the regFile
+  wire [5:0] RS5_ID; assign RS5_ID = {1'b0, INSTRUCTION_ID[11:7]};                            // fifth address input to the regFile
+  wire [5:0] RS6_ID; assign RS6_ID = {1'b0, INSTRUCTION_ID[6:2]};                            // sixth address input to the regFile
+   
+  wire [31:0] REG_DATA3_ID, REG_DATA4_ID, REG_DATA5_ID, REG_DATA6_ID;    // multiport regFile data outputs
   wire IF_ID_write,PC_write;
   
   //////////////////////////////////////////EX signals////////////////////////////////////////////////////////
@@ -656,6 +737,8 @@ module RISC_V(input clk,
   wire [31:0] MUX_A_EX,MUX_B_EX;
   wire [31:0] RS2_IMM_EX;
   
+  wire [31:0] REG_DATA3_EX, REG_DATA4_EX, REG_DATA5_EX, REG_DATA6_EX;
+  wire RegWrite_multiple_EX;
   //////////////////////////////////////////MEM signals////////////////////////////////////////////////////////
   wire [31:0] INSTRUCTION_MEM;
   wire RegWrite_MEM,MemtoReg_MEM,MemRead_MEM,MemWrite_MEM;
@@ -677,6 +760,9 @@ module RISC_V(input clk,
   wire forwardC;
   wire [31:0] MUX_C_MEM;
   
+  wire [31:0] CLB_result1_MEM, CLB_result2_MEM, CLB_result3_MEM;
+  wire RegWrite_multiple_MEM;
+  
   assign funct3 = {FUNCT3_MEM,ALU_OUT_MEM[1:0]};
   assign MemRead = MemRead_MEM;
   assign MemWrite = MemWrite_MEM;
@@ -693,88 +779,96 @@ module RISC_V(input clk,
   wire [31:0] ALU_DATA_WB;
   wire [4:0] RD_WB;
   
-  assign Reg_WriteAddress = {1'b0,RD_WB};
-  assign Reg_WriteData = ALU_DATA_WB;
-  assign RegWrite = RegWrite_WB;
-  
-   assign REG_DATA1_ID = (RS1_ID != 5'b0) ? //it is different from x0
-                         (((RegWrite_WB == 1'b1)&&(RS1_ID == RD_WB)) ? 
-                         ALU_DATA_WB : Reg1_ReadData) : 32'b0;
-   assign REG_DATA2_ID = (RS2_ID != 5'b0) ? //it is different from x0
-                         (((RegWrite_WB == 1'b1)&&(RS2_ID == RD_WB)) ? 
-                         ALU_DATA_WB : Reg2_ReadData) : 32'b0;
-   assign Reg1_ReadAddress = {1'b0,RS1_ID};
-   assign Reg2_ReadAddress = {1'b0,RS2_ID};
+  wire [31:0] CLB_result1_WB, CLB_result2_WB, CLB_result3_WB;
+  wire RegWrite_multiple_WB;
   
   //////////////////////////////////////pipeline registers////////////////////////////////////////////////////
   
-  (* DONT_TOUCH = "true" *) IF_ID_reg IF_ID_REGISTER(clk,CSR[0],
-                                                         IF_ID_write&(~CSR[1]),
-                                                         PC_IF,INSTRUCTION_IF,
-                                                         PC_ID,INSTRUCTION_ID);
+  IF_ID_reg IF_ID_REGISTER(clk,CSR[0],
+                           IF_ID_write&(~CSR[1]),
+                           PC_IF,INSTRUCTION_IF,
+                           PC_ID,INSTRUCTION_ID);
   
-  (* DONT_TOUCH = "true" *) ID_EX_reg ID_EX_REGISTER(clk,CSR[0],(~CSR[1]),INSTRUCTION_ID,
-                                                         RegWrite_ID,MemtoReg_ID,MemRead_ID,MemWrite_ID,ALUSrc_ID,Branch_ID,ALUop_ID,
-                                                         PC_ID,REG_DATA1_ID,REG_DATA2_ID,IMM_ID,
-                                                         FUNCT7_ID,FUNCT3_ID,
-                                                         RS1_ID,RS2_ID,RD_ID,
+  ID_EX_reg ID_EX_REGISTER(clk,CSR[0],(~CSR[1]),INSTRUCTION_ID,
+                           RegWrite_ID,MemtoReg_ID,MemRead_ID,MemWrite_ID,ALUSrc_ID,Branch_ID,ALUop_ID,
+                           PC_ID,REG_DATA1_ID,REG_DATA2_ID,IMM_ID,
+                           FUNCT7_ID,FUNCT3_ID,
+                           RS1_ID[4:0],RS2_ID[4:0],RD_ID,
                                  
-                                                         INSTRUCTION_EX,
-                                                         RegWrite_EX,MemtoReg_EX,MemRead_EX,MemWrite_EX,ALUSrc_EX,Branch_EX,ALUop_EX,
-                                                         PC_EX,REG_DATA1_EX,REG_DATA2_EX,IMM_EX,
-                                                         FUNCT7_EX,FUNCT3_EX,
-                                                         RS1_EX,RS2_EX,RD_EX);
+                           INSTRUCTION_EX,
+                           RegWrite_EX,MemtoReg_EX,MemRead_EX,MemWrite_EX,ALUSrc_EX,Branch_EX,ALUop_EX,
+                           PC_EX,REG_DATA1_EX,REG_DATA2_EX,IMM_EX,
+                           FUNCT7_EX,FUNCT3_EX,
+                           RS1_EX,RS2_EX,RD_EX,
+                                                         
+                           REG_DATA3_ID, REG_DATA4_ID, REG_DATA5_ID, REG_DATA6_ID,
+                           REG_DATA3_EX, REG_DATA4_EX, REG_DATA5_EX, REG_DATA6_EX,
+                           RegWrite_multiple_ID, RegWrite_multiple_EX);
   
-  (* DONT_TOUCH = "true" *) EX_MEM_reg EX_MEM_REGISTER(clk,CSR[0],(~CSR[1]),INSTRUCTION_EX,
-                                                           RegWrite_EX,MemtoReg_EX,MemRead_EX,MemWrite_EX,Branch_EX,
-                                                           PC_EX,PC_Branch,FUNCT3_EX,
-                                                           ALU_OUT_EX,ZERO_EX,
-                                                           MUX_B_EX,
-                                                           RS2_EX,RD_EX,
-                                  
-                                                           INSTRUCTION_MEM,
-                                                           RegWrite_MEM,MemtoReg_MEM,MemRead_MEM,MemWrite_MEM,Branch_MEM,
-                                                           PC_MEMORY,PC_MEM,FUNCT3_MEM,
-                                                           ALU_OUT_MEM,ZERO_MEM,
-                                                           REG_DATA2_MEM,
-                                                           RS2_MEM,RD_MEM);
+  EX_MEM_reg EX_MEM_REGISTER(clk,CSR[0],(~CSR[1]),INSTRUCTION_EX,
+                             RegWrite_EX,MemtoReg_EX,MemRead_EX,MemWrite_EX,Branch_EX,
+                             PC_EX,PC_Branch,FUNCT3_EX,
+                             ALU_OUT_EX,ZERO_EX,
+                             MUX_B_EX,
+                             RS2_EX,RD_EX,
+                                 
+                             INSTRUCTION_MEM,
+                             RegWrite_MEM,MemtoReg_MEM,MemRead_MEM,MemWrite_MEM,Branch_MEM,
+                             PC_MEMORY,PC_MEM,FUNCT3_MEM,
+                             ALU_OUT_MEM,ZERO_MEM,
+                             REG_DATA2_MEM,
+                             RS2_MEM,RD_MEM,
+                                                           
+                             RegWrite_multiple_EX,
+                             RegWrite_multiple_MEM);
   
-  (* DONT_TOUCH = "true" *) MEM_WB_reg MEM_WB_REGISTER(clk,CSR[0],(~CSR[1]),INSTRUCTION_MEM,
-                                                           RegWrite_MEM,MemtoReg_MEM,
-                                                           PC_MEMORY,
-                                                           DATA_MEMORY_MEM,
-                                                           ALU_OUT_MEM,
-                                                           RD_MEM,
+  MEM_WB_reg MEM_WB_REGISTER(clk,CSR[0],(~CSR[1]),INSTRUCTION_MEM,
+                             RegWrite_MEM,MemtoReg_MEM,
+                             PC_MEMORY,
+                             DATA_MEMORY_MEM,
+                             ALU_OUT_MEM,
+                             RD_MEM,
                                   
-                                                          INSTRUCTION_WB,
-                                                          RegWrite_WB,MemtoReg_WB,
-                                                          PC_WB,
-                                                          DATA_MEMORY_WB,
-                                                          ALU_OUT_WB,
-                                                          RD_WB);
-                                         
+                             INSTRUCTION_WB,
+                             RegWrite_WB,MemtoReg_WB,
+                             PC_WB,
+                             DATA_MEMORY_WB,
+                             ALU_OUT_WB,
+                             RD_WB,
+                                                          
+                             RegWrite_multiple_MEM,
+                             RegWrite_multiple_WB,
+                             CLB_result1_MEM,
+                             CLB_result2_MEM,
+                             CLB_result3_MEM,
+                             CLB_result1_WB,
+                             CLB_result2_WB,
+                             CLB_result3_WB);
+                                        
   
   ///////////////////////////////////////////IF data path/////////////////////////////////////////////////////////
   
-  (* DONT_TOUCH = "true" *) PC PC_MODULE(clk,CSR[0],PC_write&(~CSR[1]),PC_MUX,PC_IF); //current PC
+  PC PC_MODULE(clk,CSR[0],PC_write&(~CSR[1]),PC_MUX,PC_IF); //current PC
   
   //(* DONT_TOUCH = "true" *) instruction_memory INSTRUCTION_MEMORY_MODULE(PC_IF[11:2],INSTRUCTION_IF);
   
-  (* DONT_TOUCH = "true" *) adder ADDER_PC_4_IF(PC_IF,32'b0100,PC_4_IF);  //PC+4
-  //assign PC_4_IF = PC_IF+32'h00000004;
+  //(* DONT_TOUCH = "true" *) adder ADDER_PC_4_IF(PC_IF,32'b0100,PC_4_IF);  //PC+4
+  assign PC_4_IF = PC_IF+32'h00000004;
   
-  (* DONT_TOUCH = "true" *) mux2_1 MUX_PC(PC_4_IF,                 //PC+4
-                                              PC_MEM,           //selction between pc from branch predictor or pc from EX stage
-                                              (Branch_MEM & (beq|bne|blt|bge)), //select if we take or not the branch(if there is a branch instruction)
-                                              PC_MUX);
-  //assign PC_MUX = (Branch_MEM & (beq|bne|blt|bge)==1'b1) ? PC_MEM : PC_4_IF;              
+  //mux2_1 MUX_PC(PC_4_IF,                 //PC+4
+  //              PC_MEM,           //selction between pc from branch predictor or pc from EX stage
+  //              (Branch_MEM & (beq|bne|blt|bge)), //select if we take or not the branch(if there is a branch instruction)
+  //               PC_MUX);
+  assign PC_MUX = (Branch_MEM & (beq|bne|blt|bge)==1'b1) ? PC_MEM : PC_4_IF;              
    
   ///////////////////////////////////////////ID data path/////////////////////////////////////////////////////////
   
-  (* DONT_TOUCH = "true" *) control_path CONTROL_PATH_MODULE(OPCODE,         
-                                                                 pipeline_stall, //hazard detection signal 
-                                                                 Branch_ID,MemRead_ID,MemtoReg_ID,
-                                                                 ALUop_ID,MemWrite_ID,ALUSrc_ID,RegWrite_ID);
+  control_path CONTROL_PATH_MODULE(OPCODE,         
+                                    pipeline_stall, //hazard detection signal 
+                                    Branch_ID,MemRead_ID,MemtoReg_ID,
+                                    ALUop_ID,MemWrite_ID,ALUSrc_ID,RegWrite_ID,
+                                    RegWrite_ext_ID,
+                                    RegWrite_multiple_ID);
   
   /*(* DONT_TOUCH = "true" *) registers REGISTER_FILE_MODULE(clk,RegWrite_WB, 
                                                                RS1_ID,    
@@ -782,65 +876,200 @@ module RISC_V(input clk,
                                                                RD_WB,     
                                                                ALU_DATA_WB,
                                                                REG_DATA1_ID,REG_DATA2_ID);*/
+                                                               
+  wire [5:0] conf_addr;	// auto-updating address for the CHM configuration registers in the regFile
+  assign write_data1 = (RegWrite_multiple_WB) ? CLB_result1_WB : ALU_DATA_WB;
+  assign write_data2 = CLB_result2_WB;
+  assign write_data3 = CLB_result3_WB;
   
-  (* DONT_TOUCH = "true" *) imm_gen IMM_GEN_MODULE(INSTRUCTION_ID,IMM_ID);
+  assign read_addr1 = RS1_ID;
+  assign read_addr2 = RS2_ID;
+  assign read_addr3 = RS3_ID;
+  assign read_addr4 = RS4_ID;
+  assign read_addr5 = RS5_ID;
+  assign read_addr6 = RS6_ID;
+  assign write_addr=({1'b0, RD_WB});
+  assign write_addr_conf=conf_addr;
   
-  (* DONT_TOUCH = "true" *) hazard_detection HAZARD_DETECTION_UNIT(RD_EX,  //ID_EX.rd
-                                                                       RS1_ID, //IF_ID.rs1
-                                                                       RS2_ID, //IF_ID.rs2
-                                                                       MemRead_EX,   //ID_EX.MemRead
-                                                                       PC_write,IF_ID_write,
-                                                                       pipeline_stall);
+  assign write_enable_conf=RegWrite_ext_ID;
+  assign write_enable_basic=RegWrite_WB; 
+  assign write_enable_CLB=RegWrite_multiple_WB;
+  
+  assign REG_DATA1_ID = (read_addr1==write_addr && write_enable_basic) ? write_data1 : read_data1;
+  assign REG_DATA2_ID = (read_addr2==write_addr && write_enable_basic) ? write_data1 : read_data2;
+  assign REG_DATA3_ID = (read_addr3==write_addr && write_enable_basic) ? write_data1 : read_data3;
+  assign REG_DATA4_ID = (read_addr4==write_addr && write_enable_basic) ? write_data1 : read_data4;
+  assign REG_DATA5_ID = (read_addr5==write_addr && write_enable_basic) ? write_data1 : read_data5;
+  assign REG_DATA6_ID = (read_addr6==write_addr && write_enable_basic) ? write_data1 : read_data6;
+                                                                 
+  address_counter conf_addr_cnt(.clk(clk), .res(CSR[0]), .cnt(RegWrite_ext_ID), .address(conf_addr));    // address generator for the CHM configuration registers
+                                                                 
+  // The configuration data is taken directly from the instruction field (the 30 MSB), and the arrangement of the bits depends on the destination register
+  assign write_data_conf = (conf_addr == 32) ? {INSTRUCTION_ID[31:27], 3'b000, INSTRUCTION_ID[25:2]} :
+                           (conf_addr == 33 || conf_addr == 34) ? {INSTRUCTION_ID[31:27], 2'b00, INSTRUCTION_ID[26:2]}:
+                           (conf_addr == 35 || conf_addr == 36) ? {8'b0000_0000, INSTRUCTION_ID[25:2]} : 32'b0;
+                                                                 
+                                                                 
+  /*multiport_register_n_bits #(32) MULTIPORT_REGISTER_FILE_MODULE(.clk(clk), .write_enable_basic(RegWrite_WB), .write_enable_CLB(RegWrite_multiple_WB),
+                                                                 .write_enable_conf(RegWrite_ext_ID),
+                                                                 
+                                                                 .read_addr1(RS1_ID), .read_addr2(RS2_ID), .read_addr3(RS3_ID), .read_addr4(RS4_ID),
+                                                                 .read_addr5(RS5_ID), .read_addr6(RS6_ID), .write_addr({1'b0, RD_WB}),     //extra read and write addresses
+                                                                 .write_addr_conf(conf_addr),    //dedicated address for the configuration registers
+                                                                                                                               
+                                                                 .write_data1(write_data1), .write_data2(CLB_result2_WB), .write_data3(CLB_result3_WB),
+                                                                 .write_data_conf(write_data_conf),
+                                                                                                                     
+                                                                 .read_data1(REG_DATA1_ID), .read_data2(REG_DATA2_ID), .read_data3(REG_DATA3_ID), 
+                                                                 .read_data4(REG_DATA4_ID), .read_data5(REG_DATA5_ID), .read_data6(REG_DATA6_ID),
+                                                                                                                               
+                                                                 .CLB_conf1(CLB_conf1), .CLB_conf2(CLB_conf2), .CLB_conf3(CLB_conf3),
+                                                                 .CLB_conf4(CLB_conf4), .CLB_conf5(CLB_conf5)
+                                                                 );
+  */
+  
+  
+  imm_gen IMM_GEN_MODULE(INSTRUCTION_ID,IMM_ID);
+  
+  hazard_detection HAZARD_DETECTION_UNIT(RD_EX,  //ID_EX.rd
+                                         RS1_ID[4:0], //IF_ID.rs1
+                                         RS2_ID[4:0], //IF_ID.rs2
+                                         MemRead_EX,   //ID_EX.MemRead
+                                         PC_write,IF_ID_write,
+                                         pipeline_stall);
                                 
                                          
   ///////////////////////////////////////////EX data path/////////////////////////////////////////////////////////                                       
   
-  (* DONT_TOUCH = "true" *) ALU ALU_MODULE(ALU_control,
-                                               MUX_A_EX,RS2_IMM_EX,
-                                               ZERO_EX,ALU_OUT_EX);
+  ALU ALU_MODULE(ALU_control,
+                 MUX_A_EX,RS2_IMM_EX,
+                 ZERO_EX,ALU_OUT_EX);
   
-  (* DONT_TOUCH = "true" *) ALUcontrol ALU_CONTROL_MODULE(ALUop_EX,    //ALUop
-                                                              FUNCT7_EX,    //funct7
-                                                              FUNCT3_EX,    //funct3
-                                                              ALU_control);
+  ALUcontrol ALU_CONTROL_MODULE(ALUop_EX,    //ALUop
+                                FUNCT7_EX,    //funct7
+                                FUNCT3_EX,    //funct3
+                                ALU_control);
   
-  (* DONT_TOUCH = "true" *) mux2_1 MUX_RS2_IMM(MUX_B_EX,     //rs2
-                                                 IMM_EX,        //imm
-                                                 ALUSrc_EX,     //ALUSrc
-                                                 RS2_IMM_EX);
-  //assign RS2_IMM_EX = (ALUSrc_EX == 1'b1) ? IMM_EX : MUX_B_EX;
+  //mux2_1 MUX_RS2_IMM(MUX_B_EX,     //rs2
+  //                   IMM_EX,        //imm
+  //                   ALUSrc_EX,     //ALUSrc
+  //                   RS2_IMM_EX);
+  assign RS2_IMM_EX = (ALUSrc_EX == 1'b1) ? IMM_EX : MUX_B_EX;
                     
-  (* DONT_TOUCH = "true" *) adder ADDER_IMM_EX(PC_EX,      //PC
-                                               IMM_EX<<1, //imm<<1
-                                               PC_Branch);
-  //assign PC_Branch = PC_EX + (IMM_EX<<1);
+  //adder ADDER_IMM_EX(PC_EX,      //PC
+  //                   IMM_EX<<1, //imm<<1
+  //                   PC_Branch);
+  assign PC_Branch = PC_EX + (IMM_EX<<1);
                     
                   
-  (* DONT_TOUCH = "true" *) forwarding FORWARDING_UNIT(RS1_EX, //rs1
-                                                       RS2_EX,  //rs2
-                                                       RD_MEM,     //ex_mem_rd
-                                                       RD_WB,     //mem_wb_rd
-                                                       RegWrite_MEM,     //ex_mem_regwrite
-                                                       RegWrite_WB,     //mem_wb_regwrite
-                                                       forwardA,forwardB);
+  forwarding FORWARDING_UNIT(RS1_EX, //rs1
+                             RS2_EX,  //rs2
+                             RD_MEM,     //ex_mem_rd
+                             RD_WB,     //mem_wb_rd
+                             RegWrite_MEM,     //ex_mem_regwrite
+                             RegWrite_WB,     //mem_wb_regwrite
+                             forwardA,forwardB);
   
-  (* DONT_TOUCH = "true" *) mux4_1 MUX_FORWARD_A(REG_DATA1_EX,   //ID_EX source
-                                                 ALU_DATA_WB, //MEM_WB source
-                                                 ALU_OUT_MEM,   //EX_MEM source
-                                                 32'b0,            //not used
-                                                 forwardA,MUX_A_EX);
-  /*assign MUX_A_EX = (forwardA == 2'b00) ? REG_DATA1_EX : 
-                    ((forwardA == 2'b01) ? ALU_DATA_WB : 
-                    ((forwardA == 2'b10) ? ALU_OUT_MEM : 32'b0));*/
+  //mux4_1 MUX_FORWARD_A(REG_DATA1_EX,   //ID_EX source
+  //                     ALU_DATA_WB, //MEM_WB source
+  //                     ALU_OUT_MEM,   //EX_MEM source
+  //                     32'b0,            //not used
+  //                     forwardA,MUX_A_EX);
+  assign MUX_A_EX = (forwardA == 2'b00) ? REG_DATA1_EX : 
+                    (forwardA == 2'b01) ? ALU_DATA_WB : 
+                    (forwardA == 2'b10) ? ALU_OUT_MEM : 32'b0;
                       
-  (* DONT_TOUCH = "true" *) mux4_1 MUX_FORWARD_B(REG_DATA2_EX,    //ID_EX source
-                                                     ALU_DATA_WB, //MEM_WB source
-                                                     ALU_OUT_MEM,   //EX_MEM source
-                                                     32'b0,            //not used
-                                                     forwardB,MUX_B_EX);
-  /*assign MUX_B_EX = (forwardB == 2'b00) ? REG_DATA2_EX : 
-                    ((forwardB == 2'b01) ? ALU_DATA_WB : 
-                    ((forwardB == 2'b10) ? ALU_OUT_MEM : 32'b0));*/                
+  //mux4_1 MUX_FORWARD_B(REG_DATA2_EX,    //ID_EX source
+  //                     ALU_DATA_WB, //MEM_WB source
+  //                     ALU_OUT_MEM,   //EX_MEM source
+  //                     32'b0,            //not used
+  //                     forwardB,MUX_B_EX);
+  assign MUX_B_EX = (forwardB == 2'b00) ? REG_DATA2_EX : 
+                    (forwardB == 2'b01) ? ALU_DATA_WB : 
+                    (forwardB == 2'b10) ? ALU_OUT_MEM : 32'b0;  
+                    
+  // All selection bits are taken from the CLB_conf nets
+  CLB_full  CustomHardwareModule(.register_clk(clk),
+                                 .register_reset(CSR[0]),
+                                 .register_par_load(1'b1),
+                                 .result_sel({CLB_conf2[0], CLB_conf3[0]}),
+                                                   
+                                 .in0(REG_DATA1_EX), .in1(REG_DATA2_EX),
+                                 .in2(REG_DATA3_EX), .in3(REG_DATA4_EX),
+                                 .in4(REG_DATA5_EX), .in5(REG_DATA6_EX),
+                                 .in6(32'b0), .in7(32'hffff_ffff),
+                                                   
+                                 .bypass_0({CLB_conf4[7:6], CLB_conf5[7:6]}),
+                                 .bypass_1({CLB_conf4[5:4], CLB_conf5[5:4]}),
+                                 .bypass_2({CLB_conf4[3:2], CLB_conf5[3:2]}),
+                                 .bypass_3({CLB_conf4[1:0], CLB_conf5[1:0]}),
+                                                   
+                                 .sel0_00(CLB_conf1[23:21]),
+                                 .sel0_10(CLB_conf1[20:18]),
+                                 .sel0_20(CLB_conf1[17:15]),
+                                 .sel0_30(CLB_conf1[14:12]),
+                                 .sel1_00(CLB_conf1[11:9]),
+                                 .sel1_10(CLB_conf1[8:6]),
+                                 .sel1_20(CLB_conf1[5:3]),
+                                 .sel1_30(CLB_conf1[2:0]),
+                                                   
+                                 .sel0_01(CLB_conf2[24:23]),
+                                 .sel0_02(CLB_conf2[22:21]),
+                                 .sel0_03(CLB_conf2[20:19]),
+                                 .sel0_11(CLB_conf2[18:17]),
+                                 .sel0_12(CLB_conf2[16:15]),
+                                 .sel0_13(CLB_conf2[14:13]),
+                                                   
+                                 .sel1_01(CLB_conf2[12:11]),
+                                 .sel1_02(CLB_conf2[10:9]),
+                                 .sel1_03(CLB_conf2[8:7]),
+                                 .sel1_11(CLB_conf2[6:5]),
+                                 .sel1_12(CLB_conf2[4:3]),
+                                 .sel1_13(CLB_conf2[2:1]),
+                                                   
+                                 .sel0_21(CLB_conf3[24:23]),
+                                 .sel0_22(CLB_conf3[22:21]),
+                                 .sel0_23(CLB_conf3[20:19]),
+                                 .sel0_31(CLB_conf3[18:17]),
+                                 .sel0_32(CLB_conf3[16:15]),
+                                 .sel0_33(CLB_conf3[14:13]),
+                                                   
+                                 .sel1_21(CLB_conf3[12:11]),
+                                 .sel1_22(CLB_conf3[10:9]),
+                                 .sel1_23(CLB_conf3[8:7]),
+                                 .sel1_31(CLB_conf3[6:5]),
+                                 .sel1_32(CLB_conf3[4:3]),
+                                 .sel1_33(CLB_conf3[2:1]),
+                                                   
+                                 .selOp_00(CLB_conf4[23:22]),
+                                 .selOp_01(CLB_conf4[21:20]),
+                                 .selOp_02(CLB_conf4[19:18]),
+                                 .selOp_03(CLB_conf4[17:16]),
+                                                   
+                                 .selOp_10(CLB_conf4[15:14]),
+                                 .selOp_11(CLB_conf4[13:12]),
+                                 .selOp_12(CLB_conf4[11:10]),
+                                 .selOp_13(CLB_conf4[9:8]),
+                                                   
+                                 .selOp_20(CLB_conf5[23:22]),
+                                 .selOp_21(CLB_conf5[21:20]),
+                                 .selOp_22(CLB_conf5[19:18]),
+                                 .selOp_23(CLB_conf5[17:16]),
+                                                   
+                                 .selOp_30(CLB_conf5[15:14]),
+                                 .selOp_31(CLB_conf5[13:12]),
+                                 .selOp_32(CLB_conf5[11:10]),
+                                 .selOp_33(CLB_conf5[9:8]),
+                                 
+                                 .buff0(buff0),
+                                 .buff1(buff1),
+                                 .buff2(buff2),
+                                 .buff3(buff3),
+                                                   
+                                 .result0(CLB_result1_MEM),
+                                 .result1(CLB_result2_MEM),
+                                 .result2(CLB_result3_MEM)
+                                 );              
                       
   ///////////////////////////////////////////MEM data path/////////////////////////////////////////////////////////
          
@@ -850,26 +1079,26 @@ module RISC_V(input clk,
                                                            ALU_OUT_MEM[11:2],      //ALU_OUT(address)
                                                            MUX_C_MEM,     //rs2(data)
                                                            DATA_MEMORY_MEM);*/
-  (* DONT_TOUCH = "true" *) load_store_forwarding LD_SD_FORWARDING(RS2_MEM,
-                                                                   RD_WB,
-                                                                   MemWrite_MEM,
-                                                                   MemtoReg_WB,
-                                                                   forwardC);
+  load_store_forwarding LD_SD_FORWARDING(RS2_MEM,
+                                         RD_WB,
+                                         MemWrite_MEM,
+                                         MemtoReg_WB,
+                                         forwardC);
                                          
-  (* DONT_TOUCH = "true" *) mux2_1 MUX_FORWARD_C(REG_DATA2_MEM,
-                                                 DATA_MEMORY_WB,
-                                                 forwardC,
-                                                 MUX_C_MEM);
-  //assign MUX_C_MEM = (forwardC == 1'b1) ? DATA_MEMORY_WB : REG_DATA2_MEM; 
+  //mux2_1 MUX_FORWARD_C(REG_DATA2_MEM,
+  //                     DATA_MEMORY_WB,
+  //                     forwardC,
+  //                     MUX_C_MEM);
+  assign MUX_C_MEM = (forwardC == 1'b1) ? DATA_MEMORY_WB : REG_DATA2_MEM; 
                         
                                                   
   ///////////////////////////////////////////MEM data path/////////////////////////////////////////////////////////
   
-  (* DONT_TOUCH = "true" *) mux2_1 MUX_ALU_DATA(ALU_OUT_WB,   //ALU_out result
-                                                DATA_MEMORY_WB, //Data_memory_out 
-                                                MemtoReg_WB,    //MemtoReg
-                                                ALU_DATA_WB);
-  //assign ALU_DATA_WB = (MemtoReg_WB == 1'b1) ? DATA_MEMORY_WB : ALU_OUT_WB;
+  //mux2_1 MUX_ALU_DATA(ALU_OUT_WB,   //ALU_out result
+  //                      DATA_MEMORY_WB, //Data_memory_out 
+  //                      MemtoReg_WB,    //MemtoReg
+  //                      ALU_DATA_WB);
+  assign ALU_DATA_WB = (MemtoReg_WB == 1'b1) ? DATA_MEMORY_WB : ALU_OUT_WB;
                       
   //////////////////////////////////////////////OTHER STUFF/////////////////////////////////////////////////////////////
   

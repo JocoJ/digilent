@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/Programare/Digilent/Risc-V_onSteroids/Risc-V_onSteroids.runs/design_1_processing_system7_0_0_synth_1'
+HD_PWD='D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.runs/design_1_processing_system7_0_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

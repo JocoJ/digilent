@@ -234,7 +234,6 @@
                 5'b00010: slv_reg[data_address][23:16] <= data_write[7:0];
                 5'b00011: slv_reg[data_address][31:24] <= data_write[7:0];
                 5'b010xx: slv_reg[data_address] <= data_write;
-                default: slv_reg[data_address] <= data_write;
             endcase
 	    end      
 
@@ -353,11 +352,10 @@
                     5'b00010: data_read <= {24'b0,slv_reg[data_address][23:16]};
                     5'b00011: data_read <= {24'b0,slv_reg[data_address][31:24]};
                     5'b010xx: data_read <= slv_reg[data_address];
-                    default: data_read <= slv_reg[data_address];
+                    default:  data_read <= slv_reg[data_address];
                 endcase
-                data_read <= slv_reg[data_address];
             end
-            else data_read <= 0;
+            else data_read <= data_read;
         end
 
 

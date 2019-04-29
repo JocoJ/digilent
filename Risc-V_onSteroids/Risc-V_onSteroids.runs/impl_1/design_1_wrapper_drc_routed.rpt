@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Sun Apr 28 18:28:13 2019
+| Date         : Mon Apr 29 18:49:53 2019
 | Host         : DESKTOP-BP5JPAP running 64-bit major release  (build 9200)
 | Command      : report_drc -file design_1_wrapper_drc_routed.rpt -pb design_1_wrapper_drc_routed.pb -rpx design_1_wrapper_drc_routed.rpx
 | Design       : design_1_wrapper
@@ -36,12 +36,12 @@ Table of Contents
 -----------------
 PDRC-153#1 Warning
 Gated clock check  
-Net design_1_i/myip_0/inst/risc_v/TIMER/cnt[63]_i_2_n_0 is a gated clock net sourced by a combinational pin design_1_i/myip_0/inst/risc_v/TIMER/cnt[63]_i_2/O, cell design_1_i/myip_0/inst/risc_v/TIMER/cnt[63]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/myip_0/inst/myip_v1_0_REGS_AXI_inst/clk0 is a gated clock net sourced by a combinational pin design_1_i/myip_0/inst/myip_v1_0_REGS_AXI_inst/cnt[0]_i_2/O, cell design_1_i/myip_0/inst/myip_v1_0_REGS_AXI_inst/cnt[0]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PLHOLDVIO-2#1 Warning
 Non-Optimal connections which could lead to hold violations  
-A LUT design_1_i/myip_0/inst/risc_v/TIMER/cnt[63]_i_2 is driving clock pin of 64 cells. This could lead to large hold time violations. First few involved cells are:
+A LUT design_1_i/myip_0/inst/myip_v1_0_REGS_AXI_inst/cnt[0]_i_2 is driving clock pin of 64 cells. This could lead to large hold time violations. First few involved cells are:
     design_1_i/myip_0/inst/risc_v/TIMER/cnt_reg[0] {FDRE}
     design_1_i/myip_0/inst/risc_v/TIMER/cnt_reg[10] {FDRE}
     design_1_i/myip_0/inst/risc_v/TIMER/cnt_reg[11] {FDRE}

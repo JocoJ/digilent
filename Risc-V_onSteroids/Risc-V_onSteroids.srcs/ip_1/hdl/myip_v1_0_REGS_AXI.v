@@ -14,13 +14,38 @@
 	)
 	(
 		// Users to add ports here
-         input wire RegWrite,
-         input wire [5:0] Reg1_ReadAddress,
-         input wire [5:0] Reg2_ReadAddress,
-         input wire [5:0] Reg_WriteAddress,
-         input wire [31:0] Reg_WriteData,
-         output reg [31:0] Reg1_ReadData,
-         output reg [31:0] Reg2_ReadData,
+         input wire write_enable_basic,		// I: write enable for the single port mode
+         input wire write_enable_conf,        // I: write enable for the configuration registers (32->36)
+         input wire write_enable_CLB,        // I: write enable for multiport mode
+         input wire [5:0] read_addr1,                // I: read addresses
+         input wire [5:0] read_addr2,
+         input wire [5:0] read_addr3,
+         input wire [5:0] read_addr4,
+         input wire [5:0] read_addr5,
+         input wire [5:0] read_addr6,
+         input wire [5:0] write_addr,                // I: write address for single port mode (NOTE: multiport writing addresses are handled by the configuration registers)
+         input wire [5:0] write_addr_conf,        // I: write address for the configuration registers
+         input wire [31:0] write_data1,            // I: write data for both single port and multiport modes
+         input wire [31:0] write_data2,            // I: write data for multiport mode only
+         input wire [31:0] write_data3,            // I: write data for multiport mode only
+         input wire [31:0] write_data_conf,        // I: write data for the configuration registers
+         output reg [31:0] read_data1,                // O: output data from the regFile
+         output reg [31:0] read_data2,
+         output reg [31:0] read_data3,
+         output reg [31:0] read_data4,
+         output reg [31:0] read_data5,
+         output reg [31:0] read_data6,
+         output reg [31:0] CLB_conf1,                // O: outputs for the CHM
+         output reg [31:0] CLB_conf2,
+         output reg [31:0] CLB_conf3,
+         output reg [31:0] CLB_conf4,
+         output reg [31:0] CLB_conf5,
+         
+         input wire [31:0] buff0,
+         input wire [31:0] buff1,
+         input wire [31:0] buff2,
+         input wire [31:0] buff3,
+        
          input wire [31:0] pc_if,
          input wire [31:0] pc_id,
          input wire [31:0] pc_ex,
@@ -30,7 +55,7 @@
          input wire csr_write,
          input wire autostop,
          input wire pause,
-         output wire [2:0] CSR,
+         output reg [2:0] CSR,
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -227,18 +252,32 @@
 	// Slave register write enable is asserted when valid address and data are available
 	// and the slave is ready to accept the write address and write data.
 	assign slv_reg_wren = axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID;
+    wire [5:0] write_addr1, write_addr2, write_addr3;
+        
+    assign write_addr1 = CLB_conf1[31:27];
+    assign write_addr2 = CLB_conf2[31:27];
+    assign write_addr3 = CLB_conf3[31:27];
 
 	always @( posedge S_AXI_ACLK )
 	begin
-	  if ( S_AXI_ARESETN == 1'b0 )
-	    slv_reg[63] <= 32'h00000003; //HALT=1,RESET=1
-	  else begin
-	    if (slv_reg_wren && (axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]<56))
+	    if (slv_reg_wren && (axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]<=36))
 	      slv_reg[axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]] <= S_AXI_WDATA;
 	      
 	   ///////////////////////////////////////////RISC-V LOGIC//////////////////////////////////////////////////////////
-	    else if (RegWrite && (Reg_WriteAddress<32))
-          slv_reg[Reg_WriteAddress] <= Reg_WriteData;
+	    else begin
+	       if (write_enable_basic && (write_addr > 0) && (write_addr < 32))
+               slv_reg[write_addr] <= write_data1;
+            if (write_addr_conf && (write_enable_conf >= 32) && (write_enable_conf <= 36))
+                slv_reg[write_addr_conf] <= write_data_conf;
+            if (write_enable_CLB) begin
+                if ((write_addr1>0) && (write_addr1<32))
+                    slv_reg[{1'b0, write_addr1}] <= write_data1;
+                if ((write_addr2>0) && (write_addr2<32))
+                    slv_reg[{1'b0, write_addr2}] <= write_data2;
+                if ((write_addr3>0) && (write_addr3<32))
+                    slv_reg[{1'b0, write_addr3}] <= write_data3;
+            end
+        end
         
         if(slv_reg_wren && (axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]==63))
             slv_reg[axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]] <= S_AXI_WDATA;
@@ -246,7 +285,12 @@
             slv_reg[63][2] <= autostop;
             slv_reg[63][1] <= pause;
         end  
-            
+        
+        slv_reg[37] <= buff0;
+        slv_reg[38] <= buff1;
+        slv_reg[39] <= buff2;
+        slv_reg[40] <= buff3;
+           
         slv_reg[56] <= pc_if;
         slv_reg[57] <= pc_id;
         slv_reg[58] <= pc_ex;
@@ -255,7 +299,7 @@
         slv_reg[61] <= timestamp[31:0];
         slv_reg[62] <= timestamp[63:32];
         
-	  end
+	  
 	end    
 
 
@@ -366,14 +410,21 @@
 	
 	/////////////////////////////RISC-V LOGIC///////////////////////////////////////////
 	
-	assign CSR = slv_reg[63][2:0];
-	
-	always @(*)
-    begin
-      Reg1_ReadData <= slv_reg[Reg1_ReadAddress];
-      Reg2_ReadData <= slv_reg[Reg2_ReadAddress];
+	always@(*) begin
+	   CSR <= slv_reg[63][2:0];
+       CLB_conf1 <= slv_reg[32];         
+       CLB_conf2 <= slv_reg[33];         
+       CLB_conf3 <= slv_reg[34];         
+       CLB_conf4 <= slv_reg[35];         
+       CLB_conf5 <= slv_reg[36];         
+                            
+       read_data1 <= (read_addr1==6'b0) ? 32'b0 : slv_reg[read_addr1];
+       read_data2 <= (read_addr2==6'b0) ? 32'b0 : slv_reg[read_addr2];
+       read_data3 <= (read_addr3==6'b0) ? 32'b0 : slv_reg[read_addr3];
+       read_data4 <= (read_addr4==6'b0) ? 32'b0 : slv_reg[read_addr4];
+       read_data5 <= (read_addr5==6'b0) ? 32'b0 : slv_reg[read_addr5];
+       read_data6 <= (read_addr6==6'b0) ? 32'b0 : slv_reg[read_addr6];
     end
-   
 	// Output register or memory read data
 	always @( posedge S_AXI_ACLK )
 	begin
