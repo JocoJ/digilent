@@ -253,8 +253,8 @@ module control_path(opcode,control_sel,Branch,MemRead,MemtoReg,ALUop,MemWrite,AL
     casex({control_sel,opcode})
       8'b1xxxxxxx: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0000000000; //nop from hazard unit
       8'b00000000: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0000000000; //nop from ISA
-	  8'bxxxxxx01: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0000000001; //custom: instruction for selecting the registers for the CLB 
-	  8'bxxxxxx10: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0000000010; //custom: configure CLB control registers and CLB destination registers
+	  8'b0xxxxx01: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0000000001; //custom: instruction for selecting the registers for the CLB 
+	  8'b0xxxxx10: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0000000010; //custom: configure CLB control registers and CLB destination registers
       8'b00000011: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b1111000000; //lw
       8'b00100011: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b1000100000; //sw
       8'b00110011: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0010001000; //R32-format
