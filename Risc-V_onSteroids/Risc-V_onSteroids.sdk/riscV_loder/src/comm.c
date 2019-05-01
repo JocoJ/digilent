@@ -224,6 +224,38 @@ void executeNextCommand()
 			break;
 		}
 
+		case COMMAND__GET_CONFIGURATION:
+		{
+			conf_t conf = getConfiguration();
+
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C1 >> 24);
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C1 >> 16);
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C1 >> 8);
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C1);
+
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C2 >> 24);
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C2 >> 16);
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C2 >> 8);
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C2);
+
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C3 >> 24);
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C3 >> 16);
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C3 >> 8);
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C3);
+
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C4 >> 24);
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C4 >> 16);
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C4 >> 8);
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C4);
+
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C5 >> 24);
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C5 >> 16);
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C5 >> 8);
+			XUartPs_SendByte(STDOUT_BASEADDRESS, conf.C5);
+
+			break;
+		}
+
 		case COMMAND__START:
 		{
 			runRiscVCore();

@@ -96,6 +96,19 @@ uint64_t getTimeStamp()
 	return timestamp;
 }
 
+conf_t getConfiguration()
+{
+	conf_t c;
+
+	c.C1 = CONF1;
+	c.C2 = CONF2;
+	c.C3 = CONF3;
+	c.C4 = CONF4;
+	c.C5 = CONF5;
+
+	return c;
+}
+
 void writeInstructionMemory(uint16_t address, uint32_t instr)
 {
 	INSTR_MEMORY[address] = instr;

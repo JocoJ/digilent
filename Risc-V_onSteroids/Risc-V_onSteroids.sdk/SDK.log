@@ -590,3 +590,13 @@ con
 
 18:59:13 INFO  : Launch script is exported to file 'D:\Altele\Digilent\Workspace\Risc-V_onSteroids\Risc-V_onSteroids.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_release_riscv_loder.elf_on_local.tcl'
 20:10:54 INFO  : Disconnected from the channel tcfchan#1.
+18:05:24 INFO  : Registering command handlers for SDK TCF services
+18:05:25 INFO  : Launching XSCT server: xsct.bat -interactive D:\Altele\Digilent\Workspace\Risc-V_onSteroids\Risc-V_onSteroids.sdk\temp_xsdb_launch_script.tcl
+18:05:28 INFO  : XSCT server has started successfully.
+18:05:30 INFO  : Processing command line option -hwspec D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper.hdf.
+18:05:30 INFO  : Successfully done setting XSCT server connection channel  
+18:05:30 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_1.
+18:05:30 INFO  : Successfully done setting SDK workspace  
+18:43:52 INFO  : Invoking Bootgen: bootgen -image output.bif -arch zynq -o D:\Programare\Digilent\Risc-V_onSteroids\BOOT.bin -w on
+18:43:52 INFO  : Overwriting existing bif file D:\Programare\Digilent\Risc-V_onSteroids\output.bif
+18:43:54 INFO  : Bootgen command execution is done.

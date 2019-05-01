@@ -2681,3 +2681,463 @@ make pre-build main-build
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
+18:09:42 **** Auto Build of configuration Release for project riscV_loder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/comm.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/comm.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/comm.d" -MT"src/comm.o" -o "src/comm.o" "../src/comm.c"
+'Finished building: ../src/comm.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/riscV.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/riscV.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/riscV.d" -MT"src/riscV.o" -o "src/riscV.o" "../src/riscV.c"
+'Finished building: ../src/riscV.c'
+' '
+'Building target: riscV_loder.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../riscV_loder_bsp/ps7_cortexa9_0/lib -o "riscV_loder.elf"  ./src/comm.o ./src/main.o ./src/platform.o ./src/riscV.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: riscV_loder.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size riscV_loder.elf  |tee "riscV_loder.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20836	   1144	  22584	  44564	   ae14	riscV_loder.elf
+'Finished building: riscV_loder.elf.size'
+' '
+18:10:30 **** Auto Build of configuration Release for project riscV_loder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/comm.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/comm.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/comm.d" -MT"src/comm.o" -o "src/comm.o" "../src/comm.c"
+'Finished building: ../src/comm.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/riscV.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/riscV.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/riscV.d" -MT"src/riscV.o" -o "src/riscV.o" "../src/riscV.c"
+'Finished building: ../src/riscV.c'
+' '
+'Building target: riscV_loder.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../riscV_loder_bsp/ps7_cortexa9_0/lib -o "riscV_loder.elf"  ./src/comm.o ./src/main.o ./src/platform.o ./src/riscV.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: riscV_loder.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size riscV_loder.elf  |tee "riscV_loder.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20836	   1144	  22584	  44564	   ae14	riscV_loder.elf
+'Finished building: riscV_loder.elf.size'
+' '
+18:11:04 **** Auto Build of configuration Release for project riscV_loder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/comm.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/comm.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/comm.d" -MT"src/comm.o" -o "src/comm.o" "../src/comm.c"
+'Finished building: ../src/comm.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/riscV.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/riscV.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/riscV.d" -MT"src/riscV.o" -o "src/riscV.o" "../src/riscV.c"
+'Finished building: ../src/riscV.c'
+' '
+'Building target: riscV_loder.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../riscV_loder_bsp/ps7_cortexa9_0/lib -o "riscV_loder.elf"  ./src/comm.o ./src/main.o ./src/platform.o ./src/riscV.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: riscV_loder.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size riscV_loder.elf  |tee "riscV_loder.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20836	   1144	  22584	  44564	   ae14	riscV_loder.elf
+'Finished building: riscV_loder.elf.size'
+' '
+18:11:21 **** Auto Build of configuration Release for project riscV_loder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/comm.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/comm.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/comm.d" -MT"src/comm.o" -o "src/comm.o" "../src/comm.c"
+'Finished building: ../src/comm.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/riscV.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/riscV.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/riscV.d" -MT"src/riscV.o" -o "src/riscV.o" "../src/riscV.c"
+'Finished building: ../src/riscV.c'
+' '
+'Building target: riscV_loder.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../riscV_loder_bsp/ps7_cortexa9_0/lib -o "riscV_loder.elf"  ./src/comm.o ./src/main.o ./src/platform.o ./src/riscV.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: riscV_loder.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size riscV_loder.elf  |tee "riscV_loder.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20836	   1144	  22584	  44564	   ae14	riscV_loder.elf
+'Finished building: riscV_loder.elf.size'
+' '
+18:35:20 **** Auto Build of configuration Release for project riscV_loder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/comm.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/comm.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/comm.d" -MT"src/comm.o" -o "src/comm.o" "../src/comm.c"
+'Finished building: ../src/comm.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/riscV.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/riscV.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/riscV.d" -MT"src/riscV.o" -o "src/riscV.o" "../src/riscV.c"
+'Finished building: ../src/riscV.c'
+' '
+'Building target: riscV_loder.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../riscV_loder_bsp/ps7_cortexa9_0/lib -o "riscV_loder.elf"  ./src/comm.o ./src/main.o ./src/platform.o ./src/riscV.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: riscV_loder.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size riscV_loder.elf  |tee "riscV_loder.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20836	   1144	  22584	  44564	   ae14	riscV_loder.elf
+'Finished building: riscV_loder.elf.size'
+' '
+18:35:42 **** Auto Build of configuration Release for project riscV_loder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/comm.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/comm.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/comm.d" -MT"src/comm.o" -o "src/comm.o" "../src/comm.c"
+'Finished building: ../src/comm.c'
+' '
+'Building target: riscV_loder.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../riscV_loder_bsp/ps7_cortexa9_0/lib -o "riscV_loder.elf"  ./src/comm.o ./src/main.o ./src/platform.o ./src/riscV.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: riscV_loder.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size riscV_loder.elf  |tee "riscV_loder.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20836	   1144	  22584	  44564	   ae14	riscV_loder.elf
+'Finished building: riscV_loder.elf.size'
+' '
+18:36:12 **** Auto Build of configuration Release for project riscV_loder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/comm.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/comm.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/comm.d" -MT"src/comm.o" -o "src/comm.o" "../src/comm.c"
+'Finished building: ../src/comm.c'
+' '
+'Building target: riscV_loder.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../riscV_loder_bsp/ps7_cortexa9_0/lib -o "riscV_loder.elf"  ./src/comm.o ./src/main.o ./src/platform.o ./src/riscV.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: riscV_loder.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size riscV_loder.elf  |tee "riscV_loder.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20836	   1144	  22584	  44564	   ae14	riscV_loder.elf
+'Finished building: riscV_loder.elf.size'
+' '
+18:37:07 **** Auto Build of configuration Release for project riscV_loder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/comm.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/comm.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/comm.d" -MT"src/comm.o" -o "src/comm.o" "../src/comm.c"
+In file included from ../src/comm.c:10:0:
+../src/riscV.h:49:19: error: expected identifier or '(' before 'volatile'
+ #define CONF1 (*((volatile uint32_t*)(REGS_BASEADDRESS + CONF1_OFFSET)))
+                   ^
+../src/riscV.h:74:11: note: in expansion of macro 'CONF1'
+  uint32_t CONF1;
+           ^~~~~
+../src/riscV.h:49:38: error: expected ')' before '(' token
+ #define CONF1 (*((volatile uint32_t*)(REGS_BASEADDRESS + CONF1_OFFSET)))
+                                      ^
+../src/riscV.h:74:11: note: in expansion of macro 'CONF1'
+  uint32_t CONF1;
+           ^~~~~
+../src/riscV.h:50:19: error: expected identifier or '(' before 'volatile'
+ #define CONF2 (*((volatile uint32_t*)(REGS_BASEADDRESS + CONF2_OFFSET)))
+                   ^
+../src/riscV.h:75:11: note: in expansion of macro 'CONF2'
+  uint32_t CONF2;
+           ^~~~~
+../src/riscV.h:50:38: error: expected ')' before '(' token
+ #define CONF2 (*((volatile uint32_t*)(REGS_BASEADDRESS + CONF2_OFFSET)))
+                                      ^
+../src/riscV.h:75:11: note: in expansion of macro 'CONF2'
+  uint32_t CONF2;
+           ^~~~~
+../src/riscV.h:51:19: error: expected identifier or '(' before 'volatile'
+ #define CONF3 (*((volatile uint32_t*)(REGS_BASEADDRESS + CONF3_OFFSET)))
+                   ^
+../src/riscV.h:76:11: note: in expansion of macro 'CONF3'
+  uint32_t CONF3;
+           ^~~~~
+../src/riscV.h:51:38: error: expected ')' before '(' token
+ #define CONF3 (*((volatile uint32_t*)(REGS_BASEADDRESS + CONF3_OFFSET)))
+                                      ^
+../src/riscV.h:76:11: note: in expansion of macro 'CONF3'
+  uint32_t CONF3;
+           ^~~~~
+../src/riscV.h:52:19: error: expected identifier or '(' before 'volatile'
+ #define CONF4 (*((volatile uint32_t*)(REGS_BASEADDRESS + CONF4_OFFSET)))
+                   ^
+../src/riscV.h:77:11: note: in expansion of macro 'CONF4'
+  uint32_t CONF4;
+           ^~~~~
+../src/riscV.h:52:38: error: expected ')' before '(' token
+ #define CONF4 (*((volatile uint32_t*)(REGS_BASEADDRESS + CONF4_OFFSET)))
+                                      ^
+../src/riscV.h:77:11: note: in expansion of macro 'CONF4'
+  uint32_t CONF4;
+           ^~~~~
+../src/riscV.h:53:19: error: expected identifier or '(' before 'volatile'
+ #define CONF5 (*((volatile uint32_t*)(REGS_BASEADDRESS + CONF5_OFFSET)))
+                   ^
+../src/riscV.h:78:11: note: in expansion of macro 'CONF5'
+  uint32_t CONF5;
+           ^~~~~
+../src/riscV.h:53:38: error: expected ')' before '(' token
+ #define CONF5 (*((volatile uint32_t*)(REGS_BASEADDRESS + CONF5_OFFSET)))
+                                      ^
+../src/riscV.h:78:11: note: in expansion of macro 'CONF5'
+  uint32_t CONF5;
+           ^~~~~
+../src/riscV.h:79:1: warning: no semicolon at end of struct or union
+ }conf_t;
+ ^
+make: *** [src/comm.o] Error 1
+18:37:35 **** Auto Build of configuration Release for project riscV_loder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/comm.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/comm.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/comm.d" -MT"src/comm.o" -o "src/comm.o" "../src/comm.c"
+'Finished building: ../src/comm.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/riscV.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/riscV.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/riscV.d" -MT"src/riscV.o" -o "src/riscV.o" "../src/riscV.c"
+'Finished building: ../src/riscV.c'
+' '
+'Building target: riscV_loder.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../riscV_loder_bsp/ps7_cortexa9_0/lib -o "riscV_loder.elf"  ./src/comm.o ./src/main.o ./src/platform.o ./src/riscV.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: riscV_loder.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size riscV_loder.elf  |tee "riscV_loder.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20836	   1144	  22584	  44564	   ae14	riscV_loder.elf
+'Finished building: riscV_loder.elf.size'
+' '
+18:37:54 **** Auto Build of configuration Release for project riscV_loder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/comm.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/comm.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/comm.d" -MT"src/comm.o" -o "src/comm.o" "../src/comm.c"
+'Finished building: ../src/comm.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/riscV.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/riscV.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/riscV.d" -MT"src/riscV.o" -o "src/riscV.o" "../src/riscV.c"
+'Finished building: ../src/riscV.c'
+' '
+'Building target: riscV_loder.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../riscV_loder_bsp/ps7_cortexa9_0/lib -o "riscV_loder.elf"  ./src/comm.o ./src/main.o ./src/platform.o ./src/riscV.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: riscV_loder.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size riscV_loder.elf  |tee "riscV_loder.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20836	   1144	  22584	  44564	   ae14	riscV_loder.elf
+'Finished building: riscV_loder.elf.size'
+' '
+18:38:23 **** Auto Build of configuration Release for project riscV_loder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/riscV.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/riscV.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/riscV.d" -MT"src/riscV.o" -o "src/riscV.o" "../src/riscV.c"
+../src/riscV.c: In function 'getConfiguration':
+../src/riscV.c:101:9: warning: variable 'c' set but not used [-Wunused-but-set-variable]
+  conf_t c;
+         ^
+../src/riscV.c:103:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+'Finished building: ../src/riscV.c'
+' '
+'Building target: riscV_loder.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../riscV_loder_bsp/ps7_cortexa9_0/lib -o "riscV_loder.elf"  ./src/comm.o ./src/main.o ./src/platform.o ./src/riscV.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: riscV_loder.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size riscV_loder.elf  |tee "riscV_loder.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20860	   1144	  22584	  44588	   ae2c	riscV_loder.elf
+'Finished building: riscV_loder.elf.size'
+' '
+18:38:45 **** Auto Build of configuration Release for project riscV_loder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/riscV.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/riscV.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/riscV.d" -MT"src/riscV.o" -o "src/riscV.o" "../src/riscV.c"
+../src/riscV.c: In function 'getConfiguration':
+../src/riscV.c:101:9: warning: variable 'c' set but not used [-Wunused-but-set-variable]
+  conf_t c;
+         ^
+../src/riscV.c:108:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+'Finished building: ../src/riscV.c'
+' '
+'Building target: riscV_loder.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../riscV_loder_bsp/ps7_cortexa9_0/lib -o "riscV_loder.elf"  ./src/comm.o ./src/main.o ./src/platform.o ./src/riscV.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: riscV_loder.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size riscV_loder.elf  |tee "riscV_loder.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20876	   1144	  22584	  44604	   ae3c	riscV_loder.elf
+'Finished building: riscV_loder.elf.size'
+' '
+18:38:51 **** Auto Build of configuration Release for project riscV_loder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/riscV.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/riscV.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/riscV.d" -MT"src/riscV.o" -o "src/riscV.o" "../src/riscV.c"
+'Finished building: ../src/riscV.c'
+' '
+'Building target: riscV_loder.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../riscV_loder_bsp/ps7_cortexa9_0/lib -o "riscV_loder.elf"  ./src/comm.o ./src/main.o ./src/platform.o ./src/riscV.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: riscV_loder.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size riscV_loder.elf  |tee "riscV_loder.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20888	   1144	  22584	  44616	   ae48	riscV_loder.elf
+'Finished building: riscV_loder.elf.size'
+' '
+18:39:19 **** Auto Build of configuration Release for project riscV_loder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/comm.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/comm.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/comm.d" -MT"src/comm.o" -o "src/comm.o" "../src/comm.c"
+../src/comm.c: In function 'executeNextCommand':
+../src/comm.c:229:11: warning: unused variable 'conf' [-Wunused-variable]
+    conf_t conf = getConfiguration();
+           ^~~~
+'Finished building: ../src/comm.c'
+' '
+'Building target: riscV_loder.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../riscV_loder_bsp/ps7_cortexa9_0/lib -o "riscV_loder.elf"  ./src/comm.o ./src/main.o ./src/platform.o ./src/riscV.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: riscV_loder.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size riscV_loder.elf  |tee "riscV_loder.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20908	   1144	  22584	  44636	   ae5c	riscV_loder.elf
+'Finished building: riscV_loder.elf.size'
+' '
+18:39:59 **** Auto Build of configuration Release for project riscV_loder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/comm.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/comm.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/comm.d" -MT"src/comm.o" -o "src/comm.o" "../src/comm.c"
+'Finished building: ../src/comm.c'
+' '
+'Building target: riscV_loder.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../riscV_loder_bsp/ps7_cortexa9_0/lib -o "riscV_loder.elf"  ./src/comm.o ./src/main.o ./src/platform.o ./src/riscV.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: riscV_loder.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size riscV_loder.elf  |tee "riscV_loder.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20920	   1144	  22584	  44648	   ae68	riscV_loder.elf
+'Finished building: riscV_loder.elf.size'
+' '
+18:40:31 **** Auto Build of configuration Release for project riscV_loder ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/comm.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/comm.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/comm.d" -MT"src/comm.o" -o "src/comm.o" "../src/comm.c"
+'Finished building: ../src/comm.c'
+' '
+'Building target: riscV_loder.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../riscV_loder_bsp/ps7_cortexa9_0/lib -o "riscV_loder.elf"  ./src/comm.o ./src/main.o ./src/platform.o ./src/riscV.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: riscV_loder.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size riscV_loder.elf  |tee "riscV_loder.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20936	   1144	  22584	  44664	   ae78	riscV_loder.elf
+'Finished building: riscV_loder.elf.size'
+' '

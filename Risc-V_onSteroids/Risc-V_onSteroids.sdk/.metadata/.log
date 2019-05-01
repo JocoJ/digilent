@@ -13351,3 +13351,52 @@ java.lang.NullPointerException
 
 !ENTRY com.xilinx.sdk.utils 0 0 2019-04-29 20:10:54.808
 !MESSAGE XSCT command with result: [disconnect tcfchan#1], Result: [null, ]. Thread: Thread-103
+!SESSION 2019-05-01 18:04:31.958 -----------------------------------------------
+eclipse.buildId=2018.2
+java.version=1.8.0_112
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ro_MD
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk
+
+!ENTRY org.eclipse.ui 2 0 2019-05-01 18:05:15.177
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-05-01 18:05:15.177
+!MESSAGE Commands should really have a category: plug-in='com.xilinx.sdk.appwiz', id='com.xilinx.sdk.app.commands.ChangeAtfBuiltReferences', categoryId='com.xilinx.sdk.app.commands.category'
+
+!ENTRY org.eclipse.ui 2 0 2019-05-01 18:05:15.972
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-05-01 18:05:15.972
+!MESSAGE Commands should really have a category: plug-in='com.xilinx.sdk.appwiz', id='com.xilinx.sdk.app.commands.ChangeAtfBuiltReferences', categoryId='com.xilinx.sdk.app.commands.category'
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 18:05:28.137
+!MESSAGE XSCT Command: [::hsi::utils::init_repo], Thread: Worker-0
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 18:05:28.141
+!MESSAGE XSCT Command: [set sdk::sdk_chan tcfchan#0], Thread: Thread-15
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 18:05:30.398
+!MESSAGE XSCT command with result: [::hsi::utils::init_repo], Result: [null, ]. Thread: Worker-0
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 18:05:30.402
+!MESSAGE XSCT command with result: [set sdk::sdk_chan tcfchan#0], Result: [null, tcfchan#0]. Thread: Thread-15
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 18:05:30.432
+!MESSAGE XSCT Command: [setws D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk], Thread: Thread-15
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 18:05:30.438
+!MESSAGE XSCT Command: [::hsi::utils::openhw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: Worker-3
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 18:05:30.457
+!MESSAGE XSCT command with result: [setws D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk], Result: [null, ]. Thread: Thread-15
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 18:05:34.843
+!MESSAGE XSCT command with result: [::hsi::utils::openhw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, ]. Thread: Worker-3
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 18:05:34.940
+!MESSAGE XSCT Command: [::hsi::utils::openhw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_1/system.hdf], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 18:05:36.674
+!MESSAGE XSCT command with result: [::hsi::utils::openhw D:/Altele/Digilent/Workspace/Risc-V_onSteroids/Risc-V_onSteroids.sdk/design_1_wrapper_hw_platform_1/system.hdf], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 1 0 2019-05-01 18:43:52.427
+!MESSAGE Updating toolusage

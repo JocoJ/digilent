@@ -1,8 +1,23 @@
-18:59:11 **** Incremental Build of configuration Release for project riscV_loder ****
+18:40:31 **** Auto Build of configuration Release for project riscV_loder ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
-make: Nothing to be done for `main-build'.
+'Building file: ../src/comm.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/comm.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../riscV_loder_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/comm.d" -MT"src/comm.o" -o "src/comm.o" "../src/comm.c"
+'Finished building: ../src/comm.c'
+' '
+'Building target: riscV_loder.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../riscV_loder_bsp/ps7_cortexa9_0/lib -o "riscV_loder.elf"  ./src/comm.o ./src/main.o ./src/platform.o ./src/riscV.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: riscV_loder.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size riscV_loder.elf  |tee "riscV_loder.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20936	   1144	  22584	  44664	   ae78	riscV_loder.elf
+'Finished building: riscV_loder.elf.size'
+' '
 
-18:59:11 Build Finished (took 233ms)
+18:40:32 Build Finished (took 917ms)
 

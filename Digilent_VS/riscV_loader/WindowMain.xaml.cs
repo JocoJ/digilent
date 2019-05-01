@@ -31,6 +31,7 @@ namespace riscV_loader
             GetRegisters,
             GetMemory,
             GetTimeStamp,
+            GetConfuguration,
             ProgramStart,
             ProgramPause,
             ProgramHalt,
@@ -84,6 +85,7 @@ namespace riscV_loader
 
         Int32[] PC = new Int32[5];
         UInt32[] registers = new UInt32[32];
+        UInt32[] configurationRegs = new UInt32[5];
         ObservableCollection<ProgramViewItem> programViewCollection = new ObservableCollection<ProgramViewItem>();
         ObservableCollection<MemoryViewItem> memoryViewCollection = new ObservableCollection<MemoryViewItem>();
 
@@ -374,6 +376,12 @@ namespace riscV_loader
         private void ShowElapsedTime(UInt64 elapsed)
         {
             MessageBox.Show("Run complete!\nExecution took " + elapsed.ToString() + " cycles", "", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private delegate void UpdateCHMViewDelegate();
+        private void UpdateCHMView()
+        {
+
         }
 
         private delegate void InitDataViewsDelegate();
@@ -1496,6 +1504,37 @@ namespace riscV_loader
                             break;
                         }
 
+                        case ThreadCommands.GetConfuguration:
+                        {
+                            bufferOut[0] = DebugProtocol.CommandSendConfiguration;
+
+                            try
+                            {
+                                commPort.Write(bufferOut, 0, 1);
+
+                                for (int i = 0; i < 5; ++i)
+                                {
+                                    configurationRegs[i] = 0;
+                                    for (int j = 0; j < 4; ++j)
+                                    {
+                                        commPort.Read(bufferIn, 0, 1);
+
+                                        configurationRegs[i] <<= 8;
+                                        configurationRegs[i] |= bufferIn[0];
+                                    }
+                                }
+
+                                Dispatcher.BeginInvoke(new UpdateCHMViewDelegate(UpdateCHMView));
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, "Serial error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                Dispatcher.BeginInvoke(new UpdateStatusDelegate(SetUpdateStatus), "Error: Unable to get device status", true);
+                            }
+
+                            break;
+                        }
+
                         case ThreadCommands.ProgramStart:
                         {
                             bufferOut[0] = DebugProtocol.CommandStart;
@@ -1532,6 +1571,7 @@ namespace riscV_loader
                                     threadCommandQueue.Enqueue(ThreadCommands.GetPC);
                                     threadCommandQueue.Enqueue(ThreadCommands.GetRegisters);
                                     threadCommandQueue.Enqueue(ThreadCommands.GetMemory);
+                                    threadCommandQueue.Enqueue(ThreadCommands.GetConfuguration);
                                 }
                             }
                             catch (Exception ex)

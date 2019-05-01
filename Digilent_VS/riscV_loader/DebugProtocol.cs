@@ -18,6 +18,7 @@ namespace riscV_loader
         public const Byte CommandSendRegisters = 0x86;
         public const Byte CommandSendMemory = 0x83;
         public const Byte CommandSendTimeStamp = 0x81;
+        public const Byte CommandSendConfiguration = 0x88;
         public const Byte CommandStart = 0x99;
         public const Byte CommandPause = 0x9A;
         public const Byte CommandHalt = 0x9B;

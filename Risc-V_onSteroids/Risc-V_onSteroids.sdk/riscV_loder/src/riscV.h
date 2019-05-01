@@ -29,6 +29,12 @@
 #define TIMESTAMP_HI_OFFSET (0xF8u)
 #define TIMESTAMP_LO_OFFSET (0xF4u)
 
+#define CONF1_OFFSET (0x20u)
+#define CONF2_OFFSET (0x21u)
+#define CONF3_OFFSET (0x22u)
+#define CONF4_OFFSET (0x23u)
+#define CONF5_OFFSET (0x24u)
+
 #define CSR (*((volatile uint32_t*)(REGS_BASEADDRESS + CSR_OFFSET)))
 
 #define PC_IF (*((volatile uint32_t*)(REGS_BASEADDRESS + PC_IF_OFFSET)))
@@ -39,6 +45,12 @@
 
 #define TIMESTAMP_HI (*((volatile uint32_t*)(REGS_BASEADDRESS + TIMESTAMP_HI_OFFSET)))
 #define TIMESTAMP_LO (*((volatile uint32_t*)(REGS_BASEADDRESS + TIMESTAMP_LO_OFFSET)))
+
+#define CONF1 (*((volatile uint32_t*)(REGS_BASEADDRESS + CONF1_OFFSET)))
+#define CONF2 (*((volatile uint32_t*)(REGS_BASEADDRESS + CONF2_OFFSET)))
+#define CONF3 (*((volatile uint32_t*)(REGS_BASEADDRESS + CONF3_OFFSET)))
+#define CONF4 (*((volatile uint32_t*)(REGS_BASEADDRESS + CONF4_OFFSET)))
+#define CONF5 (*((volatile uint32_t*)(REGS_BASEADDRESS + CONF5_OFFSET)))
 
 #define INSTR_COUNT (1024)
 #define DATA_COUNT (4096)
@@ -57,6 +69,15 @@ typedef struct _PC_t
 	uint32_t WB;
 }PC_t;
 
+typedef struct _conf_t
+{
+	uint32_t C1;
+	uint32_t C2;
+	uint32_t C3;
+	uint32_t C4;
+	uint32_t C5;
+}conf_t;
+
 void initRiscVCore();
 void resetRiscVCore();
 void runRiscVCore();
@@ -65,6 +86,7 @@ void stepRiscVCore();
 uint8_t isPaused();
 PC_t getPC();
 uint64_t getTimeStamp();
+conf_t getConfiguration();
 void writeInstructionMemory(uint16_t address, uint32_t instr);
 void writeDataMemory(uint16_t address, uint8_t data);
 void pollRiscVStatus();
