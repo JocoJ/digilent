@@ -128,6 +128,8 @@ namespace riscV_loader
             ((DataGridTextColumn)DataGridMemoryView.Columns[16]).Binding = new Binding("dataF");
             DataGridMemoryView.AutoGenerateColumns = false;
             DataGridMemoryView.DataContext = memoryViewCollection;
+
+            SetCHMVisibility(false);
         }
 
         private void ProgramViewCollection_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -378,10 +380,211 @@ namespace riscV_loader
             MessageBox.Show("Run complete!\nExecution took " + elapsed.ToString() + " cycles", "", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
+        private void SetCHMVisibility(bool visible)
+        {
+            canvasCHM.Visibility = visible ? Visibility.Visible : Visibility.Hidden;
+        }
+
         private delegate void UpdateCHMViewDelegate();
         private void UpdateCHMView()
         {
+            uint i00 = (configurationRegs[0] >> 21) & 0x7;
+            uint i10 = (configurationRegs[0] >> 18) & 0x7;
+            uint i20 = (configurationRegs[0] >> 15) & 0x7;
+            uint i30 = (configurationRegs[0] >> 12) & 0x7;
 
+            uint i01 = (configurationRegs[0] >> 9) & 0x7;
+            uint i11 = (configurationRegs[0] >> 6) & 0x7;
+            uint i21 = (configurationRegs[0] >> 3) & 0x7;
+            uint i31 = (configurationRegs[0] >> 0) & 0x7;
+
+            textBoxInput00.Text = "in" + i00.ToString();
+            textBoxInput10.Text = "in" + i10.ToString();
+            textBoxInput20.Text = "in" + i20.ToString();
+            textBoxInput30.Text = "in" + i30.ToString();
+
+            textBoxInput01.Text = "in" + i01.ToString();
+            textBoxInput11.Text = "in" + i11.ToString();
+            textBoxInput21.Text = "in" + i21.ToString();
+            textBoxInput31.Text = "in" + i31.ToString();
+
+            double[] yIndexes = { 110, 300, 490, 680 };
+
+            uint sel01i0 = (configurationRegs[1] >> 23) & 0x3;
+            uint sel02i0 = (configurationRegs[1] >> 21) & 0x3;
+            uint sel03i0 = (configurationRegs[1] >> 19) & 0x3;
+
+            uint sel11i0 = (configurationRegs[1] >> 17) & 0x3;
+            uint sel12i0 = (configurationRegs[1] >> 15) & 0x3;
+            uint sel13i0 = (configurationRegs[1] >> 13) & 0x3;
+
+            uint sel01i1 = (configurationRegs[1] >> 11) & 0x3;
+            uint sel02i1 = (configurationRegs[1] >> 9) & 0x3;
+            uint sel03i1 = (configurationRegs[1] >> 7) & 0x3;
+
+            uint sel11i1 = (configurationRegs[1] >> 5) & 0x3;
+            uint sel12i1 = (configurationRegs[1] >> 3) & 0x3;
+            uint sel13i1 = (configurationRegs[1] >> 1) & 0x3;
+
+            uint sel21i0 = (configurationRegs[2] >> 23) & 0x3;
+            uint sel22i0 = (configurationRegs[2] >> 21) & 0x3;
+            uint sel23i0 = (configurationRegs[2] >> 19) & 0x3;
+
+            uint sel31i0 = (configurationRegs[2] >> 17) & 0x3;
+            uint sel32i0 = (configurationRegs[2] >> 15) & 0x3;
+            uint sel33i0 = (configurationRegs[2] >> 13) & 0x3;
+
+            uint sel21i1 = (configurationRegs[2] >> 11) & 0x3;
+            uint sel22i1 = (configurationRegs[2] >> 9) & 0x3;
+            uint sel23i1 = (configurationRegs[2] >> 7) & 0x3;
+
+            uint sel31i1 = (configurationRegs[2] >> 5) & 0x3;
+            uint sel32i1 = (configurationRegs[2] >> 3) & 0x3;
+            uint sel33i1 = (configurationRegs[2] >> 1) & 0x3;
+
+            linePath01i0.Y1 = yIndexes[sel01i0];
+            linePath02i0.Y1 = yIndexes[sel02i0];
+            linePath03i0.Y1 = yIndexes[sel03i0];
+
+            linePath11i0.Y1 = yIndexes[sel11i0];
+            linePath12i0.Y1 = yIndexes[sel12i0];
+            linePath13i0.Y1 = yIndexes[sel13i0];
+
+            linePath01i1.Y1 = yIndexes[sel01i1];
+            linePath02i1.Y1 = yIndexes[sel02i1];
+            linePath03i1.Y1 = yIndexes[sel03i1];
+
+            linePath11i1.Y1 = yIndexes[sel11i1];
+            linePath12i1.Y1 = yIndexes[sel12i1];
+            linePath13i1.Y1 = yIndexes[sel13i1];
+
+            linePath21i0.Y1 = yIndexes[sel21i0];
+            linePath22i0.Y1 = yIndexes[sel22i0];
+            linePath23i0.Y1 = yIndexes[sel23i0];
+
+            linePath31i0.Y1 = yIndexes[sel31i0];
+            linePath32i0.Y1 = yIndexes[sel32i0];
+            linePath33i0.Y1 = yIndexes[sel33i0];
+
+            linePath21i1.Y1 = yIndexes[sel21i1];
+            linePath22i1.Y1 = yIndexes[sel22i1];
+            linePath23i1.Y1 = yIndexes[sel23i1];
+
+            linePath31i1.Y1 = yIndexes[sel31i1];
+            linePath32i1.Y1 = yIndexes[sel32i1];
+            linePath33i1.Y1 = yIndexes[sel33i1];
+
+            string[] ops0_1 = { "ADD", "SUB", "AND", "OR" };
+            string[] ops2 = { "ADD", "SUB", "NAND", "NOR" };
+            string[] ops3 = { "SLL", "SRL", "SRA", "XOR" };
+
+            uint op00 = (configurationRegs[3] >> 22) & 0x3;
+            uint op01 = (configurationRegs[3] >> 20) & 0x3;
+            uint op02 = (configurationRegs[3] >> 18) & 0x3;
+            uint op03 = (configurationRegs[3] >> 16) & 0x3;
+
+            uint op10 = (configurationRegs[3] >> 14) & 0x3;
+            uint op11 = (configurationRegs[3] >> 12) & 0x3;
+            uint op12 = (configurationRegs[3] >> 10) & 0x3;
+            uint op13 = (configurationRegs[3] >> 8) & 0x3;
+
+            uint op20 = (configurationRegs[4] >> 22) & 0x3;
+            uint op21 = (configurationRegs[4] >> 20) & 0x3;
+            uint op22 = (configurationRegs[4] >> 18) & 0x3;
+            uint op23 = (configurationRegs[4] >> 16) & 0x3;
+
+            uint op30 = (configurationRegs[4] >> 14) & 0x3;
+            uint op31 = (configurationRegs[4] >> 12) & 0x3;
+            uint op32 = (configurationRegs[4] >> 10) & 0x3;
+            uint op33 = (configurationRegs[4] >> 8) & 0x3;
+
+            uint by00 = (configurationRegs[3] >> 7) & 0x1;
+            uint by10 = (configurationRegs[3] >> 6) & 0x1;
+
+            uint by01 = (configurationRegs[3] >> 5) & 0x1;
+            uint by11 = (configurationRegs[3] >> 4) & 0x1;
+
+            uint by02 = (configurationRegs[3] >> 3) & 0x1;
+            uint by12 = (configurationRegs[3] >> 2) & 0x1;
+
+            uint by03 = (configurationRegs[3] >> 1) & 0x1;
+            uint by13 = (configurationRegs[3] >> 0) & 0x1;
+
+            uint by20 = (configurationRegs[4] >> 7) & 0x1;
+            uint by30 = (configurationRegs[4] >> 6) & 0x1;
+
+            uint by21 = (configurationRegs[4] >> 5) & 0x1;
+            uint by31 = (configurationRegs[4] >> 4) & 0x1;
+
+            uint by22 = (configurationRegs[4] >> 3) & 0x1;
+            uint by32 = (configurationRegs[4] >> 2) & 0x1;
+
+            uint by23 = (configurationRegs[4] >> 1) & 0x1;
+            uint by33 = (configurationRegs[4] >> 0) & 0x1;
+
+            textBlockOp00.Text = (by00 == 0) ? ops0_1[op00] : "";
+            textBlockOp01.Text = (by01 == 0) ? ops0_1[op01] : "";
+            textBlockOp02.Text = (by02 == 0) ? ops0_1[op02] : "";
+            textBlockOp03.Text = (by03 == 0) ? ops0_1[op03] : "";
+
+            textBlockOp10.Text = (by10 == 0) ? ops0_1[op10] : "";
+            textBlockOp11.Text = (by11 == 0) ? ops0_1[op11] : "";
+            textBlockOp12.Text = (by12 == 0) ? ops0_1[op12] : "";
+            textBlockOp13.Text = (by13 == 0) ? ops0_1[op13] : "";
+
+            textBlockOp20.Text = (by20 == 0) ? ops2[op20] : "";
+            textBlockOp21.Text = (by21 == 0) ? ops2[op21] : "";
+            textBlockOp22.Text = (by22 == 0) ? ops2[op22] : "";
+            textBlockOp23.Text = (by23 == 0) ? ops2[op23] : "";
+
+            textBlockOp30.Text = (by30 == 0) ? ops3[op30] : "";
+            textBlockOp31.Text = (by31 == 0) ? ops3[op31] : "";
+            textBlockOp32.Text = (by32 == 0) ? ops3[op32] : "";
+            textBlockOp33.Text = (by33 == 0) ? ops3[op33] : "";
+
+            uint[] outs = new uint[3];
+            outs[0] = (configurationRegs[0] >> 25) & 0x1F;
+            outs[1] = (configurationRegs[1] >> 25) & 0x1F;
+            outs[2] = (configurationRegs[2] >> 25) & 0x1F;
+
+            uint oSel = 0;
+            if ((configurationRegs[1] & 0x1) == 0x1)
+            {
+                oSel |= 0x1;
+            }
+            if ((configurationRegs[2] & 0x1) == 0x1)
+            {
+                oSel |= 0x2;
+            }
+
+            if (oSel == 0)
+            {
+                textBoxOutput0.Text = "";
+                textBoxOutput1.Text = "X" + outs[0].ToString();
+                textBoxOutput2.Text = "X" + outs[1].ToString();
+                textBoxOutput3.Text = "X" + outs[2].ToString();
+            }
+            else if (oSel == 1)
+            {
+                textBoxOutput0.Text = "X" + outs[0].ToString();
+                textBoxOutput1.Text = "";
+                textBoxOutput2.Text = "X" + outs[1].ToString();
+                textBoxOutput3.Text = "X" + outs[2].ToString();
+            }
+            else if (oSel == 2)
+            {
+                textBoxOutput0.Text = "X" + outs[0].ToString();
+                textBoxOutput1.Text = "X" + outs[1].ToString();
+                textBoxOutput2.Text = "";
+                textBoxOutput3.Text = "X" + outs[2].ToString();
+            }
+            else
+            {
+                textBoxOutput0.Text = "X" + outs[0].ToString();
+                textBoxOutput1.Text = "X" + outs[1].ToString();
+                textBoxOutput2.Text = "X" + outs[2].ToString();
+                textBoxOutput3.Text = "";
+            }
         }
 
         private delegate void InitDataViewsDelegate();
@@ -558,6 +761,11 @@ namespace riscV_loader
                     sm_serialThread.Start(serialData);
 
                     coreStatus = CoreStatus.Halted;
+
+                    SetCHMVisibility(true);
+
+                    configurationRegs[0] = configurationRegs[1] = configurationRegs[2] = configurationRegs[3] = configurationRegs[4] = 0;
+                    UpdateCHMView();
                 }
             }
             else
@@ -582,6 +790,8 @@ namespace riscV_loader
                     UpdateUI();
 
                     ClearDataViews();
+
+                    SetCHMVisibility(false);
                 }
             }
         }

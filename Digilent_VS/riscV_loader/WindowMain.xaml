@@ -803,7 +803,7 @@
                             </TextBlock.RenderTransform>
                         </TextBlock>
                         
-                        <TextBlock Name="textBoxPipeline0" Canvas.Left="409" TextWrapping="Wrap" Text="0x00000000" Canvas.Top="98" RenderTransformOrigin="0.5,0.5">
+                        <!--<TextBlock Name="textBoxPipeline0" Canvas.Left="409" TextWrapping="Wrap" Text="0x00000000" Canvas.Top="98" RenderTransformOrigin="0.5,0.5">
                             <TextBlock.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -812,9 +812,9 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </TextBlock.RenderTransform>
-                        </TextBlock>
+                        </TextBlock>-->
 
-                        <TextBlock Name="textBoxPipeline1" Canvas.Left="409" TextWrapping="Wrap" Text="0x00000000" Canvas.Top="293" RenderTransformOrigin="0.5,0.5">
+                        <!--<TextBlock Name="textBoxPipeline1" Canvas.Left="409" TextWrapping="Wrap" Text="0x00000000" Canvas.Top="293" RenderTransformOrigin="0.5,0.5">
                             <TextBlock.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -823,9 +823,9 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </TextBlock.RenderTransform>
-                        </TextBlock>
+                        </TextBlock>-->
 
-                        <TextBlock Name="textBoxPipeline2" Canvas.Left="409" TextWrapping="Wrap" Text="0x00000000" Canvas.Top="482" RenderTransformOrigin="0.5,0.5">
+                        <!--<TextBlock Name="textBoxPipeline2" Canvas.Left="409" TextWrapping="Wrap" Text="0x00000000" Canvas.Top="482" RenderTransformOrigin="0.5,0.5">
                             <TextBlock.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -834,9 +834,9 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </TextBlock.RenderTransform>
-                        </TextBlock>
+                        </TextBlock>-->
 
-                        <TextBlock Name="textBoxPipeline3" Canvas.Left="409" TextWrapping="Wrap" Text="0x00000000" Canvas.Top="666" RenderTransformOrigin="0.5,0.5">
+                        <!--<TextBlock Name="textBoxPipeline3" Canvas.Left="409" TextWrapping="Wrap" Text="0x00000000" Canvas.Top="666" RenderTransformOrigin="0.5,0.5">
                             <TextBlock.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -845,7 +845,7 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </TextBlock.RenderTransform>
-                        </TextBlock>
+                        </TextBlock>-->
 
                         <TextBlock Name="textBoxOutput0" Canvas.Left="828" TextWrapping="Wrap" Text="X10" Canvas.Top="98" RenderTransformOrigin="0.5,0.5">
                             <TextBlock.RenderTransform>
@@ -892,23 +892,23 @@
                         </TextBlock>
 
                         <TextBlock Name="textBlockOp00" Canvas.Top="100" Canvas.Left="93" Text="ADD" FontSize="18" FontFamily="Courier New" />
-                        <TextBlock Name="textBlockOp01" Canvas.Top="290" Canvas.Left="93" Text="ADD" FontSize="18" FontFamily="Courier New" />
-                        <TextBlock Name="textBlockOp02" Canvas.Top="480" Canvas.Left="93" Text="ADD" FontSize="18" FontFamily="Courier New" />
-                        <TextBlock Name="textBlockOp03" Canvas.Top="670" Canvas.Left="93" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp10" Canvas.Top="290" Canvas.Left="93" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp20" Canvas.Top="480" Canvas.Left="93" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp30" Canvas.Top="670" Canvas.Left="93" Text="ADD" FontSize="18" FontFamily="Courier New" />
 
-                        <TextBlock Name="textBlockOp10" Canvas.Top="100" Canvas.Left="283" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp01" Canvas.Top="100" Canvas.Left="283" Text="ADD" FontSize="18" FontFamily="Courier New" />
                         <TextBlock Name="textBlockOp11" Canvas.Top="290" Canvas.Left="283" Text="ADD" FontSize="18" FontFamily="Courier New" />
-                        <TextBlock Name="textBlockOp12" Canvas.Top="480" Canvas.Left="283" Text="ADD" FontSize="18" FontFamily="Courier New" />
-                        <TextBlock Name="textBlockOp13" Canvas.Top="670" Canvas.Left="283" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp21" Canvas.Top="480" Canvas.Left="283" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp31" Canvas.Top="670" Canvas.Left="283" Text="ADD" FontSize="18" FontFamily="Courier New" />
 
-                        <TextBlock Name="textBlockOp20" Canvas.Top="100" Canvas.Left="563" Text="ADD" FontSize="18" FontFamily="Courier New" />
-                        <TextBlock Name="textBlockOp21" Canvas.Top="290" Canvas.Left="563" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp02" Canvas.Top="100" Canvas.Left="563" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp12" Canvas.Top="290" Canvas.Left="563" Text="ADD" FontSize="18" FontFamily="Courier New" />
                         <TextBlock Name="textBlockOp22" Canvas.Top="480" Canvas.Left="563" Text="ADD" FontSize="18" FontFamily="Courier New" />
-                        <TextBlock Name="textBlockOp23" Canvas.Top="670" Canvas.Left="563" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp32" Canvas.Top="670" Canvas.Left="563" Text="ADD" FontSize="18" FontFamily="Courier New" />
 
-                        <TextBlock Name="textBlockOp30" Canvas.Top="100" Canvas.Left="753" Text="ADD" FontSize="18" FontFamily="Courier New" />
-                        <TextBlock Name="textBlockOp31" Canvas.Top="290" Canvas.Left="753" Text="ADD" FontSize="18" FontFamily="Courier New" />
-                        <TextBlock Name="textBlockOp32" Canvas.Top="480" Canvas.Left="753" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp03" Canvas.Top="100" Canvas.Left="753" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp13" Canvas.Top="290" Canvas.Left="753" Text="ADD" FontSize="18" FontFamily="Courier New" />
+                        <TextBlock Name="textBlockOp23" Canvas.Top="480" Canvas.Left="753" Text="ADD" FontSize="18" FontFamily="Courier New" />
                         <TextBlock Name="textBlockOp33" Canvas.Top="670" Canvas.Left="753" Text="ADD" FontSize="18" FontFamily="Courier New" />
                     </Canvas>
                 </DockPanel>
