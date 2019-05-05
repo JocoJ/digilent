@@ -41,10 +41,10 @@ module cell_shifter(
 	
 	output reg[(WIDTH - 1) : 0] out;
 	
-	wire [WIDTH - 1 : 0] operand0;
-	wire [WIDTH - 1 : 0] operand1;
+	wire [(WIDTH - 1) : 0] operand0;
+	wire [(WIDTH - 1) : 0] operand1;
 	
-	wire [WIDTH - 1 : 0] operationResult;
+	wire [(WIDTH - 1) : 0] operationResult;
 
 	mux_1x8 #(WIDTH) mux0(.in0(in0), .in1(in1), .in2(in2), .in3(in3), .in4(in4), .in5(in5), .in6(in6), .in7(in7), .sel(sel0), .out(operand0));
 	mux_1x8 #(WIDTH) mux1(.in0(in0), .in1(in1), .in2(in2), .in3(in3), .in4(in4), .in5(in5), .in6(in6), .in7(in7), .sel(sel1), .out(operand1));
