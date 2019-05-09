@@ -648,6 +648,8 @@ module RISC_V(clk,reset);
   wire [31:0] REG_DATA3_EX, REG_DATA4_EX, REG_DATA5_EX, REG_DATA6_EX;
   wire RegWrite_multiple_EX;
   
+  wire [31:0] CHM_pipe0, CHM_pipe1, CHM_pipe2, CHM_pipe3;
+  
   //////////////////////////////////////////MEM signals////////////////////////////////////////////////////////
   wire RegWrite_MEM,MemtoReg_MEM,MemRead_MEM,MemWrite_MEM;
   wire Branch_MEM;
@@ -931,7 +933,12 @@ module RISC_V(clk,reset);
 								   
 								   .result0(CLB_result1_MEM),
 								   .result1(CLB_result2_MEM),
-								   .result2(CLB_result3_MEM)
+								   .result2(CLB_result3_MEM),
+								   
+								   .buff0(CHM_pipe0),
+								   .buff1(CHM_pipe1),
+								   .buff2(CHM_pipe2),
+								   .buff3(CHM_pipe3)
 								   
 								   );
                       

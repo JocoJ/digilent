@@ -9,13 +9,13 @@ module CLB_column(
 	in6,
 	in7,
 	bypass,	//I: bypass validation vector of length 4 (one bit per cell)
-	sel0_0,	//I: operand selection -- sel0_x - x is the cell from the column
-	sel1_0,	// arithmetic
-	sel0_1, //arithmetic
-	sel1_1, 
-	sel0_2, //alternative arithmetic
+	sel0_0,	//I: operand selection -- sel0_x - x is the cell from the column x = 0, 1, 2, 3
+	sel1_0,	//					   -- sely_0 - y is the operand of the cell, y = 0/1
+	sel0_1,
+	sel1_1,
+	sel0_2,
 	sel1_2,
-	sel0_3, //shift/xor
+	sel0_3,
 	sel1_3,
 	selOp0,	//I: operation selection, 2 bits in length, one sel per cell
 	selOp1,

@@ -1,70 +1,70 @@
-C:/Users/Sergiu/Desktop/Work/CLB_Column.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/CLB_Column.v
+C:/Users/Sergiu/Desktop/Work/CLB_Column.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\Work\CLB_Column.v}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module CLB_column
 
 Top level modules:
 	CLB_column
 
-} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/CLB_out_stage.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/digilent/digilent/CLB/CLB_out_stage.v
+} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/CLB_out_stage.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\digilent\digilent\CLB\CLB_out_stage.v}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module CLB_out_stage
 
 Top level modules:
 	CLB_out_stage
 
-} {} {}} C:/Users/Sergiu/Desktop/Work/cell_A_alt.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/cell_A_alt.v
+} {} {}} C:/Users/Sergiu/Desktop/Work/cell_A_alt.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\Work\cell_A_alt.v}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module cell_arithmetic_logic_alt
 
 Top level modules:
 	cell_arithmetic_logic_alt
 
-} {} {}} C:/Users/Sergiu/Desktop/Work/logical_unit.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/logical_unit.v
+} {} {}} C:/Users/Sergiu/Desktop/Work/logical_unit.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\Work\logical_unit.v}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module logical_unit
 
 Top level modules:
 	logical_unit
 
-} {} {}} C:/Users/Sergiu/Desktop/Work/CLB_full.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/CLB_full.v
+} {} {}} C:/Users/Sergiu/Desktop/Work/CLB_full.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\Work\CLB_full.v}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module CLB_full
 
 Top level modules:
 	CLB_full
 
-} {} {}} C:/Users/Sergiu/Desktop/Work/alt_simple_alu.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/alt_simple_alu.v
+} {} {}} C:/Users/Sergiu/Desktop/Work/alt_simple_alu.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\Work\alt_simple_alu.v}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module alt_simple_unit
 
 Top level modules:
 	alt_simple_unit
 
-} {} {}} C:/Users/Sergiu/Desktop/Work/cell_L.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/cell_L.v
+} {} {}} C:/Users/Sergiu/Desktop/Work/cell_L.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\Work\cell_L.v}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module cell_logical
 
 Top level modules:
 	cell_logical
 
-} {} {}} C:/Users/Sergiu/Desktop/Work/register.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/register.v
+} {} {}} C:/Users/Sergiu/Desktop/Work/register.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\Work\register.v}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module register32
 
 Top level modules:
 	register32
 
-} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/address_counter_tb.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/digilent/digilent/CLB/address_counter_tb.v
+} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/address_counter_tb.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\digilent\digilent\CLB\address_counter_tb.v}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module address_counter_tb
 
 Top level modules:
 	address_counter_tb
 
-} {} {}} C:/Users/Sergiu/Desktop/Work/logical_unit_tb.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/logical_unit_tb.v
+} {} {}} C:/Users/Sergiu/Desktop/Work/logical_unit_tb.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\Work\logical_unit_tb.v}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 
-} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/RISC-V.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/digilent/digilent/CLB/RISC-V.v
+} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/RISC-V.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\digilent\digilent\CLB\RISC-V.v}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module PC
 -- Compiling module instruction_memory
@@ -91,46 +91,46 @@ Top level modules:
 	registers
 	RISC_V_TB
 
-} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/multiport_register.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/digilent/digilent/CLB/multiport_register.v
+} {} {}} C:/Users/Sergiu/Desktop/Work/simple_alu_tb.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/simple_alu_tb.v
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
--- Compiling module multiport_register_n_bits
 
-Top level modules:
-	multiport_register_n_bits
-
-} {} {}} C:/Users/Sergiu/Desktop/Work/cell_A.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/cell_A.v
-Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
--- Compiling module cell_arithmetic_logic
-
-Top level modules:
-	cell_arithmetic_logic
-
-} {} {}} C:/Users/Sergiu/Desktop/Work/mux_1xn.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/mux_1xn.v
+} {} {}} C:/Users/Sergiu/Desktop/Work/mux_1xn.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\Work\mux_1xn.v}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module mux_1x8
 
 Top level modules:
 	mux_1x8
 
-} {} {}} C:/Users/Sergiu/Desktop/Work/simple_alu_tb.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/simple_alu_tb.v
+} {} {}} C:/Users/Sergiu/Desktop/Work/cell_A.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\Work\cell_A.v}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module cell_arithmetic_logic
 
-} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/address_counter.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/digilent/digilent/CLB/address_counter.v
+Top level modules:
+	cell_arithmetic_logic
+
+} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/multiport_register.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\digilent\digilent\CLB\multiport_register.v}
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module multiport_register_n_bits
+
+Top level modules:
+	multiport_register_n_bits
+
+} {} {}} C:/Users/Sergiu/Desktop/digilent/digilent/CLB/address_counter.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\digilent\digilent\CLB\address_counter.v}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module address_counter
 
 Top level modules:
 	address_counter
 
-} {} {}} C:/Users/Sergiu/Desktop/Work/cell_S.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/cell_S.v
+} {} {}} C:/Users/Sergiu/Desktop/Work/shift_xor_unit_tb.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/shift_xor_unit_tb.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+
+} {} {}} C:/Users/Sergiu/Desktop/Work/cell_S.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\Work\cell_S.v}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module cell_shifter
 
 Top level modules:
 	cell_shifter
-
-} {} {}} C:/Users/Sergiu/Desktop/Work/shift_xor_unit_tb.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/shift_xor_unit_tb.v
-Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 
 } {} {}} C:/Users/Sergiu/Desktop/Work/simple_alu.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/simple_alu.v
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
@@ -139,18 +139,18 @@ Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 
 Top level modules:
 	arithmetic_unit
 
+} {} {}} C:/Users/Sergiu/Desktop/Work/shift_xor_unit.v {1 {vlog -work work -stats=none {C:\Users\Sergiu\Desktop\Work\shift_xor_unit.v}
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module shift_xor_unit
+
+Top level modules:
+	shift_xor_unit
+
 } {} {}} C:/Users/Sergiu/Desktop/Work/mux_1xn_tb.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/mux_1xn_tb.v
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module mux_tb
 
 Top level modules:
 	mux_tb
-
-} {} {}} C:/Users/Sergiu/Desktop/Work/shift_xor_unit.v {1 {vlog -work work -stats=none C:/Users/Sergiu/Desktop/Work/shift_xor_unit.v
-Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
--- Compiling module shift_xor_unit
-
-Top level modules:
-	shift_xor_unit
 
 } {} {}}
