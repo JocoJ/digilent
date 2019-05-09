@@ -1,5 +1,3 @@
-
-
 /////////////////////////////////////////PC_MODULE///////////////////////////////////////////////////////////////
 module PC(clk,res,write,in,out);
   
@@ -16,72 +14,6 @@ module PC(clk,res,write,in,out);
 
 endmodule
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-      
-
-///////////////////////////////////////INSTRUCTION_MEMORY/////////////////////////////////////////////////////
-/*module instruction_memory(address, instruction);
-  
-  input [9:0] address;
-  output reg [31:0] instruction;
-  reg [31:0] codeMemory [0:1023];
-  
-  initial $readmemh("code.mem", codeMemory);
-  
-  always@(address) begin
-    instruction <= codeMemory[address];
-  end
-
-endmodule*/
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-////////////////////////////////////////////ADDER_MODULE//////////////////////////////////////////////////////
-/*module adder(ina,inb,out);
-  input [31:0] ina,inb;
-  output reg [31:0] out;
-  
-  always@(ina,inb) begin
-    out <= ina+inb;
-  end
-
-endmodule*/
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-///////////////////////////////////REGISTER_FILE_MODULE///////////////////////////////////////////////////////
-/*module registers(clk,reg_write,read_reg1,read_reg2,write_reg,write_data,read_data1,read_data2);
-  
-  input clk,reg_write;
-  input [4:0] read_reg1,read_reg2,write_reg;
-  input [31:0] write_data;
-  output [31:0] read_data1,read_data2;
-  reg [31:0] Registers [0:31];
-  
-  integer i;
-  initial begin
-    for (i = 0; i < 32; i = i + 1) begin
-      Registers[i] = i;
-    end
-  end
-  
-  always@(posedge clk) begin
-    if(reg_write)
-      Registers[write_reg] <= write_data;
-  end
-  
-  assign read_data1 = (read_reg1 != 5'b0) ? //it is different from x0
-                      (((reg_write == 1'b1)&&(read_reg1 == write_reg)) ? 
-                      write_data : Registers[read_reg1]) : 32'b0;
-                      
-  assign read_data2 = (read_reg2 != 5'b0) ? //it is different from x0
-                      (((reg_write == 1'b1)&&(read_reg2 == write_reg)) ? 
-                      write_data : Registers[read_reg2]) : 32'b0;
-
-endmodule*/
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 
 ////////////////////////////////////////////ALU_MODULE///////////////////////////////////////////////////////
@@ -113,7 +45,6 @@ module ALU(ALUop,ina,inb,zero,out);
 endmodule
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
  
-
 
 //////////////////////////////////////////ALU_CONTROL_MODULE/////////////////////////////////////////////////
 module ALUcontrol(ALUop,funct7,funct3,ALUinput);
@@ -153,71 +84,6 @@ endmodule
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-//////////////////////////////////////////MUX_2_1_MODULE/////////////////////////////////////////////////////
-/*module mux2_1(ina,inb,sel,out);
-  
-  input [31:0] ina,inb;
-  input sel;
-  output [31:0] out;
-  
-  assign out=(sel==1'b0) ? ina : inb;
-
-endmodule*/
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-//////////////////////////////////////////MUX_4_1_MODULE/////////////////////////////////////////////////////
-/*module mux4_1(ina,inb,inc,ind,sel,out);
-  
-  input [31:0] ina,inb,inc,ind;
-  input [1:0] sel;
-  output reg [31:0] out;
-  
-  always@(ina,inb,inc,ind,sel) begin
-    case(sel)
-      2'b00: out = ina;
-      2'b01: out = inb;
-      2'b10: out = inc;
-      2'b11: out = ind;
-    endcase
-  end
-
-endmodule*/
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
- 
-
-////////////////////////////////////////////DATA_MEMORY///////////////////////////////////////////////////////
-/*module data_memory(clk,mem_read,mem_write,address,write_data,read_data); 
-  
-  input clk,mem_read,mem_write;
-  input [9:0] address;
-  input [31:0] write_data;
-  output [31:0] read_data;
-  reg [31:0] DataMemory [0:1023];
-  
-  integer i;
-  initial begin
-    for (i = 0; i < 1024; i = i + 1) begin
-      DataMemory[i] = 32'b0;
-    end
-  end
-  
-  always@(posedge clk) begin
-    if(mem_write)
-      DataMemory[address] <= write_data;
-  end
-  
-  assign read_data = (mem_read==1'b1) ? DataMemory[address] : 32'b0;  
-  
-endmodule*/
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  
-
-
 //////////////////////////////////////////IMM_GEN_MODULE/////////////////////////////////////////////////////
 module imm_gen(in,out);
   input [31:0] in;
@@ -255,8 +121,8 @@ module control_path(opcode,control_sel,Branch,MemRead,MemtoReg,ALUop,MemWrite,AL
     casex({control_sel,opcode})
       8'b1xxxxxxx: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0000000000; //nop from hazard unit
       8'b00000000: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0000000000; //nop from ISA
-	  8'bxxxxxx01: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0000000001; //custom: instruction for selecting the registers for the CLB 
-	  8'bxxxxxx10: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0000000010; //custom: configure CLB control registers and CLB destination registers
+	  8'b0xxxxx01: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0000000001; //custom: instruction for selecting the registers for the CLB 
+	  8'b0xxxxx10: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0000000010; //custom: configure CLB control registers and CLB destination registers
       8'b00000011: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b1111000000; //lw
       8'b00100011: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b1000100000; //sw
       8'b00110011: {ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUop, RegWrite_ext, RegWrite_multiple} <= 10'b0010001000; //R32-format
@@ -283,7 +149,6 @@ module IF_ID_reg(clk,reset,write,pc_in,instruction_in,pc_out,instruction_out);
   
   always@(posedge clk) begin
     if (reset) begin
-      pc_out<=32'b0;
       instruction_out<=32'b0;
     end
     else begin
@@ -309,9 +174,12 @@ module ID_EX_reg(clk,reset,write,instruction_in,
                  funct7_out,funct3_out,
                  rs1_out,rs2_out,rd_out,
                  
-                  ALU_C_in, ALU_D_in, ALU_E_in, ALU_F_in,
-                  ALU_C_out, ALU_D_out, ALU_E_out, ALU_F_out,
-                  RegWrite_multiple_in, RegWrite_multiple_out);
+                 rs3_in,rs4_in,rs5_in,rs6_in,
+                 rs3_out,rs4_out,rs5_out,rs6_out,
+                 ALU_C_in, ALU_D_in, ALU_E_in, ALU_F_in,
+                 ALU_C_out, ALU_D_out, ALU_E_out, ALU_F_out,
+                 RegWrite_multiple_in, RegWrite_multiple_out,
+                 RegWrite_ext_in,RegWrite_ext_out);
   
   input clk,write,reset;
   input [31:0] instruction_in;
@@ -322,10 +190,11 @@ module ID_EX_reg(clk,reset,write,instruction_in,
   input [4:0] rs1_in,rs2_in,rd_in;
   input [2:0] funct3_in;
   input [6:0] funct7_in;
-  input RegWrite_multiple_in;
+  input RegWrite_multiple_in,RegWrite_ext_in;
+  input [4:0] rs3_in,rs4_in,rs5_in,rs6_in;
   input [31:0] ALU_C_in, ALU_D_in, ALU_E_in, ALU_F_in;
 
-  output reg RegWrite_multiple_out;
+  output reg RegWrite_multiple_out,RegWrite_ext_out;
   output reg [31:0] ALU_C_out, ALU_D_out, ALU_E_out, ALU_F_out;
   output reg [31:0] instruction_out;
   output reg RegWrite_out,MemtoReg_out,MemRead_out,MemWrite_out,Branch_out;
@@ -335,31 +204,18 @@ module ID_EX_reg(clk,reset,write,instruction_in,
   output reg [4:0] rs1_out,rs2_out,rd_out;
   output reg [2:0] funct3_out;
   output reg [6:0] funct7_out;
+  output reg [4:0] rs3_out,rs4_out,rs5_out,rs6_out;
   
   always@(posedge clk) begin
     if (reset) begin
-      instruction_out <= 32'b0;
+      
       RegWrite_out <= 1'b0;
       MemtoReg_out <= 1'b0;
       MemRead_out <= 1'b0;
       MemWrite_out <= 1'b0;
-      ALUSrc_out <= 1'b0;
-      ALUop_out <= 2'b0;
       Branch_out <= 1'b0;
-      pc_out <= 32'b0;
-      ALU_A_out <= 32'b0;
-      ALU_B_out <= 32'b0;
-      imm_out <= 32'b0;
-      rs1_out <= 5'b0;
-      rs2_out <= 5'b0;
-      rd_out <= 5'b0;
-      funct3_out <= 3'b0;
-      funct7_out <= 7'b0;
-      ALU_C_out <= 32'b0;
-      ALU_D_out <= 32'b0;
-      ALU_E_out <= 32'b0;
-      ALU_F_out <= 32'b0;
-      RegWrite_multiple_out <= 0;
+      RegWrite_multiple_out <= 1'b0;
+      RegWrite_ext_out <= 1'b0;
     end
     else begin
       if (write) begin
@@ -377,6 +233,10 @@ module ID_EX_reg(clk,reset,write,instruction_in,
         imm_out <= imm_in;
         rs1_out <= rs1_in;
         rs2_out <= rs2_in;
+        rs3_out <= rs3_in;
+        rs4_out <= rs4_in;
+        rs5_out <= rs5_in;
+        rs6_out <= rs6_in;
         rd_out <= rd_in;
         funct3_out <= funct3_in;
         funct7_out <= funct7_in;
@@ -385,6 +245,7 @@ module ID_EX_reg(clk,reset,write,instruction_in,
         ALU_E_out <= ALU_E_in;
         ALU_F_out <= ALU_F_in;
         RegWrite_multiple_out <= RegWrite_multiple_in;
+        RegWrite_ext_out <= RegWrite_ext_in;
       end
     end
   end
@@ -407,7 +268,9 @@ module EX_MEM_reg(clk,reset,write,instruction_in,
                   rs2_out,rd_out,
                   
                   RegWrite_multiple_in, 
-                  RegWrite_multiple_out);
+                  RegWrite_multiple_out,
+                  RegWrite_ext_in,
+                  RegWrite_ext_out);
   
   input clk,write,reset;
   input [31:0] instruction_in;
@@ -416,9 +279,9 @@ module EX_MEM_reg(clk,reset,write,instruction_in,
   input [2:0] funct3_in;
   input [31:0] ALU_in,reg2_data_in;
   input [4:0] rs2_in,rd_in;
-  input RegWrite_multiple_in;
+  input RegWrite_multiple_in,RegWrite_ext_in;
 
-  output reg RegWrite_multiple_out;
+  output reg RegWrite_multiple_out,RegWrite_ext_out;
   output reg [31:0] instruction_out;
   output reg RegWrite_out,MemtoReg_out,MemRead_out,MemWrite_out,zero_out,Branch_out;
   output reg [31:0] pc_out,pc_ex_out;
@@ -428,21 +291,13 @@ module EX_MEM_reg(clk,reset,write,instruction_in,
     
   always@(posedge clk) begin
     if (reset) begin
-      instruction_out <= 32'b0;
       RegWrite_out <= 1'b0;
       MemtoReg_out <= 1'b0;
       MemRead_out <= 1'b0;
       MemWrite_out <= 1'b0;
-      pc_out <= 32'b0;
-      pc_ex_out <= 32'b0;
-      funct3_out <= 3'b0;
-      zero_out <= 1'b0;
-      reg2_data_out <= 32'b0;
-      ALU_out <= 32'b0;      
-      rs2_out <= 5'b0;
-      rd_out <= 5'b0;
       Branch_out <= 1'b0;
-      RegWrite_multiple_out <= 0;
+      RegWrite_multiple_out <= 1'b0;
+      RegWrite_ext_out <= 1'b0;
     end
     else begin
       if(write) begin
@@ -461,6 +316,7 @@ module EX_MEM_reg(clk,reset,write,instruction_in,
         rd_out <= rd_in;
         Branch_out <= Branch_in;
         RegWrite_multiple_out <= RegWrite_multiple_in;
+        RegWrite_ext_out <= RegWrite_ext_in;
       end
     end
   end
@@ -476,6 +332,8 @@ module MEM_WB_reg(clk,reset,write,
                   RegWrite_out,MemtoReg_out,
                   PC_out,Data_out,ALU_out,rd_out,
                   
+                  RegWrite_ext_in,
+                  RegWrite_ext_out,
                   RegWrite_multiple_in, 
                   RegWrite_multiple_out,
                   CLB_result1_in,
@@ -488,29 +346,22 @@ module MEM_WB_reg(clk,reset,write,
   input clk,write,reset;
   input [31:0] instruction_in;
   input [31:0] Data_in,ALU_in,PC_in;
-  input RegWrite_in,MemtoReg_in,RegWrite_multiple_in;
+  input RegWrite_in,MemtoReg_in,RegWrite_multiple_in,RegWrite_ext_in;
   input [4:0] rd_in;
   input [31:0] CLB_result1_in, CLB_result2_in, CLB_result3_in;
   
   output reg [31:0] instruction_out;
   output reg [31:0] Data_out,ALU_out,PC_out;
-  output reg RegWrite_out,MemtoReg_out,RegWrite_multiple_out;
+  output reg RegWrite_out,MemtoReg_out,RegWrite_multiple_out,RegWrite_ext_out;
   output reg [4:0] rd_out;
   output reg [31:0] CLB_result1_out, CLB_result2_out, CLB_result3_out;
   
   always@(posedge clk) begin
     if (reset) begin
-      instruction_out <= 32'b0;
-      Data_out <= 32'b0;
-      ALU_out <= 32'b0;
-      PC_out <= 32'b0;
       RegWrite_out <= 1'b0;
       MemtoReg_out <= 1'b0;
-      rd_out <= 5'b0;
       RegWrite_multiple_out <= 1'b0;
-      CLB_result1_out <= 32'b0;
-      CLB_result2_out <= 32'b0;
-      CLB_result3_out <= 32'b0;
+      RegWrite_ext_out <= 1'b0;
     end
     else begin
       if(write) begin
@@ -522,6 +373,7 @@ module MEM_WB_reg(clk,reset,write,
         MemtoReg_out <= MemtoReg_in;
         rd_out <= rd_in;
         RegWrite_multiple_out <= RegWrite_multiple_in;
+        RegWrite_ext_out <= RegWrite_ext_in;
         CLB_result1_out <= CLB_result1_in;
         CLB_result2_out <= CLB_result2_in;
         CLB_result3_out <= CLB_result3_in;
@@ -581,6 +433,81 @@ module load_store_forwarding(store_rs2,load_rd,MemWrite,MemtoReg,forwardC);
   end
 
 endmodule
+
+module clb_forwarding(input [4:0] rd1,
+                      input [4:0] rd2,
+                      input [4:0] rd3,
+                      input [4:0] rs1,
+                      input [4:0] rs2,
+                      input [4:0] rs3,
+                      input [4:0] rs4,
+                      input [4:0] rs5,
+                      input [4:0] rs6,
+                      input clb_write,
+                      output reg [1:0] forward1,
+                      output reg [1:0] forward2,
+                      output reg [1:0] forward3,
+                      output reg [1:0] forward4,
+                      output reg [1:0] forward5,
+                      output reg [1:0] forward6);
+                      
+    always@(*) begin
+        if(clb_write && (rd1!=5'b0) && (rs1==rd1))
+            forward1 <= 2'b01;
+        else if(clb_write && (rd2!=5'b0) && (rs1==rd2))
+            forward1 <= 2'b10;
+        else if(clb_write && (rd3!=5'b0) && (rs1==rd3))
+            forward1 <= 2'b11;
+        else
+            forward1 <= 2'b00;
+            
+        if(clb_write && (rd1!=5'b0) && (rs2==rd1))
+            forward2 <= 2'b01;
+        else if(clb_write && (rd2!=5'b0) && (rs2==rd2))
+            forward2 <= 2'b10;
+        else if(clb_write && (rd3!=5'b0) && (rs2==rd3))
+            forward2 <= 2'b11;
+        else
+            forward2 <= 2'b00;
+            
+        if(clb_write && (rd1!=5'b0) && (rs3==rd1))
+            forward3 <= 2'b01;
+        else if(clb_write && (rd2!=5'b0) && (rs3==rd2))
+            forward3 <= 2'b10;
+        else if(clb_write && (rd3!=5'b0) && (rs3==rd3))
+            forward3 <= 2'b11;
+        else
+            forward3 <= 2'b00;
+            
+        if(clb_write && (rd1!=5'b0) && (rs4==rd1))
+            forward4 <= 2'b01;
+        else if(clb_write && (rd2!=5'b0) && (rs4==rd2))
+            forward4 <= 2'b10;
+        else if(clb_write && (rd3!=5'b0) && (rs4==rd3))
+            forward4 <= 2'b11;
+        else
+            forward4 <= 2'b00;
+            
+        if(clb_write && (rd1!=5'b0) && (rs5==rd1))
+            forward5 <= 2'b01;
+        else if(clb_write && (rd2!=5'b0) && (rs5==rd2))
+            forward5 <= 2'b10;
+        else if(clb_write && (rd3!=5'b0) && (rs5==rd3))
+            forward5 <= 2'b11;
+        else
+            forward5 <= 2'b00;
+            
+        if(clb_write && (rd1!=5'b0) && (rs6==rd1))
+            forward6 <= 2'b01;
+        else if(clb_write && (rd2!=5'b0) && (rs6==rd2))
+            forward6 <= 2'b10;
+        else if(clb_write && (rd3!=5'b0) && (rs6==rd3))
+            forward6 <= 2'b11;
+        else
+            forward6 <= 2'b00;
+    end
+                      
+endmodule
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -607,17 +534,18 @@ module hazard_detection(rd,rs1,rs2,MemRead,PCwrite,IF_IDwrite,control_sel);
 endmodule
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-module counter(clk,reset,cnt);
-    input clk,reset;
-    output reg [63:0] cnt;
+module counter(clk,reset,write,out);
+    input clk,reset,write;
+    output [63:0] out;
+    reg [63:0] cnt;
     always@(posedge clk) begin
         if(reset)
             cnt <= 64'b0;
-        else
+        else if(write)
             cnt <= cnt + 1'b1;
     end
+    assign out = cnt;
 endmodule
-
 
 //////////////////////////////////////////////RISC-V_MODULE///////////////////////////////////////////////////
 //(* DONT_TOUCH = "true" *)
@@ -683,6 +611,8 @@ module RISC_V(input clk,
   wire [31:0] PC_4_IF;             //PC+4 in IF stage
   wire [31:0] PC_MUX;
   wire [31:0] INSTRUCTION_IF;
+  wire [31:0] IMM_IF;
+  wire branch_taken;
   assign INSTRUCTION_IF = instruction;
   assign instruction_address = PC_IF[11:2];
   
@@ -729,7 +659,11 @@ module RISC_V(input clk,
   wire [4:0] RD_EX;
   wire [4:0] RS1_EX;
   wire [4:0] RS2_EX;
-  
+  wire [4:0] RS3_EX;
+  wire [4:0] RS4_EX;
+  wire [4:0] RS5_EX;
+  wire [4:0] RS6_EX;
+    
   wire [31:0] ALU_OUT_EX;
   wire [3:0] ALU_control;
   wire ZERO_EX;
@@ -739,6 +673,7 @@ module RISC_V(input clk,
   
   wire [31:0] REG_DATA3_EX, REG_DATA4_EX, REG_DATA5_EX, REG_DATA6_EX;
   wire RegWrite_multiple_EX;
+  wire RegWrite_ext_EX;
   //////////////////////////////////////////MEM signals////////////////////////////////////////////////////////
   wire [31:0] INSTRUCTION_MEM;
   wire RegWrite_MEM,MemtoReg_MEM,MemRead_MEM,MemWrite_MEM;
@@ -762,6 +697,7 @@ module RISC_V(input clk,
   
   wire [31:0] CLB_result1_MEM, CLB_result2_MEM, CLB_result3_MEM;
   wire RegWrite_multiple_MEM;
+  wire RegWrite_ext_MEM;
   
   assign funct3 = {FUNCT3_MEM,ALU_OUT_MEM[1:0]};
   assign MemRead = MemRead_MEM;
@@ -781,15 +717,17 @@ module RISC_V(input clk,
   
   wire [31:0] CLB_result1_WB, CLB_result2_WB, CLB_result3_WB;
   wire RegWrite_multiple_WB;
+  wire RegWrite_ext_WB;
   
   //////////////////////////////////////pipeline registers////////////////////////////////////////////////////
   
-  IF_ID_reg IF_ID_REGISTER(clk,CSR[0],
+  IF_ID_reg IF_ID_REGISTER(clk,CSR[0] | (Branch_MEM & ~branch_taken),
                            IF_ID_write&(~CSR[1]),
                            PC_IF,INSTRUCTION_IF,
                            PC_ID,INSTRUCTION_ID);
   
-  ID_EX_reg ID_EX_REGISTER(clk,CSR[0],(~CSR[1]),INSTRUCTION_ID,
+  ID_EX_reg ID_EX_REGISTER(clk,CSR[0] | (Branch_MEM & ~branch_taken),~CSR[1],
+                           INSTRUCTION_ID,
                            RegWrite_ID,MemtoReg_ID,MemRead_ID,MemWrite_ID,ALUSrc_ID,Branch_ID,ALUop_ID,
                            PC_ID,REG_DATA1_ID,REG_DATA2_ID,IMM_ID,
                            FUNCT7_ID,FUNCT3_ID,
@@ -800,12 +738,16 @@ module RISC_V(input clk,
                            PC_EX,REG_DATA1_EX,REG_DATA2_EX,IMM_EX,
                            FUNCT7_EX,FUNCT3_EX,
                            RS1_EX,RS2_EX,RD_EX,
-                                                         
+                           
+                           RS3_ID[4:0],RS4_ID[4:0],RS5_ID[4:0],RS6_ID[4:0],
+                           RS3_EX,RS4_EX,RS5_EX,RS6_EX,                              
                            REG_DATA3_ID, REG_DATA4_ID, REG_DATA5_ID, REG_DATA6_ID,
                            REG_DATA3_EX, REG_DATA4_EX, REG_DATA5_EX, REG_DATA6_EX,
-                           RegWrite_multiple_ID, RegWrite_multiple_EX);
+                           RegWrite_multiple_ID, RegWrite_multiple_EX,
+                           RegWrite_ext_ID,RegWrite_ext_EX);
   
-  EX_MEM_reg EX_MEM_REGISTER(clk,CSR[0],(~CSR[1]),INSTRUCTION_EX,
+  EX_MEM_reg EX_MEM_REGISTER(clk,CSR[0] | (Branch_MEM & ~branch_taken),~CSR[1],
+                             INSTRUCTION_EX,
                              RegWrite_EX,MemtoReg_EX,MemRead_EX,MemWrite_EX,Branch_EX,
                              PC_EX,PC_Branch,FUNCT3_EX,
                              ALU_OUT_EX,ZERO_EX,
@@ -820,9 +762,11 @@ module RISC_V(input clk,
                              RS2_MEM,RD_MEM,
                                                            
                              RegWrite_multiple_EX,
-                             RegWrite_multiple_MEM);
+                             RegWrite_multiple_MEM,
+                             RegWrite_ext_EX,
+                             RegWrite_ext_MEM);
   
-  MEM_WB_reg MEM_WB_REGISTER(clk,CSR[0],(~CSR[1]),INSTRUCTION_MEM,
+  MEM_WB_reg MEM_WB_REGISTER(clk,CSR[0],~CSR[1],INSTRUCTION_MEM,
                              RegWrite_MEM,MemtoReg_MEM,
                              PC_MEMORY,
                              DATA_MEMORY_MEM,
@@ -835,7 +779,9 @@ module RISC_V(input clk,
                              DATA_MEMORY_WB,
                              ALU_OUT_WB,
                              RD_WB,
-                                                          
+                             
+                             RegWrite_ext_MEM,
+                             RegWrite_ext_WB,                    
                              RegWrite_multiple_MEM,
                              RegWrite_multiple_WB,
                              CLB_result1_MEM,
@@ -850,34 +796,24 @@ module RISC_V(input clk,
   
   PC PC_MODULE(clk,CSR[0],PC_write&(~CSR[1]),PC_MUX,PC_IF); //current PC
   
-  //(* DONT_TOUCH = "true" *) instruction_memory INSTRUCTION_MEMORY_MODULE(PC_IF[11:2],INSTRUCTION_IF);
-  
-  //(* DONT_TOUCH = "true" *) adder ADDER_PC_4_IF(PC_IF,32'b0100,PC_4_IF);  //PC+4
-  assign PC_4_IF = PC_IF+32'h00000004;
-  
-  //mux2_1 MUX_PC(PC_4_IF,                 //PC+4
-  //              PC_MEM,           //selction between pc from branch predictor or pc from EX stage
-  //              (Branch_MEM & (beq|bne|blt|bge)), //select if we take or not the branch(if there is a branch instruction)
-  //               PC_MUX);
-  assign PC_MUX = (Branch_MEM & (beq|bne|blt|bge)==1'b1) ? PC_MEM : PC_4_IF;              
+  assign IMM_IF = {{19{INSTRUCTION_IF[31]}},INSTRUCTION_IF[31],INSTRUCTION_IF[7],INSTRUCTION_IF[30:25],INSTRUCTION_IF[11:8],1'b0};
+   
+  assign PC_4_IF = (INSTRUCTION_IF[6:0]==7'b1100011) ? PC_IF+IMM_IF : PC_IF+32'h4;
+   
+  assign branch_taken = (beq|bne|blt|bge);
+   
+  assign PC_MUX = ((Branch_MEM & ~branch_taken)==1'b0) ? PC_4_IF : PC_MEM;              
    
   ///////////////////////////////////////////ID data path/////////////////////////////////////////////////////////
   
   control_path CONTROL_PATH_MODULE(OPCODE,         
-                                    pipeline_stall, //hazard detection signal 
-                                    Branch_ID,MemRead_ID,MemtoReg_ID,
-                                    ALUop_ID,MemWrite_ID,ALUSrc_ID,RegWrite_ID,
-                                    RegWrite_ext_ID,
-                                    RegWrite_multiple_ID);
-  
-  /*(* DONT_TOUCH = "true" *) registers REGISTER_FILE_MODULE(clk,RegWrite_WB, 
-                                                               RS1_ID,    
-                                                               RS2_ID,    
-                                                               RD_WB,     
-                                                               ALU_DATA_WB,
-                                                               REG_DATA1_ID,REG_DATA2_ID);*/
-                                                               
-  wire [5:0] conf_addr;	// auto-updating address for the CHM configuration registers in the regFile
+                                   pipeline_stall, //hazard detection signal 
+                                   Branch_ID,MemRead_ID,MemtoReg_ID,
+                                   ALUop_ID,MemWrite_ID,ALUSrc_ID,RegWrite_ID,
+                                   RegWrite_ext_ID,
+                                   RegWrite_multiple_ID);
+                                                             
+                                                           
   assign write_data1 = (RegWrite_multiple_WB) ? CLB_result1_WB : ALU_DATA_WB;
   assign write_data2 = CLB_result2_WB;
   assign write_data3 = CLB_result3_WB;
@@ -889,46 +825,18 @@ module RISC_V(input clk,
   assign read_addr5 = RS5_ID;
   assign read_addr6 = RS6_ID;
   assign write_addr=({1'b0, RD_WB});
-  assign write_addr_conf=conf_addr;
   
-  assign write_enable_conf=RegWrite_ext_ID;
+  assign write_enable_conf=RegWrite_ext_WB;
   assign write_enable_basic=RegWrite_WB; 
   assign write_enable_CLB=RegWrite_multiple_WB;
   
-  assign REG_DATA1_ID = (read_addr1==write_addr && write_enable_basic) ? write_data1 : read_data1;
-  assign REG_DATA2_ID = (read_addr2==write_addr && write_enable_basic) ? write_data1 : read_data2;
-  assign REG_DATA3_ID = (read_addr3==write_addr && write_enable_basic) ? write_data1 : read_data3;
-  assign REG_DATA4_ID = (read_addr4==write_addr && write_enable_basic) ? write_data1 : read_data4;
-  assign REG_DATA5_ID = (read_addr5==write_addr && write_enable_basic) ? write_data1 : read_data5;
-  assign REG_DATA6_ID = (read_addr6==write_addr && write_enable_basic) ? write_data1 : read_data6;
+  assign REG_DATA1_ID =  read_data1;
+  assign REG_DATA2_ID =  read_data2;
+  assign REG_DATA3_ID =  read_data3;
+  assign REG_DATA4_ID =  read_data4;
+  assign REG_DATA5_ID =  read_data5;
+  assign REG_DATA6_ID =  read_data6;
                                                                  
-  address_counter conf_addr_cnt(.clk(clk), .res(CSR[0]), .cnt(RegWrite_ext_ID), .address(conf_addr));    // address generator for the CHM configuration registers
-                                                                 
-  // The configuration data is taken directly from the instruction field (the 30 MSB), and the arrangement of the bits depends on the destination register
-  assign write_data_conf = (conf_addr == 32) ? {INSTRUCTION_ID[31:27], 3'b000, INSTRUCTION_ID[25:2]} :
-                           (conf_addr == 33 || conf_addr == 34) ? {INSTRUCTION_ID[31:27], 2'b00, INSTRUCTION_ID[26:2]}:
-                           (conf_addr == 35 || conf_addr == 36) ? {8'b0000_0000, INSTRUCTION_ID[25:2]} : 32'b0;
-                                                                 
-                                                                 
-  /*multiport_register_n_bits #(32) MULTIPORT_REGISTER_FILE_MODULE(.clk(clk), .write_enable_basic(RegWrite_WB), .write_enable_CLB(RegWrite_multiple_WB),
-                                                                 .write_enable_conf(RegWrite_ext_ID),
-                                                                 
-                                                                 .read_addr1(RS1_ID), .read_addr2(RS2_ID), .read_addr3(RS3_ID), .read_addr4(RS4_ID),
-                                                                 .read_addr5(RS5_ID), .read_addr6(RS6_ID), .write_addr({1'b0, RD_WB}),     //extra read and write addresses
-                                                                 .write_addr_conf(conf_addr),    //dedicated address for the configuration registers
-                                                                                                                               
-                                                                 .write_data1(write_data1), .write_data2(CLB_result2_WB), .write_data3(CLB_result3_WB),
-                                                                 .write_data_conf(write_data_conf),
-                                                                                                                     
-                                                                 .read_data1(REG_DATA1_ID), .read_data2(REG_DATA2_ID), .read_data3(REG_DATA3_ID), 
-                                                                 .read_data4(REG_DATA4_ID), .read_data5(REG_DATA5_ID), .read_data6(REG_DATA6_ID),
-                                                                                                                               
-                                                                 .CLB_conf1(CLB_conf1), .CLB_conf2(CLB_conf2), .CLB_conf3(CLB_conf3),
-                                                                 .CLB_conf4(CLB_conf4), .CLB_conf5(CLB_conf5)
-                                                                 );
-  */
-  
-  
   imm_gen IMM_GEN_MODULE(INSTRUCTION_ID,IMM_ID);
   
   hazard_detection HAZARD_DETECTION_UNIT(RD_EX,  //ID_EX.rd
@@ -941,6 +849,33 @@ module RISC_V(input clk,
                                          
   ///////////////////////////////////////////EX data path/////////////////////////////////////////////////////////                                       
   
+  wire [1:0] forward1,forward2,forward3,forward4,forward5,forward6;
+  wire [31:0] data1, data2, data3, data4, data5, data6;
+  
+  assign data1 = (forward1 == 2'b01) ? CLB_result1_WB :
+                 (forward1 == 2'b10) ? CLB_result2_WB :
+                 (forward1 == 2'b11) ? CLB_result3_WB : REG_DATA1_EX;
+                 
+  assign data2 = (forward2 == 2'b01) ? CLB_result1_WB :
+                 (forward2 == 2'b10) ? CLB_result2_WB :
+                 (forward2 == 2'b11) ? CLB_result3_WB : REG_DATA2_EX;
+                 
+  assign data3 = (forward3 == 2'b01) ? CLB_result1_WB :
+                 (forward3 == 2'b10) ? CLB_result2_WB :
+                 (forward3 == 2'b11) ? CLB_result3_WB : REG_DATA3_EX;
+                 
+  assign data4 = (forward4 == 2'b01) ? CLB_result1_WB :
+                 (forward4 == 2'b10) ? CLB_result2_WB :
+                 (forward4 == 2'b11) ? CLB_result3_WB : REG_DATA4_EX;
+                 
+  assign data5 = (forward5 == 2'b01) ? CLB_result1_WB :
+                 (forward5 == 2'b10) ? CLB_result2_WB :
+                 (forward5 == 2'b11) ? CLB_result3_WB : REG_DATA5_EX;
+                                  
+  assign data6 = (forward6 == 2'b01) ? CLB_result1_WB :
+                 (forward6 == 2'b10) ? CLB_result2_WB :
+                 (forward6 == 2'b11) ? CLB_result3_WB : REG_DATA6_EX;
+                 
   ALU ALU_MODULE(ALU_control,
                  MUX_A_EX,RS2_IMM_EX,
                  ZERO_EX,ALU_OUT_EX);
@@ -950,16 +885,9 @@ module RISC_V(input clk,
                                 FUNCT3_EX,    //funct3
                                 ALU_control);
   
-  //mux2_1 MUX_RS2_IMM(MUX_B_EX,     //rs2
-  //                   IMM_EX,        //imm
-  //                   ALUSrc_EX,     //ALUSrc
-  //                   RS2_IMM_EX);
   assign RS2_IMM_EX = (ALUSrc_EX == 1'b1) ? IMM_EX : MUX_B_EX;
                     
-  //adder ADDER_IMM_EX(PC_EX,      //PC
-  //                   IMM_EX<<1, //imm<<1
-  //                   PC_Branch);
-  assign PC_Branch = PC_EX + (IMM_EX<<1);
+  assign PC_Branch = PC_EX + 32'h4;  //imm already shifted for branch address
                     
                   
   forwarding FORWARDING_UNIT(RS1_EX, //rs1
@@ -970,33 +898,44 @@ module RISC_V(input clk,
                              RegWrite_WB,     //mem_wb_regwrite
                              forwardA,forwardB);
   
-  //mux4_1 MUX_FORWARD_A(REG_DATA1_EX,   //ID_EX source
-  //                     ALU_DATA_WB, //MEM_WB source
-  //                     ALU_OUT_MEM,   //EX_MEM source
-  //                     32'b0,            //not used
-  //                     forwardA,MUX_A_EX);
-  assign MUX_A_EX = (forwardA == 2'b00) ? REG_DATA1_EX : 
+  assign MUX_A_EX = (forwardA == 2'b00) ? data1 : 
                     (forwardA == 2'b01) ? ALU_DATA_WB : 
                     (forwardA == 2'b10) ? ALU_OUT_MEM : 32'b0;
                       
-  //mux4_1 MUX_FORWARD_B(REG_DATA2_EX,    //ID_EX source
-  //                     ALU_DATA_WB, //MEM_WB source
-  //                     ALU_OUT_MEM,   //EX_MEM source
-  //                     32'b0,            //not used
-  //                     forwardB,MUX_B_EX);
-  assign MUX_B_EX = (forwardB == 2'b00) ? REG_DATA2_EX : 
+  assign MUX_B_EX = (forwardB == 2'b00) ? data2 : 
                     (forwardB == 2'b01) ? ALU_DATA_WB : 
                     (forwardB == 2'b10) ? ALU_OUT_MEM : 32'b0;  
+   
+  wire [4:0] rd1,rd2,rd3;
+  assign rd1 = CLB_conf1[31:27];
+  assign rd2 = CLB_conf2[31:27];
+  assign rd3 = CLB_conf3[31:27]; 
+  clb_forwarding CLB_FRWD(rd1,
+                          rd2,
+                          rd3,
+                          RS1_EX,
+                          RS2_EX,
+                          RS3_EX,
+                          RS4_EX,
+                          RS5_EX,
+                          RS6_EX,
+                          RegWrite_multiple_WB,
+                          forward1,
+                          forward2,
+                          forward3,
+                          forward4,
+                          forward5,
+                          forward6);
                     
   // All selection bits are taken from the CLB_conf nets
   CLB_full  CustomHardwareModule(.register_clk(clk),
                                  .register_reset(CSR[0]),
-                                 .register_par_load(1'b1),
+                                 .register_par_load(~CSR[1]),
                                  .result_sel({CLB_conf2[0], CLB_conf3[0]}),
                                                    
-                                 .in0(REG_DATA1_EX), .in1(REG_DATA2_EX),
-                                 .in2(REG_DATA3_EX), .in3(REG_DATA4_EX),
-                                 .in4(REG_DATA5_EX), .in5(REG_DATA6_EX),
+                                 .in0(data1), .in1(data2),
+                                 .in2(data3), .in3(data4),
+                                 .in4(data5), .in5(data6),
                                  .in6(32'b0), .in7(32'hffff_ffff),
                                                    
                                  .bypass_0({CLB_conf4[7:6], CLB_conf5[7:6]}),
@@ -1072,37 +1011,33 @@ module RISC_V(input clk,
                                  );              
                       
   ///////////////////////////////////////////MEM data path/////////////////////////////////////////////////////////
-         
-  /*(* DONT_TOUCH = "true" *) data_memory DATA_MEMORY_MODULE(clk,
-                                                           MemRead_MEM,      //MemRead
-                                                           MemWrite_MEM,     //MemWrite
-                                                           ALU_OUT_MEM[11:2],      //ALU_OUT(address)
-                                                           MUX_C_MEM,     //rs2(data)
-                                                           DATA_MEMORY_MEM);*/
   load_store_forwarding LD_SD_FORWARDING(RS2_MEM,
                                          RD_WB,
                                          MemWrite_MEM,
                                          MemtoReg_WB,
                                          forwardC);
                                          
-  //mux2_1 MUX_FORWARD_C(REG_DATA2_MEM,
-  //                     DATA_MEMORY_WB,
-  //                     forwardC,
-  //                     MUX_C_MEM);
   assign MUX_C_MEM = (forwardC == 1'b1) ? DATA_MEMORY_WB : REG_DATA2_MEM; 
                         
                                                   
   ///////////////////////////////////////////MEM data path/////////////////////////////////////////////////////////
   
-  //mux2_1 MUX_ALU_DATA(ALU_OUT_WB,   //ALU_out result
-  //                      DATA_MEMORY_WB, //Data_memory_out 
-  //                      MemtoReg_WB,    //MemtoReg
-  //                      ALU_DATA_WB);
   assign ALU_DATA_WB = (MemtoReg_WB == 1'b1) ? DATA_MEMORY_WB : ALU_OUT_WB;
+  
+  wire [5:0] conf_addr;	// auto-updating address for the CHM configuration registers in the regFile
+  address_counter conf_addr_cnt(.clk(clk), .res(CSR[0]), .cnt(RegWrite_ext_WB), .address(conf_addr));    // address generator for the CHM configuration registers
+  assign write_addr_conf=conf_addr;
+                                                                  
+  // The configuration data is taken directly from the instruction field (the 30 MSB), and the arrangement of the bits depends on the destination register
+  assign write_data_conf = (conf_addr == 32) ? {INSTRUCTION_WB[31:27], 3'b000, INSTRUCTION_WB[25:2]} :
+                           (conf_addr == 33 || conf_addr == 34) ? {INSTRUCTION_WB[31:27], 2'b00, INSTRUCTION_WB[26:2]}:
+                           (conf_addr == 35 || conf_addr == 36) ? {8'b0000_0000, INSTRUCTION_WB[25:2]} : 32'b0;
+                                                                   
+                                                     
                       
   //////////////////////////////////////////////OTHER STUFF/////////////////////////////////////////////////////////////
   
-  counter TIMER(clk&(~CSR[1]),CSR[0],timestamp);
+  counter TIMER(clk,CSR[0],~CSR[1],timestamp);
   
   wire halt_loop;
   assign halt_loop = (INSTRUCTION_WB==32'h00000063);

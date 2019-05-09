@@ -1301,6 +1301,7 @@ namespace riscV_loader
             try
             {
                 commPort.Open();
+                commPort.StopBits = StopBits.Two;
             }
             catch (Exception ex)
             {
@@ -1864,6 +1865,7 @@ namespace riscV_loader
                                     threadCommandQueue.Enqueue(ThreadCommands.GetPC);
                                     threadCommandQueue.Enqueue(ThreadCommands.GetRegisters);
                                     threadCommandQueue.Enqueue(ThreadCommands.GetMemory);
+                                    threadCommandQueue.Enqueue(ThreadCommands.GetConfuguration);
                                 }
 
                                 coreStatus = CoreStatus.Paused;
@@ -1878,6 +1880,7 @@ namespace riscV_loader
                                     threadCommandQueue.Enqueue(ThreadCommands.GetPC);
                                     threadCommandQueue.Enqueue(ThreadCommands.GetRegisters);
                                     threadCommandQueue.Enqueue(ThreadCommands.GetMemory);
+                                    threadCommandQueue.Enqueue(ThreadCommands.GetConfuguration);
                                     threadCommandQueue.Enqueue(ThreadCommands.GetTimeStamp);
                                 }
 

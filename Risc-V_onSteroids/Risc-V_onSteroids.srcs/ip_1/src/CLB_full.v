@@ -1,3 +1,4 @@
+
 module CLB_full(
 	
 	register_clk,
@@ -90,11 +91,11 @@ module CLB_full(
 	selOp_33,
 	
 	/*
-	O: every output of every cell
+	O: pipeline output
 	*/
-	buff0, 
-	buff1, 
-	buff2, 
+	buff0,
+	buff1,
+	buff2,
 	buff3,
 	
 	result0,
@@ -177,6 +178,11 @@ module CLB_full(
 	input [1:0] selOp_33;	//16*2 = 32 bits
 							//TOTAL: 122 bits for configuring
 	
+	output [(WIDTH - 1) : 0] result0;
+	output [(WIDTH - 1) : 0] result1;
+	output [(WIDTH - 1) : 0] result2;
+	
+	
 	wire [(WIDTH - 1) : 0] out_00;
 	wire [(WIDTH - 1) : 0] out_01;
 	wire [(WIDTH - 1) : 0] out_02;
@@ -194,19 +200,16 @@ module CLB_full(
 	wire [(WIDTH - 1) : 0] out_32;
 	wire [(WIDTH - 1) : 0] out_33;
 	
-	output [(WIDTH - 1) : 0] result0;
-	output [(WIDTH - 1) : 0] result1;
-	output [(WIDTH - 1) : 0] result2;
 	
 	CLB_column #(WIDTH) column0 (.in0(in0), .in1(in1), .in2(in2), .in3(in3), .in4(in4), .in5(in5), .in6(in6), .in7(in7), .bypass(bypass_0), .sel0_0(sel0_00), .sel1_0(sel1_00), .sel0_1(sel0_10), .sel1_1(sel1_10), .sel0_2(sel0_20), .sel1_2(sel1_20), .sel0_3(sel0_30), .sel1_3(sel1_30), .out0(out_00), .out1(out_10), .out2(out_20), .out3(out_30), .selOp0(selOp_00), .selOp1(selOp_10), .selOp2(selOp_20), .selOp3(selOp_30));
-	CLB_column #(WIDTH) column1 (.in0(out_00), .in1(out_10), .in2(out_20), .in3(out_30), .in4(out_00), .in5(out_10), .in6(out_20), .in7(out_30), .bypass(bypass_1), .sel0_0({1'b0, sel0_01}), .sel1_0({1'b0, sel1_01}), .sel0_1({1'b0, sel0_11}), .sel1_1({1'b0, sel1_11}), .sel0_2({1'b0, sel0_21}), .sel1_2({1'b0, sel1_21}), .sel0_3({1'b0, sel0_31}), .sel1_3({1'b0, sel1_31}), .out0(out_01), .out1(out_11), .out2(out_21), .out3(out_31), .selOp0(selOp_01), .selOp1(selOp_11), .selOp2(selOp_21), .selOp3(selOp_31));
+	CLB_column_reduced #(WIDTH) column1 (.in0(out_00), .in1(out_10), .in2(out_20), .in3(out_30), .bypass(bypass_1), .sel0_0(sel0_01), .sel1_0(sel1_01), .sel0_1(sel0_11), .sel1_1(sel1_11), .sel0_2(sel0_21), .sel1_2(sel1_21), .sel0_3(sel0_31), .sel1_3(sel1_31), .out0(out_01), .out1(out_11), .out2(out_21), .out3(out_31), .selOp0(selOp_01), .selOp1(selOp_11), .selOp2(selOp_21), .selOp3(selOp_31));
 	
-	output [(WIDTH-1) : 0] buff0, buff1, buff2, buff3;
+	output wire[(WIDTH-1) : 0] buff0, buff1, buff2, buff3;
 	
 	register_n_bits #(4*WIDTH) pipe(.clk(register_clk), .res(register_reset), .par_load(register_par_load), .data_in({out_01, out_11, out_21, out_31}), .data_out({buff0, buff1, buff2, buff3}));
 	
-	CLB_column #(WIDTH) column2 (.in0(buff0), .in1(buff1), .in2(buff2), .in3(buff3), .in4(buff0), .in5(buff1), .in6(buff2), .in7(buff3), .bypass(bypass_2), .sel0_0({1'b0, sel0_02}), .sel1_0({1'b0, sel1_02}), .sel0_1({1'b0, sel0_12}), .sel1_1({1'b0, sel1_12}), .sel0_2({1'b0, sel0_22}), .sel1_2({1'b0, sel1_22}), .sel0_3({1'b0, sel0_32}), .sel1_3({1'b0, sel1_32}), .out0(out_02), .out1(out_12), .out2(out_22), .out3(out_32), .selOp0(selOp_02), .selOp1(selOp_12), .selOp2(selOp_22), .selOp3(selOp_32));
-	CLB_column #(WIDTH) column3 (.in0(out_02), .in1(out_12), .in2(out_22), .in3(out_32), .in4(out_02), .in5(out_12), .in6(out_22), .in7(out_32), .bypass(bypass_3), .sel0_0({1'b0, sel0_02}), .sel1_0({1'b0, sel1_03}), .sel0_1({1'b0, sel0_13}), .sel1_1({1'b0, sel1_13}), .sel0_2({1'b0, sel0_23}), .sel1_2({1'b0, sel1_23}), .sel0_3({1'b0, sel0_33}), .sel1_3({1'b0, sel1_33}), .out0(out_03), .out1(out_13), .out2(out_23), .out3(out_33), .selOp0(selOp_03), .selOp1(selOp_13), .selOp2(selOp_23), .selOp3(selOp_33));
+	CLB_column_reduced #(WIDTH) column2 (.in0(buff0), .in1(buff1), .in2(buff2), .in3(buff3), .bypass(bypass_2), .sel0_0(sel0_02), .sel1_0(sel1_02), .sel0_1(sel0_12), .sel1_1(sel1_12), .sel0_2(sel0_22), .sel1_2(sel1_22), .sel0_3(sel0_32), .sel1_3(sel1_32), .out0(out_02), .out1(out_12), .out2(out_22), .out3(out_32), .selOp0(selOp_02), .selOp1(selOp_12), .selOp2(selOp_22), .selOp3(selOp_32));
+	CLB_column_reduced #(WIDTH) column3 (.in0(out_02), .in1(out_12), .in2(out_22), .in3(out_32), .bypass(bypass_3), .sel0_0(sel0_02), .sel1_0(sel1_03), .sel0_1(sel0_13), .sel1_1(sel1_13), .sel0_2(sel0_23), .sel1_2(sel1_23), .sel0_3(sel0_33), .sel1_3(sel1_33), .out0(out_03), .out1(out_13), .out2(out_23), .out3(out_33), .selOp0(selOp_03), .selOp1(selOp_13), .selOp2(selOp_23), .selOp3(selOp_33));
 	
 	CLB_out_stage #(WIDTH) result_stage(.in0(out_03), .in1(out_13), .in2(out_23), .in3(out_33), .sel(result_sel), .out0(result0), .out1(result1), .out2(result2));
 	

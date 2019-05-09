@@ -14,7 +14,7 @@ module cell_arithmetic_logic(
 	in5,
 	in6,
 	in7,
-	bypass, //I: bypass signal - if set, the output will be the operand input given by the sel0 selection signal
+	byPass, //I: bypass signal - if set, the output will be the operand input given by the sel0 selection signal
 	sel0,	//I: operands selections
 	sel1,
 	selOp,	//I: operation selection
@@ -34,7 +34,7 @@ module cell_arithmetic_logic(
 	input [2:0] sel0;
 	input [2:0] sel1;
 	input [1:0] selOp;
-	input bypass;
+	input byPass;
 	
 	output reg[(WIDTH - 1) : 0] out;
 	
@@ -48,7 +48,7 @@ module cell_arithmetic_logic(
 	arithmetic_unit #(WIDTH) unit(.term0(operand0), .term1(operand1), .sel(selOp), .result(operationResult));
 
 	always @*
-		if (bypass)
+		if (byPass)
 			out = operand0;
 		else
 			out = operationResult;

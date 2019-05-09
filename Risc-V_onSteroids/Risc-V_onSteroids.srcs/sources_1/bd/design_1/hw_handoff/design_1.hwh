@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Apr 29 18:42:19 2019" VIVADOVERSION="2018.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed May  8 12:08:46 2019" VIVADOVERSION="2018.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="digilentinc.com:cora-z7-07s:part0:1.0" DEVICE="7z007s" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -671,9 +671,9 @@
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ACLK"/>
             <CONNECTION INSTANCE="smartconnect_0" PORT="aclk"/>
             <CONNECTION INSTANCE="proc_sys_reset_0" PORT="slowest_sync_clk"/>
+            <CONNECTION INSTANCE="myip_0" PORT="data_axi_aclk"/>
             <CONNECTION INSTANCE="myip_0" PORT="instr_axi_aclk"/>
             <CONNECTION INSTANCE="myip_0" PORT="regs_axi_aclk"/>
-            <CONNECTION INSTANCE="myip_0" PORT="data_axi_aclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef"/>
@@ -698,7 +698,7 @@
         <PARAMETER NAME="C_REGS_AXI_ADDR_WIDTH" VALUE="8"/>
         <PARAMETER NAME="C_INSTR_AXI_DATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_INSTR_AXI_ADDR_WIDTH" VALUE="12"/>
-        <PARAMETER NAME="Component_Name" VALUE="design_1_myip_0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_myip_0_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_INSTR_AXI_BASEADDR" VALUE="0x4A000000"/>
         <PARAMETER NAME="C_INSTR_AXI_HIGHADDR" VALUE="0x4A000FFF"/>

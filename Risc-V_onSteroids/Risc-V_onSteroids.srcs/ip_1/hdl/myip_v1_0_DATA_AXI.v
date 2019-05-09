@@ -1,7 +1,4 @@
-
-`timescale 1 ns / 1 ps
-
-	module myip_v1_0_DATA_AXI #
+    module myip_v1_0_DATA_AXI #
 	(
 		// Users to add parameters here
 
@@ -109,7 +106,7 @@
 	//-- Signals for user logic register space example
 	//------------------------------------------------
 	//-- Number of Slave Registers 256
-	reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg[0:1023];
+    reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg[0:1023];
 	wire	 slv_reg_rden;
 	wire	 slv_reg_wren;
 	reg [C_S_AXI_DATA_WIDTH-1:0]	 reg_data_out;
@@ -345,17 +342,15 @@
     /////////////////////////////////////////////////////RISC-V LOGIC////////////////////////////////////////////////////////
     always @(*)
         begin
-            if(MemRead) begin
-                casex(funct3) //LB,LW 
-                    5'b00000: data_read <= {24'b0,slv_reg[data_address][7:0]};
-                    5'b00001: data_read <= {24'b0,slv_reg[data_address][15:8]};
-                    5'b00010: data_read <= {24'b0,slv_reg[data_address][23:16]};
-                    5'b00011: data_read <= {24'b0,slv_reg[data_address][31:24]};
-                    5'b010xx: data_read <= slv_reg[data_address];
-                    default:  data_read <= slv_reg[data_address];
-                endcase
-            end
-            else data_read <= data_read;
+           casex({MemRead,funct3}) //LB,LW 
+                    6'b100000: data_read <= {24'b0,slv_reg[data_address][7:0]};
+                    6'b100001: data_read <= {24'b0,slv_reg[data_address][15:8]};
+                    6'b100010: data_read <= {24'b0,slv_reg[data_address][23:16]};
+                    6'b100011: data_read <= {24'b0,slv_reg[data_address][31:24]};
+                    6'b1010xx: data_read <= slv_reg[data_address];
+                    6'b0xxxxx: data_read <= data_read;
+                    default: data_read <= data_read;
+           endcase
         end
 
 

@@ -58,9 +58,9 @@ module CLB_column(
 	output [WIDTH-1:0] out2;
 	output [WIDTH-1:0] out3;
 	
-	cell_arithmetic_logic #(WIDTH) cell_0(.in0(in0), .in1(in1), .in2(in2), .in3(in3), .in4(in4), .in5(in5), .in6(in6), .in7(in7), .bypass(bypass[0]), .sel0(sel0_0), .sel1(sel1_0), .selOp(selOp0), .out(out0));
-	cell_arithmetic_logic #(WIDTH) cell_1(.in0(in0), .in1(in1), .in2(in2), .in3(in3), .in4(in4), .in5(in5), .in6(in6), .in7(in7), .bypass(bypass[1]), .sel0(sel0_1), .sel1(sel1_1), .selOp(selOp1), .out(out1));
-	cell_arithmetic_logic_alt #(WIDTH) cell_2(.in0(in0), .in1(in1), .in2(in2), .in3(in3), .in4(in4), .in5(in5), .in6(in6), .in7(in7), .bypass(bypass[2]), .sel0(sel0_2), .sel1(sel1_2), .selOp(selOp2), .out(out2));
-	cell_shifter #(WIDTH) cell_3(.in0(in0), .in1(in1), .in2(in2), .in3(in3), .in4(in4), .in5(in5), .in6(in6), .in7(in7), .bypass(bypass[3]), .sel0(sel0_3), .sel1(sel1_3), .selOp(selOp3), .out(out3));
+	cell_arithmetic_logic #(WIDTH) cell_0(.in0(in0), .in1(in1), .in2(in2), .in3(in3), .in4(in4), .in5(in5), .in6(in6), .in7(in7), .byPass(bypass[3]), .sel0(sel0_0), .sel1(sel1_0), .selOp(selOp0), .out(out0));
+	cell_arithmetic_logic #(WIDTH) cell_1(.in0(in0), .in1(in1), .in2(in2), .in3(in3), .in4(in4), .in5(in5), .in6(in6), .in7(in7), .byPass(bypass[2]), .sel0(sel0_1), .sel1(sel1_1), .selOp(selOp1), .out(out1));
+	cell_arithmetic_logic_alt #(WIDTH) cell_2(.in0(in0), .in1(in1), .in2(in2), .in3(in3), .in4(in4), .in5(in5), .in6(in6), .in7(in7), .byPass(bypass[1]), .sel0(sel0_2), .sel1(sel1_2), .selOp(selOp2), .out(out2));
+	cell_shifter #(WIDTH) cell_3(.in0(in0), .in1(in1), .in2(in2), .in3(in3), .in4(in4), .in5(in5), .in6(in6), .in7(in7), .byPass(bypass[0]), .sel0(sel0_3), .sel1(sel1_3), .selOp(selOp3), .out(out3));
 
 endmodule

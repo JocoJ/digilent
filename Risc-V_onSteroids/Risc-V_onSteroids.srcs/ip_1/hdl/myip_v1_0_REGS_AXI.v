@@ -1,6 +1,3 @@
-
-`timescale 1 ns / 1 ps
-
 	module myip_v1_0_REGS_AXI #
 	(
 		// Users to add parameters here
@@ -29,17 +26,18 @@
          input wire [31:0] write_data2,            // I: write data for multiport mode only
          input wire [31:0] write_data3,            // I: write data for multiport mode only
          input wire [31:0] write_data_conf,        // I: write data for the configuration registers
-         output reg [31:0] read_data1,                // O: output data from the regFile
-         output reg [31:0] read_data2,
-         output reg [31:0] read_data3,
-         output reg [31:0] read_data4,
-         output reg [31:0] read_data5,
-         output reg [31:0] read_data6,
-         output reg [31:0] CLB_conf1,                // O: outputs for the CHM
-         output reg [31:0] CLB_conf2,
-         output reg [31:0] CLB_conf3,
-         output reg [31:0] CLB_conf4,
-         output reg [31:0] CLB_conf5,
+         output wire [31:0] read_data1,                // O: output data from the regFile
+         output wire [31:0] read_data2,
+         output wire [31:0] read_data3,
+         output wire [31:0] read_data4,
+         output wire [31:0] read_data5,
+         output wire [31:0] read_data6,
+         
+         output wire [31:0] CLB_conf1,                // O: outputs for the CHM
+         output wire [31:0] CLB_conf2,
+         output wire [31:0] CLB_conf3,
+         output wire [31:0] CLB_conf4,
+         output wire [31:0] CLB_conf5,
          
          input wire [31:0] buff0,
          input wire [31:0] buff1,
@@ -55,7 +53,7 @@
          input wire csr_write,
          input wire autostop,
          input wire pause,
-         output reg [2:0] CSR,
+         output wire [2:0] CSR,
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -252,7 +250,7 @@
 	// Slave register write enable is asserted when valid address and data are available
 	// and the slave is ready to accept the write address and write data.
 	assign slv_reg_wren = axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID;
-    wire [5:0] write_addr1, write_addr2, write_addr3;
+    wire [4:0] write_addr1, write_addr2, write_addr3;
         
     assign write_addr1 = CLB_conf1[31:27];
     assign write_addr2 = CLB_conf2[31:27];
@@ -264,20 +262,19 @@
 	      slv_reg[axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]] <= S_AXI_WDATA;
 	      
 	   ///////////////////////////////////////////RISC-V LOGIC//////////////////////////////////////////////////////////
-	    else begin
-	       if (write_enable_basic && (write_addr > 0) && (write_addr < 32))
+	    else if (write_enable_basic && write_addr)
                slv_reg[write_addr] <= write_data1;
-            if (write_addr_conf && (write_enable_conf >= 32) && (write_enable_conf <= 36))
-                slv_reg[write_addr_conf] <= write_data_conf;
-            if (write_enable_CLB) begin
-                if ((write_addr1>0) && (write_addr1<32))
-                    slv_reg[{1'b0, write_addr1}] <= write_data1;
-                if ((write_addr2>0) && (write_addr2<32))
-                    slv_reg[{1'b0, write_addr2}] <= write_data2;
-                if ((write_addr3>0) && (write_addr3<32))
-                    slv_reg[{1'b0, write_addr3}] <= write_data3;
-            end
+        else if (write_enable_conf)  //uncomment for clb utilization 
+               slv_reg[write_addr_conf] <= write_data_conf;
+        else if (write_enable_CLB) begin
+               if (write_addr1)
+                        slv_reg[{1'b0, write_addr1}] <= write_data1;
+               if (write_addr2)
+                        slv_reg[{1'b0, write_addr2}] <= write_data2;
+               if (write_addr3)
+                        slv_reg[{1'b0, write_addr3}] <= write_data3;
         end
+       
         
         if(slv_reg_wren && (axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]==63))
             slv_reg[axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB]] <= S_AXI_WDATA;
@@ -286,7 +283,7 @@
             slv_reg[63][1] <= pause;
         end  
         
-        slv_reg[37] <= buff0;
+        slv_reg[37] <= buff0; //uncomment for clb utilization
         slv_reg[38] <= buff1;
         slv_reg[39] <= buff2;
         slv_reg[40] <= buff3;
@@ -409,22 +406,20 @@
 	
 	
 	/////////////////////////////RISC-V LOGIC///////////////////////////////////////////
-	
-	always@(*) begin
-	   CSR <= slv_reg[63][2:0];
-       CLB_conf1 <= slv_reg[32];         
-       CLB_conf2 <= slv_reg[33];         
-       CLB_conf3 <= slv_reg[34];         
-       CLB_conf4 <= slv_reg[35];         
-       CLB_conf5 <= slv_reg[36];         
-                            
-       read_data1 <= (read_addr1==6'b0) ? 32'b0 : slv_reg[read_addr1];
-       read_data2 <= (read_addr2==6'b0) ? 32'b0 : slv_reg[read_addr2];
-       read_data3 <= (read_addr3==6'b0) ? 32'b0 : slv_reg[read_addr3];
-       read_data4 <= (read_addr4==6'b0) ? 32'b0 : slv_reg[read_addr4];
-       read_data5 <= (read_addr5==6'b0) ? 32'b0 : slv_reg[read_addr5];
-       read_data6 <= (read_addr6==6'b0) ? 32'b0 : slv_reg[read_addr6];
-    end
+	assign CSR = slv_reg[63][2:0];
+    assign CLB_conf1 = slv_reg[32];         
+    assign CLB_conf2 = slv_reg[33];         
+    assign CLB_conf3 = slv_reg[34];         
+    assign CLB_conf4 = slv_reg[35];         
+    assign CLB_conf5 = slv_reg[36];
+                              
+    assign read_data1 = slv_reg[read_addr1];
+    assign read_data2 = slv_reg[read_addr2];
+    assign read_data3 = slv_reg[read_addr3];
+    assign read_data4 = slv_reg[read_addr4];
+    assign read_data5 = slv_reg[read_addr5];
+    assign read_data6 = slv_reg[read_addr6];
+    
 	// Output register or memory read data
 	always @( posedge S_AXI_ACLK )
 	begin
