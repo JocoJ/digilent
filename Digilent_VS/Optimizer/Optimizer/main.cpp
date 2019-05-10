@@ -75,8 +75,13 @@ int main(int argc, char** argv)
 		printf("st: %d; end: %d\n", l[k].start_address, l[k].branch_address);
 		optimize(program, l[k], conf+k*6, start[k], end[k]);
 		printf("Sequence: st: %d; end: %d\n\n", start[k], end[k]);
+		printf("Configuration instructions:\n");
 		for (int i = 0; i < 6; i++)
 		{
+			if (i == 5)
+			{
+				printf("\nStart instruction:\n");
+			}
 			printf("%02x%02x%02x%02x\n", conf[i + k * 6].Instruction(0), conf[i + k * 6].Instruction(1), conf[i + k * 6].Instruction(2), conf[i + k * 6].Instruction(3));
 		}
 		printf("\n");
@@ -101,6 +106,7 @@ int main(int argc, char** argv)
 			fprintf(g, "%02x%02x%02x%02x\n", conf[5 + optimizedSequenceIndex * 6].Instruction(0), conf[5 + optimizedSequenceIndex * 6].Instruction(1), conf[5 + optimizedSequenceIndex * 6].Instruction(2), conf[5 + optimizedSequenceIndex * 6].Instruction(3));
 			fprintf(g, "00000000\n");
 
+			//Modify the branch instruction to jump correctly
 			unsigned char branch[4];
 			int addr = l[optimizedSequenceIndex].branch_address;
 			branch[3] = program[addr].opcode();
@@ -110,7 +116,7 @@ int main(int argc, char** argv)
 			imm = imm + ((end[optimizedSequenceIndex] - start[optimizedSequenceIndex])<<1) - 4;
 			printf("Original branch: %02x%02x%02x%02x\n", program[addr].Instruction(0), program[addr].Instruction(1), program[addr].Instruction(2), program[addr].Instruction(3));
 			program[addr].setImmField(imm);
-			printf("Modified branch: %02x%02x%02x%02x\n", program[addr].Instruction(0), program[addr].Instruction(1), program[addr].Instruction(2), program[addr].Instruction(3));
+			printf("Modified branch: %02x%02x%02x%02x\n\n", program[addr].Instruction(0), program[addr].Instruction(1), program[addr].Instruction(2), program[addr].Instruction(3));
 
 			// Skip the sequence
 			originalProgramIndex = end[optimizedSequenceIndex];
