@@ -171,3 +171,15 @@ bool RV32_Instruction::immediate_field(char imm[4])
 		break;
 	}
 }
+
+int RV32_Instruction::setImmField(int imm)
+{
+	if (this->instruction_type == SB_type)
+	{
+		this->instruction[0] = (instruction[0] & 0x1) | (unsigned char)((imm >> 4) & 0x80) | (unsigned char)((imm >> 4) & 0x7E);
+		this->instruction[3] = (instruction[3] & 0x7F) | (unsigned char)((imm >> 3) & 0x80);
+		this->instruction[2] = (instruction[2] & 0xE0) | (unsigned char)(imm & 0x0F);
+		return 0;
+	}
+	return -1;
+}

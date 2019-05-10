@@ -26,7 +26,7 @@ private:
 public:
 	RV32_Instruction()
 	{
-		instruction[3] = instruction[3] = instruction[2] = instruction[1] = 0;
+		instruction[0] = instruction[3] = instruction[2] = instruction[1] = 0;
 		instruction_type = UNKNOWN;
 	}
 
@@ -37,6 +37,18 @@ public:
 	~RV32_Instruction();
 
 	RV32_Instruction& operator= (RV32_Instruction&);
+
+	int setImmField(int imm);
+
+	// returns the solicited instruction byte
+	unsigned char Instruction(int index)
+	{
+		if (index < 4)
+		{
+			return instruction[index];
+		}
+		return 0;
+	}
 
 	// returns the opcode of the instruction
 	char opcode();			

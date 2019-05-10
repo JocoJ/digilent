@@ -125,15 +125,17 @@
   <ItemGroup>
     <ClCompile Include="LoopExtractor.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="options.cpp" />
     <ClCompile Include="RV32_Instruction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoopExtractor.h" />
     <ClInclude Include="Masks.h" />
+    <ClInclude Include="options.h" />
     <ClInclude Include="RV32_Instruction.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Text.txt" />
+    <Text Include="input.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

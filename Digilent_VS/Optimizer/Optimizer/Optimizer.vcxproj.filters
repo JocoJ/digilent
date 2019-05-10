@@ -24,6 +24,9 @@
     <ClCompile Include="LoopExtractor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="options.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoopExtractor.h">
@@ -35,9 +38,12 @@
     <ClInclude Include="RV32_Instruction.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="options.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Text.txt">
+    <Text Include="input.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>

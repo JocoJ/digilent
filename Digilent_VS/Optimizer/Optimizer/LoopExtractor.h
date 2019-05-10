@@ -60,7 +60,7 @@ private:
 	Operation oper;
 
 	// the children of this node
-	DataflowNode* children[CHILDREN_LEN];
+	DataflowNode* children[CHILDREN_LEN] = { nullptr };
 
 	// the parents of this node
 	// 2 at most, 0 if generation is 0
@@ -151,6 +151,7 @@ public:
 		{
 			parents[i] = node.parents[i];
 		}
+		return *this;
 	}
 
 	// equality operator overload
@@ -193,20 +194,50 @@ public:
 	// Adds a child to the node
 	// On success, the return value is 0
 	// On failure, the return value is negative
-	int addChild(DataflowNode* node)
+	int addChild(DataflowNode* node, bool copy = false)
 	{
 		if (node && noOfChildren < CHILDREN_LEN)
 		{
 			children[noOfChildren] = node;
-			children[noOfChildren]->generation = generation + 1;
-			noOfChildren++;
-			if (!node->parents[0])
+			if (children[noOfChildren]->generation <= generation + 1)
 			{
-				node->parents[0] = this;
+				children[noOfChildren]->generation = generation + 1;
+			}
+			noOfChildren++;
+			if (!copy)
+			{
+				if (!node->parents[0])
+				{
+					node->parents[0] = this;
+				}
+				else
+				{
+					node->parents[1] = this;
+				}
 			}
 			else
 			{
-				node->parents[1] = this;
+				for (int i = 0; i < noOfChildren-1; i++)
+				{
+					node->children[i] = this->children[i];
+					if (node->children[i]->parents[0] == this)
+					{
+						node->children[i]->parents[0] = node;
+					}
+					if (node->children[i]->parents[1] && node->children[i]->parents[1] == this)
+					{
+						node->children[i]->parents[1] = node;
+					}
+				}
+				node->noOfChildren = noOfChildren-1;
+				if (!node->parents[0])
+				{
+					node->parents[0] = this;
+				}
+				if (!node->parents[1])
+				{
+					node->parents[1] = this;
+				}
 			}
 			return 0;
 		}
@@ -286,33 +317,35 @@ public:
 	};
 
 	// adds a node to the graph and adds any children (if it is the case) automatically
-	int addNode(DataflowNode& node)
+	int addNode(DataflowNode& node, bool addChild = true)
 	{
 		if (noOfNodes < GRAPH_SIZE)
 		{
 			nodes[noOfNodes] = node;
-			bool RS1 = false;
-			bool RS2 = false;
-			for (int i = noOfNodes - 1; i >= 0 && (RS1 == false || RS2 == false); i++)
+			if (addChild)
 			{
-				if (!RS1)
+				bool RS1 = false;
+				bool RS2 = false;
+				for (int i = noOfNodes - 1; i >= 0 && (RS1 == false || RS2 == false); i--)
 				{
-					if (node.Source1() == nodes[i].Destination())
+					if (!RS1)
 					{
-						nodes[i].addChild(&nodes[noOfNodes]);
-						RS1 = true;
+						if (node.Source1() == nodes[i].Destination())
+						{
+							nodes[i].addChild(&nodes[noOfNodes]);
+							RS1 = true;
+						}
 					}
-				}
-				if (!RS2)
-				{
-					if (node.Source2() == nodes[i].Destination())
+					if (!RS2)
 					{
-						nodes[i].addChild(&nodes[noOfNodes]);
-						RS2 = true;
+						if (node.Source2() == nodes[i].Destination())
+						{
+							nodes[i].addChild(&nodes[noOfNodes]);
+							RS2 = true;
+						}
 					}
 				}
 			}
-
 			noOfNodes++;
 			return 0;
 		}
@@ -320,10 +353,10 @@ public:
 	};
 
 	// adds a node to the graph and adds any children (if it is the case) automatically
-	int addNode(unsigned char s1, unsigned char s2, unsigned char dest, unsigned char oper)
+	int addNode(unsigned char s1, unsigned char s2, unsigned char dest, unsigned char oper, bool addChild = true)
 	{
 		DataflowNode node(s1, s2, dest, oper);
-		return addNode(node);
+		return addNode(node, addChild);
 	};
 
 	// Getter functions
@@ -359,10 +392,10 @@ public:
 
 
 // Extracts all loops from the program
-// @program : contains the instructions from which to extract the loops
-// @n : number of instructions
-// @loops : will contain all the loops found in the program
-// @maxLoops : maximum number of loops to be extracted
+// @program		: contains the instructions from which to extract the loops
+// @n			: number of instructions
+// @loops		: will contain all the loops found in the program
+// @maxLoops	: maximum number of loops to be extracted
 int extractLoops(RV32_Instruction program[], int n, Loop loops[], int maxLoops);
 
 // sorts a vector of loops based on the number of instructions in each loop
@@ -371,11 +404,21 @@ void sortLoops(Loop* loops, int len);
 // Extracts 3 write addresses from the graph
 int computeWriteAddresses(DataflowGraph& graph, unsigned char writeAddress[3]);
 
-// TODO
-int computeSelections(DataflowGraph& graph, ConfigurationSelection& sel);
+// computes the selection signals for the CHM
+// @graph			: the dataflow graph
+// @sel				: will contain the selections to be used for creating the configuration instructions
+// @registerAddr	: will contain the addresses of the source registers for creating the start instruction
+// Returns 0 on success
+int computeSelections(DataflowGraph& graph, ConfigurationSelection& sel, unsigned char registerAddr[6], unsigned char writeAddr[3]);
 
 // the optimization function
 // @program : the program to optimize
-// @loop : the loop to optimize
-int optimize(RV32_Instruction* program, Loop loop);
+// @loop	: the loop to optimize
+// @optimizationInstructions : will contain the instructions that will optimize the loop
+//							   the first 5 are the configuration instructions
+//							   the last one is the start instruction
+// @start	: will contain the start of the sequence to be optimized (that won't be in the final program)
+// @end		: will contain the end of the sequence to be optimized
+// Returns 0 on succes
+int optimize(RV32_Instruction* program, Loop loop, RV32_Instruction optimizationInstructions[6], int &start, int &end);
 
